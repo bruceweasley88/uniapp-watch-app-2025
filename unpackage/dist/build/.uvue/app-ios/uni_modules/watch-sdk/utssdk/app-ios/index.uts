@@ -1,0 +1,39 @@
+import { FitInit, ScanFunction, StopScanFunction, onEventFunction, ConnectFunction, BindFunction, StartMeasureFunction } from '../interface.uts';
+import { Object } from 'RoomPlan';
+export const fitInit: FitInit = function () {
+    FitCloudKitManager.shared.initialize();
+};
+export const onEvent: onEventFunction = function (callbackParam: (type: string, data: UTSJSONObject) => void) {
+    FitCloudKitManager.onEvent(callback = (type: string, data: UTSJSONObject) => {
+        console.log(type, data);
+        callbackParam(type, data);
+    });
+};
+export const startScan: ScanFunction = function () {
+    FitCloudKitManager.startScanning();
+};
+export const stopScan: StopScanFunction = function () {
+    FitCloudKitManager.stopScan();
+};
+export const connect: ConnectFunction = function (deviceIdParam) {
+    FitCloudKitManager.connect(deviceId = deviceIdParam);
+};
+export const bind: BindFunction = function (userIdParam) {
+    FitCloudKitManager.bind(userId = userIdParam);
+};
+export const unbind = function () {
+    FitCloudKitManager.unbind();
+};
+export const syncData = function () {
+    FitCloudKitManager.syncData();
+};
+export const startMeasure: StartMeasureFunction = (type, intervalParam, minutesParam) => {
+    FitCloudKitManager.startMeasure(measureType = type, interval = intervalParam, minutes = minutesParam);
+};
+export const stopMeasure = () => {
+    FitCloudKitManager.stopMeasure();
+};
+export const getAllConfig = (): UTSJSONObject => {
+    return FitCloudKitManager.getAllConfig();
+};
+//# sourceMappingURL=index.uts.map

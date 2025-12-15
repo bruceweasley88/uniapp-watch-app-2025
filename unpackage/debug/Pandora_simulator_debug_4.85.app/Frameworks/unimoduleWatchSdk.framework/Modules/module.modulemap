@@ -1,0 +1,11 @@
+framework module unimoduleWatchSdk {
+  umbrella header "unimoduleWatchSdk.h"
+  export *
+
+  module * { export * }
+}
+
+module unimoduleWatchSdk.Swift {
+  header "unimoduleWatchSdk-Swift.h"
+  requires objc
+}

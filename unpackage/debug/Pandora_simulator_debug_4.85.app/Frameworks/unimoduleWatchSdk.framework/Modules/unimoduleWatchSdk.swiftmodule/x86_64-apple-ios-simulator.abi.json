@@ -1,0 +1,3018 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "unimoduleWatchSdk",
+    "printedName": "unimoduleWatchSdk",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "DCloudUTSFoundation",
+        "printedName": "DCloudUTSFoundation",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "Import",
+        "name": "FitCloudKit",
+        "printedName": "FitCloudKit",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "Import",
+        "name": "ObjectiveC",
+        "printedName": "ObjectiveC",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FitCloudKitManager",
+        "printedName": "FitCloudKitManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FitCloudKitManager",
+                "printedName": "unimoduleWatchSdk.FitCloudKitManager",
+                "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC6sharedACvpZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC6sharedACvpZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FitCloudKitManager",
+                    "printedName": "unimoduleWatchSdk.FitCloudKitManager",
+                    "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC6sharedACvgZ",
+                "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC6sharedACvgZ",
+                "moduleName": "unimoduleWatchSdk",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC10initializeyyF",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC10initializeyyF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onEvent",
+            "printedName": "onEvent(callback:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, DCloudUTSFoundation.UTSJSONObject) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, DCloudUTSFoundation.UTSJSONObject)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UTSJSONObject",
+                        "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                        "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC7onEvent8callbackyySS_19DCloudUTSFoundation13UTSJSONObjectCtc_tFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC7onEvent8callbackyySS_19DCloudUTSFoundation13UTSJSONObjectCtc_tFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startScanning",
+            "printedName": "startScanning()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC13startScanningyyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC13startScanningyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopScan",
+            "printedName": "stopScan()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC8stopScanyyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC8stopScanyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "connect",
+            "printedName": "connect(deviceId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC7connect8deviceIdySS_tFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC7connect8deviceIdySS_tFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "bind",
+            "printedName": "bind(userId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC4bind6userIdySS_tFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC4bind6userIdySS_tFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "unbind",
+            "printedName": "unbind()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC6unbindyyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC6unbindyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAllConfig",
+            "printedName": "getAllConfig()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UTSJSONObject",
+                "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "syncData",
+            "printedName": "syncData()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC8syncDatayyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC8syncDatayyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startMeasure",
+            "printedName": "startMeasure(measureType:interval:minutes:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC12startMeasure11measureType8interval7minutesySS_s5UInt8VAItFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC12startMeasure11measureType8interval7minutesySS_s5UInt8VAItFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopMeasure",
+            "printedName": "stopMeasure()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17unimoduleWatchSdk18FitCloudKitManagerC11stopMeasureyyFZ",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC11stopMeasureyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onFitCloudLoginUserObjectBegin",
+            "printedName": "onFitCloudLoginUserObjectBegin(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Notification",
+                "printedName": "Foundation.Notification",
+                "usr": "s:10Foundation12NotificationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)onFitCloudLoginUserObjectBegin:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC02ondE20LoginUserObjectBeginyy10Foundation12NotificationVF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onFitCloudLoginUserObjectResult",
+            "printedName": "onFitCloudLoginUserObjectResult(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Notification",
+                "printedName": "Foundation.Notification",
+                "usr": "s:10Foundation12NotificationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)onFitCloudLoginUserObjectResult:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC02ondE21LoginUserObjectResultyy10Foundation12NotificationVF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onFitCloudGetAllConfigBegin",
+            "printedName": "onFitCloudGetAllConfigBegin(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Notification",
+                "printedName": "Foundation.Notification",
+                "usr": "s:10Foundation12NotificationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)onFitCloudGetAllConfigBegin:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC02ondE17GetAllConfigBeginyy10Foundation12NotificationVF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onFitCloudGetAllConfigResult",
+            "printedName": "onFitCloudGetAllConfigResult(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Notification",
+                "printedName": "Foundation.Notification",
+                "usr": "s:10Foundation12NotificationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)onFitCloudGetAllConfigResult:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC02ondE18GetAllConfigResultyy10Foundation12NotificationVF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FitCloudKitManager",
+                "printedName": "unimoduleWatchSdk.FitCloudKitManager",
+                "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)init",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerCACycfc",
+            "moduleName": "unimoduleWatchSdk",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "onFindiPhoneEvent",
+            "printedName": "onFindiPhoneEvent()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnFindiPhoneEvent",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC17onFindiPhoneEventyyF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnFindiPhoneEvent",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onRealTimeHealthMeasuringData",
+            "printedName": "onRealTimeHealthMeasuringData(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "[FitCloudKit.FitCloudRealTimeHealthMeasuringResultObject]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[FitCloudKit.FitCloudRealTimeHealthMeasuringResultObject]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FitCloudRealTimeHealthMeasuringResultObject",
+                        "printedName": "FitCloudKit.FitCloudRealTimeHealthMeasuringResultObject",
+                        "usr": "c:objc(cs)FitCloudRealTimeHealthMeasuringResultObject"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnRealTimeHealthMeasuringData:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC29onRealTimeHealthMeasuringDatayySaySo0deijkL12ResultObjectCGSgF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnRealTimeHealthMeasuringData:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onRealTimeECGData",
+            "printedName": "onRealTimeECGData(_:interval:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "[Foundation.NSNumber]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Foundation.NSNumber]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSNumber",
+                        "printedName": "Foundation.NSNumber",
+                        "usr": "c:objc(cs)NSNumber"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnRealTimeECGData:interval:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC17onRealTimeECGData_8intervalySaySo8NSNumberCGSg_SitF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnRealTimeECGData:interval:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onRealTimeECGStop",
+            "printedName": "onRealTimeECGStop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnRealTimeECGStop",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC17onRealTimeECGStopyyF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnRealTimeECGStop",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onTakePhotoCtrl",
+            "printedName": "onTakePhotoCtrl()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnTakePhotoCtrl",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC15onTakePhotoCtrlyyF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnTakePhotoCtrl",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onBraceletAlive",
+            "printedName": "onBraceletAlive()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnBraceletAlive",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC15onBraceletAliveyyF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnBraceletAlive",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onLogMessage",
+            "printedName": "onLogMessage(_:level:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FITCLOUDKITLOGLEVEL",
+                "printedName": "FitCloudKit.FITCLOUDKITLOGLEVEL",
+                "usr": "c:@E@FITCLOUDKITLOGLEVEL"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@unimoduleWatchSdk@objc(cs)FitCloudKitManager(im)OnLogMessage:level:",
+            "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC12onLogMessage_5levelySSSg_So19FITCLOUDKITLOGLEVELVtF",
+            "moduleName": "unimoduleWatchSdk",
+            "isOpen": true,
+            "objc_name": "OnLogMessage:level:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@unimoduleWatchSdk@objc(cs)FitCloudKitManager",
+        "mangledName": "$s17unimoduleWatchSdk18FitCloudKitManagerC",
+        "moduleName": "unimoduleWatchSdk",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "DCloudUTSFoundation",
+        "printedName": "DCloudUTSFoundation",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "Import",
+        "name": "RoomPlan",
+        "printedName": "RoomPlan",
+        "declKind": "Import",
+        "moduleName": "unimoduleWatchSdk"
+      },
+      {
+        "kind": "Var",
+        "name": "fitInit",
+        "printedName": "fitInit",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk7fitInityycvp",
+        "mangledName": "$s17unimoduleWatchSdk7fitInityycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7fitInityycvg",
+            "mangledName": "$s17unimoduleWatchSdk7fitInityycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7fitInityycvs",
+            "mangledName": "$s17unimoduleWatchSdk7fitInityycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7fitInityycvM",
+            "mangledName": "$s17unimoduleWatchSdk7fitInityycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "onEvent",
+        "printedName": "onEvent",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "(@escaping (Swift.String, Any) -> ()) -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, Any) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, Any)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk7onEventyyySS_yptccvp",
+        "mangledName": "$s17unimoduleWatchSdk7onEventyyySS_yptccvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(@escaping (Swift.String, Any) -> ()) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Any) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.String, Any)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7onEventyyySS_yptccvg",
+            "mangledName": "$s17unimoduleWatchSdk7onEventyyySS_yptccvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(@escaping (Swift.String, Any) -> ()) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Any) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.String, Any)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7onEventyyySS_yptccvs",
+            "mangledName": "$s17unimoduleWatchSdk7onEventyyySS_yptccvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7onEventyyySS_yptccvM",
+            "mangledName": "$s17unimoduleWatchSdk7onEventyyySS_yptccvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "startScan",
+        "printedName": "startScan",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk9startScanyycvp",
+        "mangledName": "$s17unimoduleWatchSdk9startScanyycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk9startScanyycvg",
+            "mangledName": "$s17unimoduleWatchSdk9startScanyycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk9startScanyycvs",
+            "mangledName": "$s17unimoduleWatchSdk9startScanyycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk9startScanyycvM",
+            "mangledName": "$s17unimoduleWatchSdk9startScanyycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "stopScan",
+        "printedName": "stopScan",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk8stopScanyycvp",
+        "mangledName": "$s17unimoduleWatchSdk8stopScanyycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8stopScanyycvg",
+            "mangledName": "$s17unimoduleWatchSdk8stopScanyycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8stopScanyycvs",
+            "mangledName": "$s17unimoduleWatchSdk8stopScanyycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8stopScanyycvM",
+            "mangledName": "$s17unimoduleWatchSdk8stopScanyycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "connect",
+        "printedName": "connect",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "(Swift.String) -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk7connectyySScvp",
+        "mangledName": "$s17unimoduleWatchSdk7connectyySScvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7connectyySScvg",
+            "mangledName": "$s17unimoduleWatchSdk7connectyySScvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7connectyySScvs",
+            "mangledName": "$s17unimoduleWatchSdk7connectyySScvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk7connectyySScvM",
+            "mangledName": "$s17unimoduleWatchSdk7connectyySScvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "bind",
+        "printedName": "bind",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "(Swift.String) -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk4bindyySScvp",
+        "mangledName": "$s17unimoduleWatchSdk4bindyySScvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk4bindyySScvg",
+            "mangledName": "$s17unimoduleWatchSdk4bindyySScvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk4bindyySScvs",
+            "mangledName": "$s17unimoduleWatchSdk4bindyySScvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk4bindyySScvM",
+            "mangledName": "$s17unimoduleWatchSdk4bindyySScvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "unbind",
+        "printedName": "unbind",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk6unbindyycvp",
+        "mangledName": "$s17unimoduleWatchSdk6unbindyycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk6unbindyycvg",
+            "mangledName": "$s17unimoduleWatchSdk6unbindyycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk6unbindyycvs",
+            "mangledName": "$s17unimoduleWatchSdk6unbindyycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk6unbindyycvM",
+            "mangledName": "$s17unimoduleWatchSdk6unbindyycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "syncData",
+        "printedName": "syncData",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk8syncDatayycvp",
+        "mangledName": "$s17unimoduleWatchSdk8syncDatayycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8syncDatayycvg",
+            "mangledName": "$s17unimoduleWatchSdk8syncDatayycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8syncDatayycvs",
+            "mangledName": "$s17unimoduleWatchSdk8syncDatayycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk8syncDatayycvM",
+            "mangledName": "$s17unimoduleWatchSdk8syncDatayycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "startMeasure",
+        "printedName": "startMeasure",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8) -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Tuple",
+                "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvp",
+        "mangledName": "$s17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvg",
+            "mangledName": "$s17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, Swift.UInt8, Swift.UInt8)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvs",
+            "mangledName": "$s17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvM",
+            "mangledName": "$s17unimoduleWatchSdk12startMeasureyySS_s5UInt8VADtcvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "stopMeasure",
+        "printedName": "stopMeasure",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> ()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk11stopMeasureyycvp",
+        "mangledName": "$s17unimoduleWatchSdk11stopMeasureyycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk11stopMeasureyycvg",
+            "mangledName": "$s17unimoduleWatchSdk11stopMeasureyycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk11stopMeasureyycvs",
+            "mangledName": "$s17unimoduleWatchSdk11stopMeasureyycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk11stopMeasureyycvM",
+            "mangledName": "$s17unimoduleWatchSdk11stopMeasureyycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "getAllConfig",
+        "printedName": "getAllConfig",
+        "children": [
+          {
+            "kind": "TypeFunc",
+            "name": "Function",
+            "printedName": "() -> DCloudUTSFoundation.UTSJSONObject",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UTSJSONObject",
+                "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ]
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvp",
+        "mangledName": "$s17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvp",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> DCloudUTSFoundation.UTSJSONObject",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UTSJSONObject",
+                    "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                    "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvg",
+            "mangledName": "$s17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvg",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "get"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Set",
+            "printedName": "Set()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> DCloudUTSFoundation.UTSJSONObject",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UTSJSONObject",
+                    "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                    "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvs",
+            "mangledName": "$s17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvs",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "set"
+          },
+          {
+            "kind": "Accessor",
+            "name": "Modify",
+            "printedName": "Modify()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvM",
+            "mangledName": "$s17unimoduleWatchSdk12getAllConfig19DCloudUTSFoundation13UTSJSONObjectCycvM",
+            "moduleName": "unimoduleWatchSdk",
+            "implicit": true,
+            "accessorKind": "_modify"
+          }
+        ]
+      },
+      {
+        "kind": "Function",
+        "name": "fitInitByJs",
+        "printedName": "fitInitByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk11fitInitByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk11fitInitByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "onEventByJs",
+        "printedName": "onEventByJs(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UTSCallback",
+            "printedName": "DCloudUTSFoundation.UTSCallback",
+            "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSCallback"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk11onEventByJsyy19DCloudUTSFoundation11UTSCallbackCF",
+        "mangledName": "$s17unimoduleWatchSdk11onEventByJsyy19DCloudUTSFoundation11UTSCallbackCF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "startScanByJs",
+        "printedName": "startScanByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk13startScanByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk13startScanByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "stopScanByJs",
+        "printedName": "stopScanByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk12stopScanByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk12stopScanByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "connectByJs",
+        "printedName": "connectByJs(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk11connectByJsyySSF",
+        "mangledName": "$s17unimoduleWatchSdk11connectByJsyySSF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "bindByJs",
+        "printedName": "bindByJs(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk8bindByJsyySSF",
+        "mangledName": "$s17unimoduleWatchSdk8bindByJsyySSF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "unbindByJs",
+        "printedName": "unbindByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk10unbindByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk10unbindByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "syncDataByJs",
+        "printedName": "syncDataByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk12syncDataByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk12syncDataByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "startMeasureByJs",
+        "printedName": "startMeasureByJs(_:_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UInt8",
+            "printedName": "Swift.UInt8",
+            "usr": "s:s5UInt8V"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UInt8",
+            "printedName": "Swift.UInt8",
+            "usr": "s:s5UInt8V"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk16startMeasureByJsyySS_s5UInt8VADtF",
+        "mangledName": "$s17unimoduleWatchSdk16startMeasureByJsyySS_s5UInt8VADtF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "stopMeasureByJs",
+        "printedName": "stopMeasureByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk15stopMeasureByJsyyF",
+        "mangledName": "$s17unimoduleWatchSdk15stopMeasureByJsyyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "getAllConfigByJs",
+        "printedName": "getAllConfigByJs()",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "UTSJSONObject",
+            "printedName": "DCloudUTSFoundation.UTSJSONObject",
+            "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:17unimoduleWatchSdk16getAllConfigByJs19DCloudUTSFoundation13UTSJSONObjectCyF",
+        "mangledName": "$s17unimoduleWatchSdk16getAllConfigByJs19DCloudUTSFoundation13UTSJSONObjectCyF",
+        "moduleName": "unimoduleWatchSdk",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UTSSDKModulesWatchSdkIndexSwift",
+        "printedName": "UTSSDKModulesWatchSdkIndexSwift",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "s_fitInitByJs",
+            "printedName": "s_fitInitByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_fitInitByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC13s_fitInitByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_onEventByJs",
+            "printedName": "s_onEventByJs(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UTSCallback",
+                "printedName": "DCloudUTSFoundation.UTSCallback",
+                "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSCallback"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_onEventByJs:",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC13s_onEventByJsyy19DCloudUTSFoundation11UTSCallbackCFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_startScanByJs",
+            "printedName": "s_startScanByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_startScanByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC15s_startScanByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_stopScanByJs",
+            "printedName": "s_stopScanByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_stopScanByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC14s_stopScanByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_connectByJs",
+            "printedName": "s_connectByJs(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_connectByJs:",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC13s_connectByJsyySSFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_bindByJs",
+            "printedName": "s_bindByJs(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_bindByJs:",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC10s_bindByJsyySSFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_unbindByJs",
+            "printedName": "s_unbindByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_unbindByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC12s_unbindByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_syncDataByJs",
+            "printedName": "s_syncDataByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_syncDataByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC14s_syncDataByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_startMeasureByJs",
+            "printedName": "s_startMeasureByJs(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_startMeasureByJs:::",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC18s_startMeasureByJsyySS_s5UInt8VAFtFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_stopMeasureByJs",
+            "printedName": "s_stopMeasureByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_stopMeasureByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC17s_stopMeasureByJsyyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "s_getAllConfigByJs",
+            "printedName": "s_getAllConfigByJs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UTSJSONObject",
+                "printedName": "DCloudUTSFoundation.UTSJSONObject",
+                "usr": "c:@M@DCloudUTSFoundation@objc(cs)UTSJSONObject"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(cm)s_getAllConfigByJs",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC18s_getAllConfigByJs19DCloudUTSFoundation13UTSJSONObjectCyFZ",
+            "moduleName": "unimoduleWatchSdk",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UTSSDKModulesWatchSdkIndexSwift",
+                "printedName": "unimoduleWatchSdk.UTSSDKModulesWatchSdkIndexSwift",
+                "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift(im)init",
+            "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftCACycfc",
+            "moduleName": "unimoduleWatchSdk",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@unimoduleWatchSdk@objc(cs)UTSSDKModulesWatchSdkIndexSwift",
+        "mangledName": "$s17unimoduleWatchSdk013UTSSDKModulesbC10IndexSwiftC",
+        "moduleName": "unimoduleWatchSdk",
+        "isOpen": true,
+        "objc_name": "UTSSDKModulesWatchSdkIndexSwift",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/var\/folders\/53\/4yx7blmx7rs1gth5s_7byyh40000gn\/T\/ios_build_device\/template\/xcode_ust_template\/uni_modules\/watch-sdk\/utssdk\/app-ios\/src\/FitCloudKitManager.swift",
+      "kind": "Array",
+      "offset": 294,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/var\/folders\/53\/4yx7blmx7rs1gth5s_7byyh40000gn\/T\/ios_build_device\/template\/xcode_ust_template\/uni_modules\/watch-sdk\/utssdk\/app-ios\/src\/index.swift",
+      "kind": "StringLiteral",
+      "offset": 830,
+      "length": 55,
+      "value": "\" at uni_modules\/watch-sdk\/utssdk\/app-ios\/index.uts:12\""
+    }
+  ]
+}

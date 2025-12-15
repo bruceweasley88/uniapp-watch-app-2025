@@ -1,0 +1,260 @@
+
+.page[data-v-c8e26b33] {
+	width: 100vw;
+	height: 100%;
+	background-color: #111217;
+	background-image: url('../../static/img/bg_top.webp');
+	background-position: top;
+	background-repeat: no-repeat;
+	padding-bottom: 100px;
+}
+.top[data-v-c8e26b33] {
+	padding: 0 20px;
+	padding-top: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 25px;
+.user-info[data-v-c8e26b33] {
+		display: flex;
+		align-items: center;
+.user-head[data-v-c8e26b33] {
+			width: 70px;
+			height: 70px;
+			border-radius: 70px;
+			background-color: #000;
+			border: 2px solid #EAEAEA;
+			overflow: hidden;
+}
+.user-name[data-v-c8e26b33] {
+			font-size: 20px;
+			color: #FFFFFF;
+			font-weight: bold;
+			font-family: 'Alibaba Medium';
+			margin-left: 14px;
+}
+}
+.more[data-v-c8e26b33] {
+		width: 18px;
+		height: 18px;
+		background-image: url('../../static/img/icon_moreb.webp');
+		background-size: cover;
+}
+}
+.points[data-v-c8e26b33] {
+	padding: 0 20px;
+	margin-bottom: 8px;
+.total-points[data-v-c8e26b33] {
+		background-image: url('../../static/img/bg_pointb.webp');
+		background-size: cover;
+		height: 110px;
+.title[data-v-c8e26b33] {
+			padding: 0 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			font-weight: 500;
+			height: 36px;
+.title-text[data-v-c8e26b33] {
+				font-weight: 500;
+				font-size: 14px;
+				color: #27BDC1;
+				font-family: 'Alibaba Medium';
+}
+.title-records[data-v-c8e26b33] {
+				color: #1C1F2A;
+				font-size: 14px;
+				font-weight: 500;
+				font-family: 'Alibaba Medium';
+}
+.title-records[data-v-c8e26b33]::after {
+				content: '';
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				background-image: url('../../static/img/icon_more.webp');
+				background-size: cover;
+				margin-left: 6px;
+				vertical-align: middle;
+}
+}
+.body[data-v-c8e26b33] {
+			position: relative;
+			padding: 0 20px;
+.number[data-v-c8e26b33] {
+				height: 41px;
+				font-family: 'Alibaba Medium';
+				font-weight: bold;
+				font-size: 30px;
+				color: #1C1F2A;
+}
+.number[data-v-c8e26b33]::before {
+				content: '';
+				display: inline-block;
+				margin-right: 2px;
+				width: 24px;
+				height: 24px;
+				background-image: url('../../static/img/icon_points.webp');
+				background-size: cover;
+				position: relative;
+				top: 2px;
+}
+.tips[data-v-c8e26b33] {
+				height: 16px;
+				font-weight: 400;
+				font-size: 12px;
+				color: #60626A;
+}
+.withdraw[data-v-c8e26b33] {
+				width: 110px;
+				height: 32px;
+				background: #1C1F2A;
+				border-radius: 12px;
+
+
+				font-family: 'Alibaba Medium';
+				font-weight: 500;
+				font-size: 12px;
+				color: #FFFFFF;
+				line-height: 32px;
+				text-align: center;
+
+				position: absolute;
+				right: 20px;
+				bottom: 0px;
+}
+}
+}
+}
+.wallet-block[data-v-c8e26b33] {
+	padding: 0 20px;
+	margin-bottom: 16px;
+	display: flex;
+	gap: 8px;
+.wallet[data-v-c8e26b33],
+	.address[data-v-c8e26b33] {
+		height: 72px;
+		background-size: 100% 100%;
+}
+.wallet[data-v-c8e26b33] {
+		width: calc(100% - 124px);
+		background-image: url('../../static/img/bg_wallets.webp');
+.body[data-v-c8e26b33] {
+
+			margin-left: 10px;
+.unit[data-v-c8e26b33] {
+				font-family: 'Alibaba Medium';
+				font-weight: bold;
+				font-size: 14px;
+				color: #1C1F2A;
+}
+.number[data-v-c8e26b33] {
+				font-family: 'Alibaba Medium';
+				font-weight: bold;
+				font-size: 22px;
+				color: #1C1F2A;
+}
+.go[data-v-c8e26b33] {
+				vertical-align: middle;
+				margin-bottom: 2px;
+}
+}
+}
+.address[data-v-c8e26b33] {
+		width: 124px;
+		background-image: url('../../static/img/bg_walletadd.webp');
+.go[data-v-c8e26b33] {
+			margin-top: 8px;
+}
+}
+.title[data-v-c8e26b33] {
+		height: 19px;
+		font-family: 'Alibaba Medium';
+		font-weight: 500;
+		font-size: 14px;
+		color: #1C1F2A;
+		margin-top: 12px;
+		margin-left: 10px;
+}
+.go[data-v-c8e26b33] {
+		width: 34px;
+		height: 18px;
+		background-image: url('../../static/img/icon_go.webp');
+		background-size: cover;
+		margin-left: 10px;
+		display: inline-block;
+}
+}
+.setting-title[data-v-c8e26b33] {
+	height: 19px;
+	font-family: 'Alibaba Medium';
+	font-weight: 500;
+	font-size: 14px;
+	color: #FFFFFF;
+	padding: 0 20px;
+	margin-bottom: 12px;
+}
+.setting[data-v-c8e26b33] {
+	padding: 0 20px;
+	margin-bottom: 16px;
+.setting-body[data-v-c8e26b33] {
+		background: #272935;
+		border-radius: 16px;
+.item[data-v-c8e26b33] {
+
+			padding: 20px;
+			position: relative;
+.text[data-v-c8e26b33]::before {
+				display: inline-block;
+				content: '';
+				width: 26px;
+				height: 26px;
+				background-size: cover;
+				vertical-align: middle;
+				margin-right: 12px;
+}
+.text[data-v-c8e26b33] {
+				height: 24px;
+				line-height: 24px;
+				font-family: 'Alibaba Medium';
+				font-weight: 400;
+				font-size: 16px;
+				color: #FFFFFF;
+}
+.icon_smartdevice[data-v-c8e26b33]::before {
+				background-image: url('../../static/img/icon_smartdevice.webp');
+}
+.icon_appvesion[data-v-c8e26b33]::before {
+				background-image: url('../../static/img/icon_appvesion.webp');
+}
+.icon_language[data-v-c8e26b33]::before {
+				background-image: url('../../static/img/icon_language.webp');
+}
+}
+.item[data-v-c8e26b33]::after {
+			content: '';
+			display: block;
+			width: 18px;
+			height: 18px;
+			background-image: url('../../static/img/icon_moreb.webp');
+			background-size: cover;
+			position: absolute;
+			right: 20px;
+			top: 24px
+}
+}
+}
+.logout[data-v-c8e26b33] {
+	padding: 0 20px;
+.button[data-v-c8e26b33] {
+		height: 58px;
+		line-height: 58px;
+		background: #272935;
+		border-radius: 16px;
+		text-align: center;
+		color: #7D7E83;
+		font-weight: 400;
+		font-size: 16px;
+}
+}

@@ -1,0 +1,93 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/register/index",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/forgot/index",
+			"style": {
+				"navigationBarTitleText": "忘记密码",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/report/index",
+			"style": {
+				"navigationBarTitleText": "报告",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/test/index",
+			"style": {
+				"navigationBarTitleText": "测试页面"
+			}
+		}
+	],
+	"tabBar": {
+		"backgroundColor": "#020206",
+		"selectedColor": "#44F6FB",
+		"color": "#FFFFFF",
+		"height": "82px",
+		"iconfontSrc": "/static/Alibaba-PuHuiTi-Medium.otf",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"text": "Home",
+				"iconPath": "/static/img/icon_homeu.webp",
+				"selectedIconPath": "/static/img/icon_homes.webp"
+			},
+			{
+				"pagePath": "pages/report/index",
+				"text": "Report",
+				"iconPath": "/static/img/icon_reportu.webp",
+				"selectedIconPath": "/static/img/icon_reports.webp"
+			},
+			{
+				"pagePath": "pages/me/index",
+				"text": "Me",
+				"iconPath": "/static/img/icon_meu.webp",
+				"selectedIconPath": "/static/img/icon_mes.webp"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#111217",
+		"backgroundColor": "#111217"
+	},
+	"uniIdRouter": {}
+}

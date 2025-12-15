@@ -1,0 +1,164 @@
+{
+  "version": "1",
+  "env": {
+    "compilerVersion": "4.85"
+  },
+  "files": {
+    "utssdk/app-ios/index.uts": {
+      "md5": "3333a7a849e671d770fe8a0717f57123"
+    },
+    "utssdk/interface.uts": {
+      "md5": "82130082d2e126b6cae0669987688e16"
+    },
+    "utssdk/unierror.uts": {
+      "md5": "b6db7d6baa8bf0a5674cc9ce27fc597d"
+    },
+    "package.json": {
+      "md5": "60e57235266d5ac70351f1d5300ab8c6"
+    },
+    "utssdk/app-ios/FitCloudKitManager.swift": {
+      "md5": "12c79cb890fe0951538e52e668bcc4e8"
+    },
+    "utssdk/app-ios/config.json": {
+      "md5": "e73afc1a3df2e367479a31bcfe807832"
+    },
+    "utssdk/app-ios/Resources/_CodeSignature/CodeResources": {
+      "md5": "98ff2d0faae6f8182a41f5c013c87359"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/Info.plist": {
+      "md5": "229662dfc3b5c3ba017393102a4ad889"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ar.lproj/Localizable.strings": {
+      "md5": "db7cb8f5a5431a127b8a754109816636"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/bn.lproj/Localizable.strings": {
+      "md5": "88872e244c7f9fbec659321f67498c2f"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/bg.lproj/Localizable.strings": {
+      "md5": "2568c75f2a560fdc2be0599cc5fc3e2a"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/da.lproj/Localizable.strings": {
+      "md5": "746f07c80d19f3d5710d35715a2b47a8"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/en.lproj/Localizable.strings": {
+      "md5": "e8188e25b82f6bc8fd9aaf7b884d375a"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/de.lproj/Localizable.strings": {
+      "md5": "82563ce595152ad52c787ca417577193"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/el.lproj/Localizable.strings": {
+      "md5": "64c16631d6de173728a47590864792af"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/cs.lproj/Localizable.strings": {
+      "md5": "b0b115766ec34991dc5775a044df43ef"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/es.lproj/Localizable.strings": {
+      "md5": "6e931ab8fd6bebdd90f36de1f6cb9070"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/et.lproj/Localizable.strings": {
+      "md5": "604b8c1fca3a063882b3e41677c3acdc"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/fi.lproj/Localizable.strings": {
+      "md5": "b6c1353bf2f62154e9122115aac53d7b"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/fr.lproj/Localizable.strings": {
+      "md5": "31a9bcb95ffb6713f0eaa95102d0cebd"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/he.lproj/Localizable.strings": {
+      "md5": "04c421485001bd1a565d6d837fe108fb"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/fa.lproj/Localizable.strings": {
+      "md5": "3e8737671a7666430e92cd41323fa432"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ha.lproj/Localizable.strings": {
+      "md5": "2da8527aaa0850cd08462e3a506b1ce5"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/hi.lproj/Localizable.strings": {
+      "md5": "19e548731732138b5c668019df8d14ad"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/hr.lproj/Localizable.strings": {
+      "md5": "75a22e8a0b7df46c0b3e9b86cf140b7c"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/hu.lproj/Localizable.strings": {
+      "md5": "ab7c9edaf5be10ac36a3a1df343c4ecb"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/it.lproj/Localizable.strings": {
+      "md5": "4c39173965ff61ea037b85bc2c998033"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ja.lproj/Localizable.strings": {
+      "md5": "9632510b544ea0d2adbc16c883ae91e1"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/km.lproj/Localizable.strings": {
+      "md5": "53a7d94b3a18a7774bc4078d65acd5ad"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ko-KP.lproj/Localizable.strings": {
+      "md5": "e085de840fcb160b1e27b855a551d7fb"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/id.lproj/Localizable.strings": {
+      "md5": "4f7a467bec37ece6bd857996035db6a3"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/lt.lproj/Localizable.strings": {
+      "md5": "f34831769a2b82d544810bb819f4c71f"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/lv.lproj/Localizable.strings": {
+      "md5": "78629d8b316eb27672d2c6f758ce3cff"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ko.lproj/Localizable.strings": {
+      "md5": "855352a3f1ab1573985448eb367927c1"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ms.lproj/Localizable.strings": {
+      "md5": "00c87fc727dec5ed721d8c4774a4ed0c"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/nl.lproj/Localizable.strings": {
+      "md5": "ad3898233613694e520be36629a611c7"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/pt.lproj/Localizable.strings": {
+      "md5": "0d9b0163bc48d45482ceefc0951fa4bc"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/pl.lproj/Localizable.strings": {
+      "md5": "8d11073e87fe5251fa0960e2edab46b9"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/nb.lproj/Localizable.strings": {
+      "md5": "3c0eadfbaf844824b5451bb3bfa4165b"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ru.lproj/Localizable.strings": {
+      "md5": "3cfaf190b5c8f57cf82c1d327c218df8"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ro.lproj/Localizable.strings": {
+      "md5": "95f809b5c720b42ef11fd07afcd3d385"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/sq.lproj/Localizable.strings": {
+      "md5": "bcb7a7946dba048f3aaefa25d654753c"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/sk.lproj/Localizable.strings": {
+      "md5": "f472df08ba17644980727d894f0e21ac"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/sl.lproj/Localizable.strings": {
+      "md5": "c827127c8d1024f38d993b142df240d9"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/th.lproj/Localizable.strings": {
+      "md5": "dcd91a651d57713b8bc236db1d27aaff"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/sv.lproj/Localizable.strings": {
+      "md5": "55a269f4048c432e26185ccca220a59d"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/tr.lproj/Localizable.strings": {
+      "md5": "a0ea90dbedde3229f4f7033611a570ed"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/vi.lproj/Localizable.strings": {
+      "md5": "a9ef6d9e4c34c739f8d4109342f527ef"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/zh-Hans.lproj/Localizable.strings": {
+      "md5": "1cc790ac92ea7da3b66cba75ec1e16b4"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/zh-Hant.lproj/Localizable.strings": {
+      "md5": "d24dfd3337461b4b855344c3732004d3"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/uk.lproj/Localizable.strings": {
+      "md5": "a61904197cc8bdb545541e9cd3c7ecd6"
+    },
+    "utssdk/app-ios/Resources/FitCloudKit.bundle/ur.lproj/Localizable.strings": {
+      "md5": "2f375891ee7c22a4334abec768bc543d"
+    }
+  }
+}

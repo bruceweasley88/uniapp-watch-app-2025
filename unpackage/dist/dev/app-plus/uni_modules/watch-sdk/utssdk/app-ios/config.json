@@ -1,0 +1,9 @@
+{
+	"frameworks": [
+	],
+	"deploymentTarget": "15",
+	"dependencies-pods": [{
+		"name": "FitCloudKit",
+		"version": "1.3.1"
+	}]
+}

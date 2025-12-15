@@ -1,0 +1,154 @@
+
+.login-page[data-v-d08ef7d4] {
+	width: 100vw;
+	height: 100vh;
+	background-color: #111217;
+	background-image: url('../../static/img/bg_top.webp');
+	background-position: top;
+	background-repeat: no-repeat;
+}
+.login-card[data-v-d08ef7d4] {
+	padding: 0 27px;
+	padding-top: 120px;
+}
+.title[data-v-d08ef7d4] {
+	height: 44px;
+	display: inline;
+	font-family: 'Alibaba Heavy';
+	font-weight: bolder;
+	font-size: 32px;
+	text-align: left;
+	font-style: normal;
+	color: transparent;
+	background: linear-gradient(to right, #38FFA7, #45F6FF);
+	-webkit-background-clip: text;
+}
+
+/* 副标题 - 白色字体 */
+.subtitle[data-v-d08ef7d4] {
+	height: 30px;
+	font-family: Alibaba PuHuiTi, Alibaba PuHuiTi;
+	font-weight: 400;
+	font-size: 22px;
+	color: #FFFFFF;
+	text-align: left;
+	font-style: normal;
+	text-transform: none;
+	margin-bottom: 36px;
+}
+
+/* 手机号输入组 */
+.phone-group[data-v-d08ef7d4] {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+.country-code[data-v-d08ef7d4] {
+	width: 150px;
+	height: 64px;
+	background: #272935;
+	border-radius: 16px 0px 0px 16px;
+	color: #FFFFFF;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 64px;
+	text-align: center;
+}
+.phone-input[data-v-d08ef7d4] {
+	height: 64px;
+	background: #272935;
+	border-radius: 0px 16px 16px 0px;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: 'Alibaba Medium';
+	padding-left: 20px;
+}
+
+/* 邮箱输入组 */
+.email-group[data-v-d08ef7d4] {
+	margin-bottom: 20px;
+}
+.email-input[data-v-d08ef7d4] {
+	height: 64px;
+	background: #272935;
+	border-radius: 16px 16px 16px 16px;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: 'Alibaba Medium';
+	padding-left: 20px;
+}
+
+
+/* 密码输入框 */
+.password-input[data-v-d08ef7d4] {
+	height: 64px;
+	background: #272935;
+	border-radius: 16px 16px 16px 16px;
+	padding: 0 24px;
+	color: #FFFFFF;
+	margin-bottom: 22px;
+	font-size: 20px;
+}
+.password-input[data-v-d08ef7d4]::-webkit-input-placeholder {
+	color: #7D7E83;
+}
+.password-input[data-v-d08ef7d4]::placeholder {
+	color: #7D7E83;
+}
+
+/* 协议勾选行 - 小字灰色 */
+.agreement-row[data-v-d08ef7d4] {
+	padding-left: 14px;
+	color: #7D7E83;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 80px;
+}
+.agreement-row .checkbox[data-v-d08ef7d4] {
+	width: 18px;
+	height: 18px;
+	background: #FFFFFF;
+	border-radius: 5px 5px 5px 5px;
+	margin-right: 4px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+/* 登录按钮 - 渐变色背景+深色字体 */
+.login-btn[data-v-d08ef7d4] {
+	height: 64px;
+	line-height: 64px;
+	background: linear-gradient(90deg, #38FFA7 0%, #45F6FF 100%);
+	border-radius: 16px 16px 16px 16px;
+	color: #1C1F2A;
+	font-size: 22px;
+	font-weight: bold;
+	font-family: 'Alibaba Medium';
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+/* 辅助链接行 */
+.link-row[data-v-d08ef7d4] {
+	height: 22px;
+	font-weight: 400;
+	font-size: 16px;
+	color: #7D7E83;
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 100px;
+}
+
+
+/* 邮箱登录链接 - 补充蓝文字色值 */
+.login-type-link[data-v-d08ef7d4] {
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	color: #42E3E7;
+	font-weight: 500;
+}

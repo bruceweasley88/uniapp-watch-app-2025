@@ -1,0 +1,89 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target x86_64-apple-ios15-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name unimoduleWatchSdk
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
+import DCloudUTSFoundation
+import FitCloudKit
+import Foundation
+import ObjectiveC
+import RoomPlan
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import unimoduleWatchSdk
+@objc @_inheritsConvenienceInitializers public class FitCloudKitManager : ObjectiveC.NSObject {
+  public static let shared: unimoduleWatchSdk.FitCloudKitManager
+  public func initialize()
+  public static func onEvent(callback: @escaping (Swift.String, DCloudUTSFoundation.UTSJSONObject) -> Swift.Void)
+  public static func startScanning()
+  public static func stopScan()
+  public static func connect(deviceId: Swift.String)
+  public static func bind(userId: Swift.String)
+  public static func unbind()
+  public static func getAllConfig() -> DCloudUTSFoundation.UTSJSONObject
+  public static func syncData()
+  public static func startMeasure(measureType: Swift.String, interval: Swift.UInt8, minutes: Swift.UInt8)
+  public static func stopMeasure()
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension unimoduleWatchSdk.FitCloudKitManager : FitCloudKit.FitCloudCallback {
+  @objc dynamic public func onFindiPhoneEvent()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func onRealTimeHealthMeasuringData(_ records: [FitCloudKit.FitCloudRealTimeHealthMeasuringResultObject]!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func onRealTimeECGData(_ ecgDataArray: [Foundation.NSNumber]!, interval: Swift.Int)
+  #endif
+  @objc dynamic public func onRealTimeECGStop()
+  @objc dynamic public func onTakePhotoCtrl()
+  @objc dynamic public func onBraceletAlive()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func onLogMessage(_ message: Swift.String!, level: FitCloudKit.FITCLOUDKITLOGLEVEL)
+  #endif
+}
+public typealias FitInit = () -> Swift.Void
+public typealias onEventFunction = (_ callback: @escaping (_ type: Swift.String, _ data: Any) -> Swift.Void) -> Swift.Void
+public typealias ScanFunction = () -> Swift.Void
+public typealias StopScanFunction = () -> Swift.Void
+public typealias ConnectFunction = (_ deviceId: Swift.String) -> Swift.Void
+public typealias BindFunction = (_ userId: Swift.String) -> Swift.Void
+public typealias StartMeasureFunction = (_ type: Swift.String, _ interval: Swift.UInt8, _ minutes: Swift.UInt8) -> Swift.Void
+public var fitInit: () -> Swift.Void
+public var onEvent: unimoduleWatchSdk.onEventFunction
+public var startScan: () -> Swift.Void
+public var stopScan: () -> Swift.Void
+public var connect: (_ deviceIdParam: Swift.String) -> Swift.Void
+public var bind: (_ userIdParam: Swift.String) -> Swift.Void
+public var unbind: () -> Swift.Void
+public var syncData: () -> Swift.Void
+public var startMeasure: (_ type: Swift.String, _ intervalParam: Swift.UInt8, _ minutesParam: Swift.UInt8) -> Swift.Void
+public var stopMeasure: () -> Swift.Void
+public var getAllConfig: () -> DCloudUTSFoundation.UTSJSONObject
+public func fitInitByJs()
+public func onEventByJs(_ callback: DCloudUTSFoundation.UTSCallback)
+public func startScanByJs()
+public func stopScanByJs()
+public func connectByJs(_ deviceId: Swift.String)
+public func bindByJs(_ userId: Swift.String)
+public func unbindByJs()
+public func syncDataByJs()
+public func startMeasureByJs(_ type: Swift.String, _ interval: Swift.UInt8, _ minutes: Swift.UInt8)
+public func stopMeasureByJs()
+public func getAllConfigByJs() -> DCloudUTSFoundation.UTSJSONObject
+@_inheritsConvenienceInitializers @objc(UTSSDKModulesWatchSdkIndexSwift) @objcMembers public class UTSSDKModulesWatchSdkIndexSwift : ObjectiveC.NSObject {
+  @objc public static func s_fitInitByJs()
+  @objc public static func s_onEventByJs(_ callback: DCloudUTSFoundation.UTSCallback)
+  @objc public static func s_startScanByJs()
+  @objc public static func s_stopScanByJs()
+  @objc public static func s_connectByJs(_ deviceId: Swift.String)
+  @objc public static func s_bindByJs(_ userId: Swift.String)
+  @objc public static func s_unbindByJs()
+  @objc public static func s_syncDataByJs()
+  @objc public static func s_startMeasureByJs(_ type: Swift.String, _ interval: Swift.UInt8, _ minutes: Swift.UInt8)
+  @objc public static func s_stopMeasureByJs()
+  @objc public static func s_getAllConfigByJs() -> DCloudUTSFoundation.UTSJSONObject
+  @objc override dynamic public init()
+  @objc deinit
+}
