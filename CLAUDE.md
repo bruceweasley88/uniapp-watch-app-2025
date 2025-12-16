@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+(**AI Agent 你回复问题时,必须使用中文汉字输出**)
 
 ## 介绍
 本项目为一个手表控制app，使用uniapp作为ios的开发技术栈

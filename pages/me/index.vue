@@ -3,14 +3,14 @@
 
 		<!-- 用户信息 -->
 		<view class="top">
-			<view class="user-info">
+			<view class="user-info click-active">
 				<view class="user-head">
 					<image src="/static/img/icon_photo.webp" mode="aspectFill" style="width: 100%; height: 100%;" />
 				</view>
 				<view class="user-name">Peppertones</view>
 			</view>
 
-			<view class="more"></view>
+			<view class="more click-active"></view>
 		</view>
 
 		<!-- 总分 -->
@@ -18,19 +18,19 @@
 			<view class="total-points">
 				<view class="title">
 					<text class="title-text">Total Points</text>
-					<text class="title-records">Records</text>
+					<text class="title-records click-active">Records</text>
 				</view>
 				<view class="body">
 					<view class="number">3589</view>
 					<view class="tips">Points can be withdrawn to wallet</view>
-					<view class="withdraw">Go to withdraw</view>
+					<view class="withdraw click-active">Go to withdraw</view>
 				</view>
 			</view>
 		</view>
 
 		<!-- 钱包 -->
 		<view class="wallet-block">
-			<view class="wallet">
+			<view class="wallet click-active">
 				<view class="title">Wallet</view>
 				<view class="body">
 					<text class="unit">$</text>
@@ -40,7 +40,7 @@
 				</view>
 
 			</view>
-			<view class="address">
+			<view class="address click-active">
 				<view class="title">Wallet Address</view>
 				<view class="go"></view>
 			</view>
@@ -50,13 +50,13 @@
 		<view class="setting-title">Setting</view>
 		<view class="setting">
 			<view class="setting-body">
-				<view class="item">
+				<view class="item click-active" @click="toDevice">
 					<text class="text icon_smartdevice">Smart device</text>
 				</view>
-				<view class="item">
+				<view class="item click-active">
 					<text class="text icon_appvesion">APP vesion</text>
 				</view>
-				<view class="item">
+				<view class="item click-active">
 					<text class="text icon_language">language</text>
 				</view>
 			</view>
@@ -64,7 +64,7 @@
 
 		<!-- 退出账号 -->
 		<view class="logout">
-			<view class="button">logout</view>
+			<view class="button click-active">logout</view>
 		</view>
 
 	</view>
@@ -81,7 +81,11 @@ export default {
 		plus.navigator.closeSplashscreen()
 	},
 	methods: {
-
+		toDevice() {
+			uni.navigateTo({
+				url: '/pages/device/index'
+			})
+		}
 	}
 }
 </script>

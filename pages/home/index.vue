@@ -32,13 +32,13 @@
 
 		<!-- 功能块 -->
 		<view class="box">
-			<view class="item item-bg-ecg" @click="toTest">
+			<view class="item item-bg-ecg click-active" @click="toTest">
 				<view class="title">ECG</view>
 				<view class="sub-title">Measure ECG</view>
 				<view class="button" style="color: #6E67E2;">Record</view>
 			</view>
 
-			<view class="item item-bg-heartrate">
+			<view class="item item-bg-heartrate click-active" @click="toBindding">
 				<view class="title">Heart rate</view>
 				<view class="sub-title">Focus on heart health</view>
 				<view class="button" style="color: #EE7A95;">Detect</view>
@@ -47,26 +47,40 @@
 		</view>
 
 		<view class="box">
-			<view class="item item-bg-bloodoxygen">
+			<view class="item item-bg-bloodoxygen click-active">
 				<view class="title">Blood oxygen</view>
 				<view class="sub-title">Detection and protection</view>
 				<view class="button" style="color: #FF7E3F;">Detect</view>
 			</view>
 
-			<view class="item item-bg-bloodpressure">
+			<view class="item item-bg-bloodpressure click-active">
 				<view class="title">Blood pressure</view>
 				<view class="sub-title">Measure blood pressure</view>
 				<view class="button" style="color: #449AF6;">Detect</view>
 			</view>
 		</view>
 
+
+		<alert-popup v-model:visible="alertProfile" topImage="/static/img/icon_personal.webp"
+			title="Please fill in your height and weight"
+			content="The reference standard values ​​of the detection indicators need to be matched according to your information."
+			buttonText="Confirm" @ok="handleStartDetection" />
+
+
 	</view>
 </template>
 
 <script>
+import AlertPopup from '@/components/alert-popup.vue'
+
 export default {
+	components: {
+		AlertPopup
+	},
 	data() {
 		return {
+
+			alertProfile: true
 
 		}
 	},
@@ -80,7 +94,10 @@ export default {
 			uni.navigateTo({
 				url: '/pages/test/index'
 			});
-		}
+		},
+		handleStartDetection() {
+
+		},
 	}
 }
 </script>

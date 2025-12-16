@@ -23,22 +23,22 @@
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
-				<view class="checkbox"></view>
+				<view class="checkbox click-active"></view>
 				<text>I have read the <text class="color-white">user agreement</text> and I accept it</text>
 			</view>
 
 			<!-- 登录按钮（渐变色背景） -->
-			<button class="login-btn" @click="goToHome">Log in</button>
+			<button class="login-btn click-active" @click="goToHome">Log in</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
-				<text class="color-white" @click="goToRegister">Create new account</text>
+				<text class="color-white click-active" @click="goToRegister">Create new account</text>
 				<text>|</text>
-				<text @click="goToForgot">Forgot password</text>
+				<text class="click-active" @click="goToForgot">Forgot password</text>
 			</view>
 
 			<!-- 登录类型切换 -->
-			<text class="login-type-link" @click="type = type === 'mobile' ? 'email' : 'mobile'">
+			<text class="login-type-link click-active" @click="type = type === 'mobile' ? 'email' : 'mobile'">
 				Log in with {{ type === 'mobile' ? 'Email' : 'Mobile' }}
 			</text>
 		</view>

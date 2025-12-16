@@ -28,20 +28,20 @@
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
-				<view class="checkbox"></view>
+				<view class="checkbox click-active"></view>
 				<text>I have read the <text class="color-white">user agreement</text> and I accept it</text>
 			</view>
 
 			<!-- 按钮（渐变色背景） -->
-			<button class="submit-btn">Reset</button>
+			<button class="submit-btn click-active">Reset</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
-				<text class="color-white" @click="type = type === 'mobile' ? 'email' : 'mobile'">
+				<text class="color-white click-active" @click="type = type === 'mobile' ? 'email' : 'mobile'">
 					Register with {{ type === 'mobile' ? 'Email' : 'Mobile' }}
 				</text>
 				<text>|</text>
-				<text @click="goToLogin">Log in</text>
+				<text class="click-active" @click="goToLogin">Log in</text>
 			</view>
 
 		</view>

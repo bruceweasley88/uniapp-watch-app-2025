@@ -5,6 +5,7 @@ export default {
 	},
 	onShow: function () {
 		console.log('App Show')
+		plus.navigator.closeSplashscreen();
 	},
 	onHide: function () {
 		console.log('App Hide')
@@ -44,6 +45,16 @@ page {
 
 .color-white {
 	color: #FFFFFF;
+}
+
+
+.click-active {
+	transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.click-active:active {
+	transform: scale(1.05);
+	opacity: 0.8;
 }
 
 /*每个页面公共css */
