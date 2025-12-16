@@ -53,10 +53,10 @@
 				<view class="item click-active" @click="toDevice">
 					<text class="text icon_smartdevice">Smart device</text>
 				</view>
-				<view class="item click-active">
+				<view class="item click-active" @click="toUpgrade">
 					<text class="text icon_appvesion">APP vesion</text>
 				</view>
-				<view class="item click-active">
+				<view class="item click-active" @click="toLanguage">
 					<text class="text icon_language">language</text>
 				</view>
 			</view>
@@ -85,7 +85,17 @@ export default {
 			uni.navigateTo({
 				url: '/pages/device/index'
 			})
-		}
+		},
+		toUpgrade() {
+			uni.navigateTo({
+				url: '/pages/upgrade/index'
+			})
+		},
+		toLanguage() {
+			uni.navigateTo({
+				url: '/pages/language/index'
+			})
+		},
 	}
 }
 </script>

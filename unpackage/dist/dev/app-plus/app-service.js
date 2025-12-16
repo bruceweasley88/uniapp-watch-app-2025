@@ -38,7 +38,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$c = {
+  const _sfc_main$e = {
     data() {
       return {};
     },
@@ -50,11 +50,11 @@ if (uni.restoreGlobal) {
     },
     methods: {}
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" });
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/index/index.vue"]]);
-  const _sfc_main$b = {
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/index/index.vue"]]);
+  const _sfc_main$d = {
     data() {
       return {
         type: "mobile"
@@ -82,7 +82,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "login-page" }, [
       vue.createElementVNode("view", { class: "login-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Hello!"),
@@ -91,15 +91,15 @@ if (uni.restoreGlobal) {
           key: 0,
           class: "phone-group"
         }, [
-          vue.createElementVNode("view", { class: "country-code" }, "+86"),
+          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
           vue.createElementVNode("input", {
             type: "tel",
-            class: "phone-input",
+            class: "phone-input click-active",
             placeholder: "Mobile number"
           })
         ])) : (vue.openBlock(), vue.createElementBlock("view", {
           key: 1,
-          class: "email-group"
+          class: "email-group click-active"
         }, [
           vue.createElementVNode("input", {
             type: "email",
@@ -109,11 +109,11 @@ if (uni.restoreGlobal) {
         ])),
         vue.createElementVNode("input", {
           type: "password",
-          class: "password-input",
+          class: "password-input click-active",
           placeholder: "Password"
         }),
         vue.createElementVNode("view", { class: "agreement-row" }, [
-          vue.createElementVNode("view", { class: "checkbox click-active" }),
+          vue.createElementVNode("view", { class: "checkbox selected click-active-max" }),
           vue.createElementVNode("text", null, [
             vue.createTextVNode("I have read the "),
             vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
@@ -148,8 +148,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
-  const _sfc_main$a = {
+  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
+  const _sfc_main$c = {
     data() {
       return {
         type: "mobile"
@@ -164,7 +164,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "cotent-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Sign up"),
@@ -173,15 +173,15 @@ if (uni.restoreGlobal) {
           key: 0,
           class: "phone-group"
         }, [
-          vue.createElementVNode("view", { class: "country-code" }, "+86"),
+          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
           vue.createElementVNode("input", {
             type: "tel",
-            class: "phone-input",
+            class: "phone-input click-active",
             placeholder: "Mobile number"
           })
         ])) : (vue.openBlock(), vue.createElementBlock("view", {
           key: 1,
-          class: "email-group"
+          class: "email-group click-active"
         }, [
           vue.createElementVNode("input", {
             type: "email",
@@ -189,16 +189,16 @@ if (uni.restoreGlobal) {
             placeholder: "Email address"
           })
         ])),
-        vue.createElementVNode("view", { class: "verification-group" }, [
+        vue.createElementVNode("view", { class: "verification-group click-active" }, [
           vue.createElementVNode("input", {
             type: "text",
             placeholder: "Verification code"
           }),
-          vue.createElementVNode("view", null, "sent code")
+          vue.createElementVNode("view", { class: "click-active" }, "sent code")
         ]),
         vue.createElementVNode("input", {
           type: "password",
-          class: "password-input",
+          class: "password-input click-active",
           placeholder: "Password"
         }),
         vue.createElementVNode("view", { class: "agreement-row" }, [
@@ -230,8 +230,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
-  const _sfc_main$9 = {
+  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
+  const _sfc_main$b = {
     data() {
       return {
         type: "mobile"
@@ -246,7 +246,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "cotent-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Forgot password"),
@@ -255,15 +255,15 @@ if (uni.restoreGlobal) {
           key: 0,
           class: "phone-group"
         }, [
-          vue.createElementVNode("view", { class: "country-code" }, "+86"),
+          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
           vue.createElementVNode("input", {
             type: "tel",
-            class: "phone-input",
+            class: "phone-input click-active",
             placeholder: "Mobile number"
           })
         ])) : (vue.openBlock(), vue.createElementBlock("view", {
           key: 1,
-          class: "email-group"
+          class: "email-group click-active"
         }, [
           vue.createElementVNode("input", {
             type: "email",
@@ -271,16 +271,16 @@ if (uni.restoreGlobal) {
             placeholder: "Email address"
           })
         ])),
-        vue.createElementVNode("view", { class: "verification-group" }, [
+        vue.createElementVNode("view", { class: "verification-group click-active" }, [
           vue.createElementVNode("input", {
             type: "text",
             placeholder: "Verification code"
           }),
-          vue.createElementVNode("view", null, "sent code")
+          vue.createElementVNode("view", { class: "click-active" }, "sent code")
         ]),
         vue.createElementVNode("input", {
           type: "password",
-          class: "password-input",
+          class: "password-input click-active",
           placeholder: "New password"
         }),
         vue.createElementVNode("view", { class: "agreement-row" }, [
@@ -312,8 +312,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
-  const _sfc_main$8 = {
+  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
+  const _sfc_main$a = {
     name: "AlertPopup",
     props: {
       // 弹窗显隐状态
@@ -353,7 +353,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     return $props.visible ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -410,10 +410,10 @@ if (uni.restoreGlobal) {
       /* NEED_HYDRATION */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
-  const _imports_0$3 = "/static/img/icon_photo.webp";
+  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
+  const _imports_0$5 = "/static/img/icon_photo.webp";
   const _imports_1$2 = "/static/img/img_banner.webp";
-  const _sfc_main$7 = {
+  const _sfc_main$9 = {
     components: {
       AlertPopup
     },
@@ -437,7 +437,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_alert_popup = vue.resolveComponent("alert-popup");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
@@ -450,7 +450,7 @@ if (uni.restoreGlobal) {
         ]),
         vue.createElementVNode("view", { class: "user-head" }, [
           vue.createElementVNode("image", {
-            src: _imports_0$3,
+            src: _imports_0$5,
             mode: "aspectFill"
           })
         ])
@@ -531,8 +531,8 @@ if (uni.restoreGlobal) {
       }, null, 8, ["visible", "onOk"])
     ]);
   }
-  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
-  const _sfc_main$6 = {
+  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
+  const _sfc_main$8 = {
     data() {
       return {};
     },
@@ -540,7 +540,7 @@ if (uni.restoreGlobal) {
     },
     methods: {}
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
         vue.createElementVNode("view", { class: "title" }, "Report list"),
@@ -582,8 +582,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesReportIndex = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-14542b8b"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/report/index.vue"]]);
-  const _sfc_main$5 = {
+  const PagesReportIndex = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-14542b8b"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/report/index.vue"]]);
+  const _sfc_main$7 = {
     data() {
       return {};
     },
@@ -595,16 +595,26 @@ if (uni.restoreGlobal) {
         uni.navigateTo({
           url: "/pages/device/index"
         });
+      },
+      toUpgrade() {
+        uni.navigateTo({
+          url: "/pages/upgrade/index"
+        });
+      },
+      toLanguage() {
+        uni.navigateTo({
+          url: "/pages/language/index"
+        });
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
         vue.createElementVNode("view", { class: "user-info click-active" }, [
           vue.createElementVNode("view", { class: "user-head" }, [
             vue.createElementVNode("image", {
-              src: _imports_0$3,
+              src: _imports_0$5,
               mode: "aspectFill",
               style: { "width": "100%", "height": "100%" }
             })
@@ -650,10 +660,16 @@ if (uni.restoreGlobal) {
           }, [
             vue.createElementVNode("text", { class: "text icon_smartdevice" }, "Smart device")
           ]),
-          vue.createElementVNode("view", { class: "item click-active" }, [
+          vue.createElementVNode("view", {
+            class: "item click-active",
+            onClick: _cache[1] || (_cache[1] = (...args) => $options.toUpgrade && $options.toUpgrade(...args))
+          }, [
             vue.createElementVNode("text", { class: "text icon_appvesion" }, "APP vesion")
           ]),
-          vue.createElementVNode("view", { class: "item click-active" }, [
+          vue.createElementVNode("view", {
+            class: "item click-active",
+            onClick: _cache[2] || (_cache[2] = (...args) => $options.toLanguage && $options.toLanguage(...args))
+          }, [
             vue.createElementVNode("text", { class: "text icon_language" }, "language")
           ])
         ])
@@ -663,9 +679,9 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesMeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-c8e26b33"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/me/index.vue"]]);
-  const _imports_0$2 = "/static/img/icon_back.png";
-  const _sfc_main$4 = {
+  const PagesMeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-c8e26b33"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/me/index.vue"]]);
+  const _imports_0$4 = "/static/img/icon_back.png";
+  const _sfc_main$6 = {
     name: "NavBar",
     props: {
       // 标题文字
@@ -680,11 +696,11 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "nav-bar" }, [
       vue.createElementVNode("image", {
-        class: "back click-active",
-        src: _imports_0$2,
+        class: "back click-active-max",
+        src: _imports_0$4,
         onClick: _cache[0] || (_cache[0] = (...args) => $options.toBack && $options.toBack(...args))
       }),
       vue.createElementVNode(
@@ -696,7 +712,164 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-a0412dee"], ["__file", "/Users/bruce-mac/ios-watch-app/components/nav-bar.vue"]]);
+  const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-a0412dee"], ["__file", "/Users/bruce-mac/ios-watch-app/components/nav-bar.vue"]]);
+  const _imports_0$3 = "/static/img/img_noupdate.webp";
+  const _sfc_main$5 = {
+    components: {
+      NavBar
+    },
+    data() {
+      const systemInfo = uni.getSystemInfoSync();
+      return {
+        version: systemInfo.appWgtVersion
+      };
+    },
+    onload() {
+    },
+    onShow() {
+      plus.navigator.closeSplashscreen();
+    },
+    methods: {
+      toBack() {
+        uni.navigateBack();
+      }
+    }
+  };
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_nav_bar = vue.resolveComponent("nav-bar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createVNode(_component_nav_bar, { title: "Version upgrade" }),
+      vue.createElementVNode("view", { class: "body" }, [
+        vue.createElementVNode("image", {
+          class: "image",
+          src: _imports_0$3
+        }),
+        vue.createElementVNode("view", { class: "text" }, "This is the latest version"),
+        vue.createElementVNode(
+          "view",
+          { class: "version" },
+          "Danke V" + vue.toDisplayString($data.version),
+          1
+          /* TEXT */
+        ),
+        vue.createElementVNode("view", {
+          class: "button click-active",
+          onClick: _cache[0] || (_cache[0] = (...args) => _ctx.toBindding && _ctx.toBindding(...args))
+        }, "Upgrade now"),
+        vue.createElementVNode("view", {
+          class: "back click-active-max",
+          onClick: _cache[1] || (_cache[1] = (...args) => $options.toBack && $options.toBack(...args))
+        }, "No upgrade")
+      ])
+    ]);
+  }
+  const PagesUpgradeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-8ba8cfcb"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/upgrade/index.vue"]]);
+  const _imports_0$2 = "/static/img/icon_selected.webp";
+  const _sfc_main$4 = {
+    components: {
+      NavBar
+    },
+    data() {
+      return {
+        current: "English(General)",
+        list: [
+          { "icon": "/static/lang/img_chinese.webp", "name": "中文" },
+          { "icon": "/static/lang/img_danish.webp", "name": "Dansk" },
+          { "icon": "/static/lang/img_en.webp", "name": "English(General)" },
+          { "icon": "/static/lang/img_fr.webp", "name": "Français" },
+          { "icon": "/static/lang/img_gerrman.webp", "name": "Deutsch" },
+          { "icon": "/static/lang/img_hk.webp", "name": "繁體中文(香港)" },
+          { "icon": "/static/lang/img_jp.webp", "name": "日本語" },
+          { "icon": "/static/lang/img_ko.webp", "name": "한국어" },
+          { "icon": "/static/lang/img_spanish.webp", "name": "Español" },
+          { "icon": "/static/lang/img_tw.webp", "name": "繁體中文(台灣)" },
+          { "icon": "/static/lang/img_us.webp", "name": "English(American)" }
+        ]
+      };
+    },
+    onload() {
+    },
+    onShow() {
+      plus.navigator.closeSplashscreen();
+    },
+    methods: {
+      onOk() {
+        this.toBack();
+      },
+      toBack() {
+        uni.navigateBack();
+      },
+      isSelected(item) {
+        return item.name === this.current;
+      }
+    }
+  };
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_nav_bar = vue.resolveComponent("nav-bar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createVNode(_component_nav_bar, { title: "Language switching" }),
+      vue.createElementVNode(
+        "view",
+        {
+          class: "body",
+          onTouchmove: _cache[2] || (_cache[2] = vue.withModifiers(() => {
+          }, ["stop"]))
+        },
+        [
+          vue.createElementVNode("view", { class: "title" }, "Language"),
+          vue.createElementVNode("view", { class: "sub-title" }, "Select your system language"),
+          vue.createElementVNode("view", { class: "list" }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.list, (item) => {
+                return vue.openBlock(), vue.createElementBlock("view", { class: "item" }, [
+                  vue.createElementVNode("view", { class: "text" }, [
+                    vue.createElementVNode("image", {
+                      class: "icon",
+                      src: item.icon
+                    }, null, 8, ["src"]),
+                    vue.createElementVNode(
+                      "text",
+                      {
+                        class: vue.normalizeClass(`name ${$options.isSelected(item) ? "name-selected" : ""}`)
+                      },
+                      vue.toDisplayString(item.name),
+                      3
+                      /* TEXT, CLASS */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "operate" }, [
+                    $options.isSelected(item) ? (vue.openBlock(), vue.createElementBlock("image", {
+                      key: 0,
+                      class: "selected_icon",
+                      src: _imports_0$2
+                    })) : vue.createCommentVNode("v-if", true)
+                  ])
+                ]);
+              }),
+              256
+              /* UNKEYED_FRAGMENT */
+            ))
+          ]),
+          vue.createElementVNode("view", { class: "action" }, [
+            vue.createElementVNode("view", {
+              class: "cancel click-active-max",
+              onClick: _cache[0] || (_cache[0] = (...args) => $options.toBack && $options.toBack(...args))
+            }, "cancel"),
+            vue.createElementVNode("view", { class: "m" }, "|"),
+            vue.createElementVNode("view", {
+              class: "ok click-active-max",
+              onClick: _cache[1] || (_cache[1] = (...args) => $options.onOk && $options.onOk(...args))
+            }, "ok")
+          ])
+        ],
+        32
+        /* NEED_HYDRATION */
+      )
+    ]);
+  }
+  const PagesLanguageIndex = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-a43b35b8"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/language/index.vue"]]);
   const _imports_0$1 = "/static/img/img_nodate.webp";
   const _imports_1$1 = "/static/img/icon_connect.webp";
   const _imports_2 = "/static/img/icon_noconnect.webp";
@@ -1041,6 +1214,8 @@ if (uni.restoreGlobal) {
   __definePage("pages/home/index", PagesHomeIndex);
   __definePage("pages/report/index", PagesReportIndex);
   __definePage("pages/me/index", PagesMeIndex);
+  __definePage("pages/upgrade/index", PagesUpgradeIndex);
+  __definePage("pages/language/index", PagesLanguageIndex);
   __definePage("pages/device/index", PagesDeviceIndex);
   __definePage("pages/bindding/index", PagesBinddingIndex);
   __definePage("pages/test/index", PagesTestIndex);

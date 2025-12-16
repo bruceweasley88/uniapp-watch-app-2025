@@ -54,6 +54,16 @@
 	line-height: 64px;
 	text-align: center;
 }
+.country-code[data-v-46a64346]::after {
+	content: '';
+	display: inline-block;
+	background-image: url('../../static/img/icon_fillin.webp');
+	background-size: cover;
+	height: 0.90625rem;
+	width: 1rem;
+	position: relative;
+	left: 0.375rem;
+}
 .phone-input[data-v-46a64346] {
 	height: 64px;
 	background: #272935;
@@ -138,14 +148,18 @@
 	margin-bottom: 80px;
 }
 .agreement-row .checkbox[data-v-46a64346] {
-	width: 18px;
-	height: 18px;
-	background: #FFFFFF;
-	border-radius: 5px 5px 5px 5px;
+	width: 1.03125rem;
+	height: 1.03125rem;
+	background-size: cover;
+	background-image: url('../../static/img/icon_unselecteds.webp');
 	margin-right: 4px;
 	display: inline-block;
 	vertical-align: top;
 }
+.agreement-row .selected[data-v-46a64346] {
+	background-image: url('../../static/img/icon_selecteds.webp');
+}
+
 
 
 /* 登录按钮 - 渐变色背景+深色字体 */

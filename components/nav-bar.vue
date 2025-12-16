@@ -1,6 +1,6 @@
 <template>
   <view class="nav-bar">
-    <image class="back click-active" src="/static/img/icon_back.png" @click="toBack" /><text class="title">{{ title }}</text>
+    <image class="back click-active-max" src="/static/img/icon_back.png" @click="toBack" /><text class="title">{{ title }}</text>
   </view>
 </template>
 

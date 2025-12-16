@@ -8,22 +8,22 @@
 
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
-				<view class="country-code">+86</view>
-				<input type="tel" class="phone-input" placeholder="Mobile number" />
+				<view class="country-code click-active">+86</view>
+				<input type="tel" class="phone-input click-active" placeholder="Mobile number" />
 			</view>
 
 			<!-- 邮箱输入组 -->
-			<view class="email-group" v-else>
+			<view class="email-group click-active" v-else>
 				<input type="email" class="email-input" placeholder="Email address" />
 			</view>
 
 
 			<!-- 密码输入框 -->
-			<input type="password" class="password-input" placeholder="Password" />
+			<input type="password" class="password-input click-active" placeholder="Password" />
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
-				<view class="checkbox click-active"></view>
+				<view class="checkbox selected click-active-max"></view>
 				<text>I have read the <text class="color-white">user agreement</text> and I accept it</text>
 			</view>
 
@@ -70,7 +70,7 @@ export default {
 			uni.switchTab({
 				url: '/pages/home/index'
 			});
-			
+
 		}
 	}
 }
@@ -136,6 +136,17 @@ export default {
 	text-align: center;
 }
 
+.country-code::after {
+	content: '';
+	display: inline-block;
+	background-image: url('/static/img/icon_fillin.webp');
+	background-size: cover;
+	height: 29rpx;
+	width: 32rpx;
+	position: relative;
+	left: 12rpx;
+}
+
 .phone-input {
 	height: 64px;
 	background: #272935;
@@ -189,14 +200,19 @@ export default {
 }
 
 .agreement-row .checkbox {
-	width: 18px;
-	height: 18px;
-	background: #FFFFFF;
-	border-radius: 5px 5px 5px 5px;
+	width: 33rpx;
+	height: 33rpx;
+	background-size: cover;
+	background-image: url('/static/img/icon_unselecteds.webp');
 	margin-right: 4px;
 	display: inline-block;
 	vertical-align: top;
 }
+
+.agreement-row .selected {
+	background-image: url('/static/img/icon_selecteds.webp');
+}
+
 
 
 /* 登录按钮 - 渐变色背景+深色字体 */

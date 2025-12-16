@@ -50,6 +50,20 @@
 			}
 		},
 		{
+			"path": "pages/upgrade/index",
+			"style": {
+				"navigationBarTitleText": "版本更新",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/language/index",
+			"style": {
+				"navigationBarTitleText": "语言设置",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/device/index",
 			"style": {
 				"navigationBarTitleText": "我的设备",
@@ -101,7 +115,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#111217",
-		"backgroundColor": "#111217"
+		"backgroundColor": "#111217",
+		"bounce": "none"
 	},
 	"uniIdRouter": {}
 }

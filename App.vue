@@ -49,13 +49,24 @@ page {
 
 
 .click-active {
-	transition: transform 0.1s ease, opacity 0.1s ease;
+	transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .click-active:active {
 	transform: scale(1.05);
 	opacity: 0.8;
 }
+
+
+.click-active-max {
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.click-active-max:active {
+	transform: scale(1.2);
+	opacity: 0.6;
+}
+
 
 /*每个页面公共css */
 </style>
