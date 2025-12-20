@@ -17,20 +17,26 @@
 			<view class="item item-bg-heartrate">
 				<view class="title">Heart rate</view>
 				<view class="sub-title">Focus on heart health</view>
-				<view class="button" style="color: #EE7A95;">Record</view>
+				<view class="button" style="color: #EE7A95;" @click="toResults('heart_rate')">Record</view>
 			</view>
 
 			<view class="item item-bg-bloodoxygen">
 				<view class="title">Blood oxygen</view>
 				<view class="sub-title">Detection and protection</view>
-				<view class="button" style="color: #FF7E3F;">Detect</view>
+				<view class="button" style="color: #FF7E3F;" @click="toResults('blood_oxygen')">Record</view>
 			</view>
 
 			<view class="item item-bg-bloodpressure">
 				<view class="title">Blood pressure</view>
 				<view class="sub-title">Measure blood pressure</view>
-				<view class="button" style="color: #449AF6;">Detect</view>
+				<view class="button" style="color: #449AF6;" @click="toResults('blood_pressure')">Record</view>
 			</view>
+
+			<!-- <view class="item item-bg-weigth">
+				<view class="title">Blood pressure</view>
+				<view class="sub-title">Measure blood pressure</view>
+				<view class="button" style="color: #449AF6;" @click="toWeigth">Record</view>
+			</view> -->
 
 		</view>
 	</view>
@@ -46,8 +52,20 @@ export default {
 	onLoad() {
 
 	},
+	onShow() {
+		plus.navigator.closeSplashscreen();
+	},
 	methods: {
-
+		toResults(type) {
+			uni.navigateTo({
+				url: '/pages/results/index?type=' + type,
+			})
+		},
+		toWeigth() {
+			uni.navigateTo({
+				url: '/pages/weigth/index',
+			})
+		}
 	}
 }
 </script>
@@ -126,7 +144,9 @@ export default {
 		background-image: url('/static/img/bg_bloodpressurel.webp');
 	}
 
-
+	.item-bg-weigth {
+		background-image: url('/static/img/icon_weight.webp');
+	}
 }
 
 

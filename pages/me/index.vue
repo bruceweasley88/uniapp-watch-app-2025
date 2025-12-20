@@ -3,14 +3,14 @@
 
 		<!-- 用户信息 -->
 		<view class="top">
-			<view class="user-info click-active">
+			<view class="user-info click-active" @click="toPresonal">
 				<view class="user-head">
 					<image src="/static/img/icon_photo.webp" mode="aspectFill" style="width: 100%; height: 100%;" />
 				</view>
 				<view class="user-name">Peppertones</view>
 			</view>
 
-			<view class="more click-active"></view>
+			<view class="more click-active" @click="toPresonal"></view>
 		</view>
 
 		<!-- 总分 -->
@@ -96,6 +96,11 @@ export default {
 				url: '/pages/language/index'
 			})
 		},
+		toPresonal() {
+			uni.navigateTo({
+				url: '/pages/presonal/index'
+			})
+		}
 	}
 }
 </script>
@@ -130,8 +135,6 @@ export default {
 			background-color: #000;
 			border: 2px solid #EAEAEA;
 			overflow: hidden;
-
-
 		}
 
 		.user-name {

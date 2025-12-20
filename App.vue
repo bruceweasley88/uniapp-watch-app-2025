@@ -5,7 +5,9 @@ export default {
 	},
 	onShow: function () {
 		console.log('App Show')
+		// #ifdef APP-PLUS
 		plus.navigator.closeSplashscreen();
+		// #endif
 	},
 	onHide: function () {
 		console.log('App Hide')

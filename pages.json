@@ -78,6 +78,34 @@
 			}
 		},
 		{
+			"path": "pages/measurement/index",
+			"style": {
+				"navigationBarTitleText": "检测",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/results/index",
+			"style": {
+				"navigationBarTitleText": "检测结果",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/weight/index",
+			"style": {
+				"navigationBarTitleText": "体重",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/presonal/index",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/test/index",
 			"style": {
 				"navigationBarTitleText": "测试页面"

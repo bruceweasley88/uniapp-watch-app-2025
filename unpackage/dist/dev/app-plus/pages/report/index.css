@@ -85,6 +85,9 @@
 .list .item-bg-bloodpressure[data-v-14542b8b] {
   background-image: url("../../static/img/bg_bloodpressurel.webp");
 }
+.list .item-bg-weigth[data-v-14542b8b] {
+  background-image: url("../../static/img/icon_weight.webp");
+}
 .top[data-v-14542b8b] {
   padding: 0 20px;
   padding-top: 80px;

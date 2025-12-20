@@ -32,13 +32,13 @@
 
 		<!-- 功能块 -->
 		<view class="box">
-			<view class="item item-bg-ecg click-active" @click="toTest">
+			<view class="item item-bg-ecg click-active" @click="toMeasurement('ecg')">
 				<view class="title">ECG</view>
 				<view class="sub-title">Measure ECG</view>
 				<view class="button" style="color: #6E67E2;">Record</view>
 			</view>
 
-			<view class="item item-bg-heartrate click-active" @click="toBindding">
+			<view class="item item-bg-heartrate click-active" @click="toMeasurement('heart_rate')">
 				<view class="title">Heart rate</view>
 				<view class="sub-title">Focus on heart health</view>
 				<view class="button" style="color: #EE7A95;">Detect</view>
@@ -47,13 +47,13 @@
 		</view>
 
 		<view class="box">
-			<view class="item item-bg-bloodoxygen click-active">
+			<view class="item item-bg-bloodoxygen click-active" @click="toMeasurement('blood_oxygen')">
 				<view class="title">Blood oxygen</view>
 				<view class="sub-title">Detection and protection</view>
 				<view class="button" style="color: #FF7E3F;">Detect</view>
 			</view>
 
-			<view class="item item-bg-bloodpressure click-active">
+			<view class="item item-bg-bloodpressure click-active" @click="toMeasurement('blood_pressure')">
 				<view class="title">Blood pressure</view>
 				<view class="sub-title">Measure blood pressure</view>
 				<view class="button" style="color: #449AF6;">Detect</view>
@@ -87,16 +87,15 @@ export default {
 	onLoad() {
 	},
 	onShow() {
+		// #ifdef APP-PLUS
 		plus.navigator.closeSplashscreen();
+		// #endif
 	},
 	methods: {
-		toTest() {
+		toMeasurement(type) {
 			uni.navigateTo({
-				url: '/pages/test/index'
+				url: '/pages/measurement/index?type=' + type
 			});
-		},
-		handleStartDetection() {
-
 		},
 	}
 }

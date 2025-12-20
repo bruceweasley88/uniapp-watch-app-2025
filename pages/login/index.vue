@@ -8,18 +8,18 @@
 
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
-				<view class="country-code click-active">+86</view>
-				<input type="tel" class="phone-input click-active" placeholder="Mobile number" />
+				<view class="country-code">+86</view>
+				<input type="tel" class="phone-input" placeholder="Mobile number" />
 			</view>
 
 			<!-- 邮箱输入组 -->
-			<view class="email-group click-active" v-else>
+			<view class="email-group" v-else>
 				<input type="email" class="email-input" placeholder="Email address" />
 			</view>
 
 
 			<!-- 密码输入框 -->
-			<input type="password" class="password-input click-active" placeholder="Password" />
+			<input type="password" class="password-input" placeholder="Password" />
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
