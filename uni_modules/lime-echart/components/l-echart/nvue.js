@@ -6,7 +6,6 @@ export class Echarts {
 	}
 	setOption() {
 		this.options = arguments
-		console.log('setOption1')
 		this.webview.evalJs(`setOption(${JSON.stringify(arguments)})`);
 	}
 	getOption() {

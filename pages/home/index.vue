@@ -97,6 +97,9 @@ export default {
 				url: '/pages/measurement/index?type=' + type
 			});
 		},
+		handleStartDetection() {
+			
+		}
 	}
 }
 </script>

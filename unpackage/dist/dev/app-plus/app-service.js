@@ -38,7 +38,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$l = {
+  const _sfc_main$n = {
     data() {
       return {};
     },
@@ -50,11 +50,11 @@ if (uni.restoreGlobal) {
     },
     methods: {}
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" });
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/index/index.vue"]]);
-  const _sfc_main$k = {
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/index/index.vue"]]);
+  const _sfc_main$m = {
     data() {
       return {
         type: "mobile"
@@ -82,7 +82,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "login-page" }, [
       vue.createElementVNode("view", { class: "login-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Hello!"),
@@ -148,8 +148,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
-  const _sfc_main$j = {
+  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
+  const _sfc_main$l = {
     data() {
       return {
         type: "mobile"
@@ -164,7 +164,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "cotent-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Sign up"),
@@ -230,8 +230,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
-  const _sfc_main$i = {
+  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
+  const _sfc_main$k = {
     data() {
       return {
         type: "mobile"
@@ -246,7 +246,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "cotent-card" }, [
         vue.createElementVNode("text", { class: "title" }, "Forgot password"),
@@ -312,8 +312,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
-  const _sfc_main$h = {
+  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
+  const _sfc_main$j = {
     name: "AlertPopup",
     props: {
       // 弹窗显隐状态
@@ -353,7 +353,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return $props.visible ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -410,10 +410,10 @@ if (uni.restoreGlobal) {
       /* NEED_HYDRATION */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
+  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
   const _imports_0$6 = "/static/img/icon_photo.webp";
   const _imports_1$2 = "/static/img/img_banner.webp";
-  const _sfc_main$g = {
+  const _sfc_main$i = {
     components: {
       AlertPopup
     },
@@ -432,10 +432,12 @@ if (uni.restoreGlobal) {
         uni.navigateTo({
           url: "/pages/measurement/index?type=" + type
         });
+      },
+      handleStartDetection() {
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_alert_popup = vue.resolveComponent("alert-popup");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
@@ -531,12 +533,12 @@ if (uni.restoreGlobal) {
         title: "Please fill in your height and weight",
         content: "The reference standard values ​​of the detection indicators need to be matched according to your information.",
         buttonText: "Confirm",
-        onOk: _ctx.handleStartDetection
+        onOk: $options.handleStartDetection
       }, null, 8, ["visible", "onOk"])
     ]);
   }
-  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
-  const _sfc_main$f = {
+  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
+  const _sfc_main$h = {
     data() {
       return {};
     },
@@ -558,7 +560,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
         vue.createElementVNode("view", { class: "title" }, "Report list"),
@@ -603,8 +605,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesReportIndex = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-14542b8b"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/report/index.vue"]]);
-  const _sfc_main$e = {
+  const PagesReportIndex = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-14542b8b"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/report/index.vue"]]);
+  const _sfc_main$g = {
     data() {
       return {};
     },
@@ -634,7 +636,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "top" }, [
         vue.createElementVNode("view", {
@@ -711,9 +713,9 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesMeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-c8e26b33"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/me/index.vue"]]);
+  const PagesMeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-c8e26b33"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/me/index.vue"]]);
   const _imports_0$5 = "/static/img/icon_back.png";
-  const _sfc_main$d = {
+  const _sfc_main$f = {
     name: "NavBar",
     props: {
       // 标题文字
@@ -735,7 +737,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "nav-bar" }, [
       vue.createElementVNode("image", {
         class: "back click-active-max",
@@ -762,9 +764,9 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-a0412dee"], ["__file", "/Users/bruce-mac/ios-watch-app/components/nav-bar.vue"]]);
+  const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-a0412dee"], ["__file", "/Users/bruce-mac/ios-watch-app/components/nav-bar.vue"]]);
   const _imports_0$4 = "/static/img/img_noupdate.webp";
-  const _sfc_main$c = {
+  const _sfc_main$e = {
     components: {
       NavBar
     },
@@ -785,7 +787,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_nav_bar = vue.resolveComponent("nav-bar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_nav_bar, { title: "Version upgrade" }),
@@ -813,9 +815,9 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesUpgradeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-8ba8cfcb"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/upgrade/index.vue"]]);
+  const PagesUpgradeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-8ba8cfcb"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/upgrade/index.vue"]]);
   const _imports_0$3 = "/static/img/icon_selected.webp";
-  const _sfc_main$b = {
+  const _sfc_main$d = {
     components: {
       NavBar
     },
@@ -854,7 +856,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_nav_bar = vue.resolveComponent("nav-bar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_nav_bar, { title: "Language switching" }),
@@ -919,13 +921,13 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const PagesLanguageIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-a43b35b8"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/language/index.vue"]]);
+  const PagesLanguageIndex = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-a43b35b8"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/language/index.vue"]]);
   const _imports_0$2 = "/static/img/img_nodate.webp";
   const _imports_1$1 = "/static/img/icon_connect.webp";
   const _imports_2 = "/static/img/icon_noconnect.webp";
   const _imports_3 = "/static/img/icon_red.webp";
   const _imports_4 = "/static/img/icon_green.webp";
-  const _sfc_main$a = {
+  const _sfc_main$c = {
     components: {
       NavBar
     },
@@ -950,7 +952,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_nav_bar = vue.resolveComponent("nav-bar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_nav_bar, { title: "Smate device" }),
@@ -1030,10 +1032,10 @@ if (uni.restoreGlobal) {
       ]))
     ]);
   }
-  const PagesDeviceIndex = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-1d9691da"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/device/index.vue"]]);
+  const PagesDeviceIndex = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-1d9691da"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/device/index.vue"]]);
   const _imports_0$1 = "/static/img/img_diffusion.webp";
   const _imports_1 = "/static/img/img_watchb.webp";
-  const _sfc_main$9 = {
+  const _sfc_main$b = {
     components: {
       NavBar,
       AlertPopup
@@ -1053,7 +1055,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_nav_bar = vue.resolveComponent("nav-bar");
     const _component_alert_popup = vue.resolveComponent("alert-popup");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
@@ -1090,7 +1092,7 @@ if (uni.restoreGlobal) {
       }, null, 8, ["visible", "onOk"])
     ]);
   }
-  const PagesBinddingIndex = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-b7239250"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/bindding/index.vue"]]);
+  const PagesBinddingIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-b7239250"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/bindding/index.vue"]]);
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);
@@ -33431,7 +33433,7 @@ if (uni.restoreGlobal) {
     }, t.setPlatformAPI = h, t.throttle = uv, t.time = xw, t.use = h_, t.util = ww, t.vector = Xt, t.version = "6.0.0", t.zrUtil = Mt, t.zrender = uo, Object.defineProperty(t, "__esModule", { value: true });
   });
   const echartsLibrary = globalThis.echarts;
-  const _sfc_main$8 = vue.defineComponent({
+  const _sfc_main$a = vue.defineComponent({
     props: echartProps,
     emits: ["finished"],
     setup(props, { emit, expose }) {
@@ -33640,7 +33642,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     return _ctx.canvasId ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -33667,117 +33669,275 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-e9a2d99c"], ["__file", "/Users/bruce-mac/ios-watch-app/uni_modules/lime-echart/components/l-echart/l-echart.vue"]]);
-  const _sfc_main$7 = {
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-e9a2d99c"], ["__file", "/Users/bruce-mac/ios-watch-app/uni_modules/lime-echart/components/l-echart/l-echart.vue"]]);
+  const _sfc_main$9 = {
+    name: "CircleProgress",
+    props: {
+      max: {
+        type: Number,
+        default: 100
+      },
+      current: {
+        type: Number,
+        default: 0
+      }
+    },
     data() {
       return {
-        chartInstance: null,
-        timer: null,
-        isPaused: false,
-        // 增加数据点密度（如150个点），线条会更细腻
-        dataList: new Array(150).fill(0),
-        // 心跳模板：增加一些中间过渡值，让平滑效果更好
-        heartBeatPattern: [0, 5, 10, 2, -5, 10, 30, 15, -10, -5, 0, 8, 5, 2, 0, 5, 10, 0, -5, -2, 0, 0, 0, 0],
-        patternIndex: 999
-        // 初始设为大值，表示处于平直期
+        chartInstance: null
       };
+    },
+    watch: {
+      // 监听数值变化，动态更新图表
+      current() {
+        this.updateCurrent();
+      },
+      max() {
+        this.updateChart();
+      }
     },
     methods: {
       async initChart() {
         this.chartInstance = await this.$refs.chartRef.init();
+        this.updateChart();
+      },
+      updateChart() {
+        if (!this.chartInstance)
+          return;
         const option = {
-          // 1. 关键：关闭所有动画，防止暂停时由于补间动画产生的抖动
-          animation: false,
           backgroundColor: "transparent",
-          grid: { top: 10, bottom: 10, left: 0, right: 0 },
-          xAxis: { type: "category", show: false },
-          yAxis: { type: "value", show: false, min: -15, max: 35 },
-          series: [{
-            type: "line",
-            symbol: "none",
-            smooth: true,
-            // 保持平滑
-            connectNulls: true,
-            silent: true,
-            // 禁用交互，提升性能
-            lineStyle: {
-              width: 3,
-              color: {
-                type: "linear",
-                x: 0,
-                y: 0,
-                x2: 1,
-                y2: 0,
-                colorStops: [
-                  { offset: 0, color: "#38FFA7" },
-                  { offset: 1, color: "#45F6FF" }
-                ]
-              }
-            },
-            data: this.dataList
-          }]
+          series: [
+            {
+              type: "gauge",
+              startAngle: 90,
+              // 从正上方开始
+              endAngle: -270,
+              // 旋转一圈
+              min: 0,
+              max: this.max,
+              splitNumber: 0,
+              // 不显示刻度
+              axisLine: {
+                lineStyle: {
+                  width: 10,
+                  // 进度条宽度
+                  color: [[1, "#1E2026"]]
+                  // 底色/背景环颜色
+                }
+              },
+              progress: {
+                show: true,
+                width: 10,
+                roundCap: true,
+                // 关键：两端圆角
+                itemStyle: {
+                  // 渐变色设置
+                  color: {
+                    type: "linear",
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    // 垂直渐变，可根据视觉微调
+                    colorStops: [
+                      { offset: 0, color: "#38FFA7" },
+                      { offset: 1, color: "#45F6FF" }
+                    ]
+                  }
+                }
+              },
+              pointer: { show: false },
+              // 隐藏指针
+              axisTick: { show: false },
+              // 隐藏刻度线
+              splitLine: { show: false },
+              // 隐藏分割线
+              axisLabel: { show: false },
+              // 隐藏数字标签
+              data: [{ value: this.current }],
+              detail: { show: false }
+              // 隐藏详情数值
+            }
+          ]
         };
         this.chartInstance.setOption(option);
-        this.startAnimation();
       },
-      startAnimation() {
-        if (this.timer)
-          clearInterval(this.timer);
-        this.timer = setInterval(() => {
-          if (this.isPaused)
-            return;
-          let nextValue = 0;
-          if (this.patternIndex < this.heartBeatPattern.length) {
-            nextValue = this.heartBeatPattern[this.patternIndex] + Math.random() * 2;
-            this.patternIndex++;
-          } else {
-            this.patternIndex = 0;
-          }
-          this.dataList.shift();
-          this.dataList.push(nextValue);
-          this.chartInstance.setOption({
-            series: [{ data: this.dataList }]
-          }, false);
-        }, 40);
+      updateCurrent() {
+        this.chartInstance.setOption({
+          series: [{ data: [{ value: this.current }] }]
+        }, false, true);
+      }
+    }
+  };
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_l_echart = resolveEasycom(vue.resolveDynamicComponent("l-echart"), __easycom_0);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "circle-progress-container" }, [
+      vue.createElementVNode("view", { class: "chart-box" }, [
+        vue.createVNode(_component_l_echart, {
+          ref: "chartRef",
+          onFinished: $options.initChart
+        }, null, 8, ["onFinished"])
+      ]),
+      vue.createElementVNode("view", { class: "slot-content" }, [
+        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+      ])
+    ]);
+  }
+  const CircleProgress = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-1e90f78c"], ["__file", "/Users/bruce-mac/ios-watch-app/components/circle-progress.vue"]]);
+  const _sfc_main$8 = {
+    name: "HeartRateWave",
+    props: {
+      // 控制动画是否播放：true 为播放，false 为原地暂停
+      isRunning: {
+        type: Boolean,
+        default: true
+      }
+    }
+  };
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: "heart-rate-box",
+        style: vue.normalizeStyle({ "--play-state": $props.isRunning ? "running" : "paused" })
       },
-      toggleAnimation() {
-        this.isPaused = !this.isPaused;
+      [
+        vue.createElementVNode("view", { class: "wave-bar" }),
+        vue.createElementVNode("view", { class: "wave-bar" }),
+        vue.createElementVNode("view", { class: "gradient-overlay" })
+      ],
+      4
+      /* STYLE */
+    );
+  }
+  const XdChart = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-d1844f9a"], ["__file", "/Users/bruce-mac/ios-watch-app/components/xd-chart.vue"]]);
+  const _sfc_main$7 = {
+    components: {
+      NavBar,
+      XdChart,
+      CircleProgress
+    },
+    data() {
+      return {
+        start: false,
+        type: "",
+        unit: "",
+        current: 60,
+        timer: null
+      };
+    },
+    onLoad(option) {
+      this.type = option.type || "heart_rate";
+    },
+    onShow() {
+    },
+    methods: {
+      startOrStop() {
+        this.start = !this.start;
+        clearInterval(this.timer);
+        this.current = 60;
+        if (this.start) {
+          this.timer = setInterval(() => {
+            this.current = this.current - 1;
+          }, 1e3);
+        }
       },
       getTitle() {
-        return "Heart Rate";
+        switch (this.type) {
+          case "heart_rate":
+            return "Heart rate";
+          case "blood_oxygen":
+            return "Blood oxygen";
+          case "blood_pressure":
+            return "Blood pressure";
+        }
+      },
+      getContent() {
+        switch (this.type) {
+          case "heart_rate":
+            return "Measuring Heart rate";
+          case "blood_oxygen":
+            return "Measuring Blood oxygen";
+          case "blood_pressure":
+            return "Measuring Blood pressure";
+        }
+      },
+      getUnit() {
+        switch (this.type) {
+          case "heart_rate":
+            return "BPM";
+          case "blood_oxygen":
+            return "%";
+          case "blood_pressure":
+            return "BPM";
+        }
       }
-    },
-    beforeUnmount() {
-      var _a;
-      if (this.timer)
-        clearInterval(this.timer);
-      (_a = this.chartInstance) == null ? void 0 : _a.dispose();
     }
   };
   function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_nav_bar = vue.resolveComponent("nav-bar");
-    const _component_l_echart = resolveEasycom(vue.resolveDynamicComponent("l-echart"), __easycom_0);
+    const _component_xd_chart = vue.resolveComponent("xd-chart");
+    const _component_circle_progress = vue.resolveComponent("circle-progress");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_nav_bar, {
         title: $options.getTitle()
       }, null, 8, ["title"]),
       vue.createElementVNode("view", { class: "body" }, [
         vue.createElementVNode("view", { class: "xd-chart" }, [
-          vue.createVNode(_component_l_echart, {
-            ref: "chartRef",
-            onFinished: $options.initChart
-          }, null, 8, ["onFinished"])
+          vue.createVNode(_component_xd_chart, { "is-running": $data.start }, null, 8, ["is-running"])
         ]),
         vue.createElementVNode(
-          "button",
-          {
-            class: "btn",
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.toggleAnimation && $options.toggleAnimation(...args))
-          },
-          vue.toDisplayString($data.isPaused ? "开始" : "暂停"),
+          "view",
+          { class: "content" },
+          vue.toDisplayString($options.getContent()),
           1
           /* TEXT */
-        )
+        ),
+        vue.createElementVNode("view", { class: "tips" }, "Measuring, Please wait..."),
+        vue.createElementVNode("view", { class: "circle" }, [
+          vue.createVNode(_component_circle_progress, {
+            max: 60,
+            current: $data.current
+          }, {
+            default: vue.withCtx(() => [
+              vue.createElementVNode("view", { class: "circle-bg" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "current" },
+                  vue.toDisplayString($data.current),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "countdown" }, "Countdown"),
+                vue.createElementVNode("text", { class: "value" }, [
+                  vue.createElementVNode("text", { class: "number" }, "--"),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "unit" },
+                    vue.toDisplayString($options.getUnit()),
+                    1
+                    /* TEXT */
+                  )
+                ])
+              ])
+            ]),
+            _: 1
+            /* STABLE */
+          }, 8, ["current"])
+        ])
+      ]),
+      vue.createElementVNode("view", { class: "bottom" }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: "button click-active",
+            onClick: _cache[0] || (_cache[0] = (...args) => $options.startOrStop && $options.startOrStop(...args))
+          },
+          vue.toDisplayString($data.start ? "Stop Detection" : "Start Detection"),
+          1
+          /* TEXT */
+        ),
+        vue.createElementVNode("view", { class: "tips" }, "After the measurement is completed, wait for the watch to upload the data")
       ])
     ]);
   }

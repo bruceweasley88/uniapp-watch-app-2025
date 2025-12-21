@@ -2,125 +2,240 @@
 	<view class="page">
 		<nav-bar :title="getTitle()" />
 		<view class="body">
+
+
 			<view class="xd-chart">
-				<l-echart ref="chartRef" @finished="initChart"></l-echart>
+				<xd-chart :is-running="start" />
 			</view>
-			<button class="btn" @click="toggleAnimation">
-				{{ isPaused ? '开始' : '暂停' }}
-			</button>
+
+			<view class="content">{{ getContent() }}</view>
+			<view class="tips">Measuring, Please wait...</view>
+
+			<view class="circle">
+				<circle-progress :max="60" :current="current">
+					<view class="circle-bg">
+						<text class="current">{{ current }}</text>
+						<text class="countdown">Countdown</text>
+						<text class="value">
+							<text class="number">--</text>
+							<text class="unit">{{ getUnit() }}</text>
+						</text>
+					</view>
+				</circle-progress>
+			</view>
+
 		</view>
+
+		<view class="bottom">
+			<view class="button click-active" @click="startOrStop">{{ start ? 'Stop Detection' : 'Start Detection' }}</view>
+			<view class="tips">After the measurement is completed, wait for the watch to upload the data</view>
+		</view>
+
 	</view>
 </template>
 
 <script>
+import CircleProgress from '../../components/circle-progress.vue';
+import NavBar from '../../components/nav-bar.vue';
+import XdChart from '../../components/xd-chart.vue';
+
 export default {
+	components: {
+		NavBar,
+		XdChart,
+		CircleProgress
+	},
 	data() {
 		return {
-			chartInstance: null,
-			timer: null,
-			isPaused: false,
-			// 增加数据点密度（如150个点），线条会更细腻
-			dataList: new Array(150).fill(0),
-			// 心跳模板：增加一些中间过渡值，让平滑效果更好
-			heartBeatPattern: [0, 5, 10, 2, -5, 10, 30, 15, -10, -5, 0, 8, 5, 2, 0, 5, 10, 0, -5, -2, 0, 0, 0, 0],
-			patternIndex: 999 // 初始设为大值，表示处于平直期
+			start: false,
+
+
+			type: '',
+			unit: '',
+
+			current: 60,
+			timer: null
+
+
 		}
+	},
+	onLoad(option) {
+		this.type = option.type || 'heart_rate';
+	},
+	onShow() {
+
 	},
 	methods: {
-		async initChart() {
-			this.chartInstance = await this.$refs.chartRef.init();
-			const option = {
-				// 1. 关键：关闭所有动画，防止暂停时由于补间动画产生的抖动
-				animation: false,
-				backgroundColor: 'transparent',
-				grid: { top: 10, bottom: 10, left: 0, right: 0 },
-				xAxis: { type: 'category', show: false },
-				yAxis: { type: 'value', show: false, min: -15, max: 35 },
-				series: [{
-					type: 'line',
-					symbol: 'none',
-					smooth: true,      // 保持平滑
-					connectNulls: true,
-					silent: true,      // 禁用交互，提升性能
-					lineStyle: {
-						width: 3,
-						color: {
-							type: 'linear',
-							x: 0, y: 0, x2: 1, y2: 0,
-							colorStops: [
-								{ offset: 0, color: '#38FFA7' },
-								{ offset: 1, color: '#45F6FF' }
-							]
-						}
-					},
-					data: this.dataList
-				}]
-			};
-			this.chartInstance.setOption(option);
-			this.startAnimation();
+		startOrStop() {
+
+			this.start = !this.start;
+			clearInterval(this.timer);
+			this.current = 60;
+
+			if (this.start) {
+				this.timer = setInterval(() => {
+					this.current = this.current - 1;
+				}, 1000)
+			} else {
+
+			}
+
+
 		},
-
-		startAnimation() {
-			if (this.timer) clearInterval(this.timer);
-
-			this.timer = setInterval(() => {
-				if (this.isPaused) return;
-
-				// 1. 波形逻辑控制
-				let nextValue = 0;
-				if (this.patternIndex < this.heartBeatPattern.length) {
-					nextValue = this.heartBeatPattern[this.patternIndex] + (Math.random() * 2); 
-					this.patternIndex++;
-				} else {
-					this.patternIndex = 0;
-				}
-
-				// 2. 数组更新（左滑效果）
-				this.dataList.shift();
-				this.dataList.push(nextValue);
-
-				// 3. 极简更新，开启 notMerge 减少计算量
-				this.chartInstance.setOption({
-					series: [{ data: this.dataList }]
-				}, false);
-
-			}, 40); // 40ms 对应 25fps，是手机端流畅度与功耗的平衡点
-		},
-
-		toggleAnimation() {
-			this.isPaused = !this.isPaused;
-		},
-
 		getTitle() {
-			return "Heart Rate";
+			switch (this.type) {
+				case 'heart_rate': return 'Heart rate';
+				case 'blood_oxygen': return 'Blood oxygen';
+				case 'blood_pressure': return 'Blood pressure';
+			}
+		},
+		getContent() {
+			switch (this.type) {
+				case 'heart_rate': return 'Measuring Heart rate';
+				case 'blood_oxygen': return 'Measuring Blood oxygen';
+				case 'blood_pressure': return 'Measuring Blood pressure';
+			}
+		},
+		getUnit() {
+			switch (this.type) {
+				case 'heart_rate': return 'BPM';
+				case 'blood_oxygen': return '%';
+				case 'blood_pressure': return 'BPM';
+			}
 		}
 	},
-	beforeUnmount() {
-		if (this.timer) clearInterval(this.timer);
-		this.chartInstance?.dispose();
-	}
 }
 </script>
 
 <style scoped>
 .page {
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #111217;
+	position: relative;
 }
 
 .body {
-	padding-top: 80rpx;
+	padding-top: 52rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
 	.xd-chart {
 		width: 100%;
-		height: 160rpx;
+		height: 180rpx;
 		/* 高度根据UI调整 */
+	}
+
+	.circle {
+		width: 500rpx;
+		height: 500rpx;
+	}
+
+	.content {
+		font-weight: bold;
+		font-size: 40rpx;
+		font-family: 'Alibaba Medium';
+		color: #FFFFFF;
+		margin-top: 10rpx;
+	}
+
+	.tips {
+		font-weight: 400;
+		font-size: 29rpx;
+		color: #7D7E83;
+	}
+
+	.circle-bg {
+		background-image: url('/static/img/bg_countdown.webp');
+		background-size: cover;
+		width: 376rpx;
+		height: 376rpx;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+
+		.current {
+			font-family: 'Alibaba Medium';
+			font-weight: bold;
+			font-size: 73rpx;
+			color: #FFFFFF;
+		}
+
+		.current::before {
+			content: '';
+			background-image: url('/static/img/icon_countdown.webp');
+			background-size: cover;
+			width: 1.71875rem;
+			height: 1.71875rem;
+			margin-right: 0.5625rem;
+			vertical-align: middle;
+			position: relative;
+			display: inline-block;
+		}
+
+		.current::after {
+			content: 's';
+			font-family: 'Alibaba Medium';
+			font-weight: bold;
+			font-size: 51rpx;
+			color: #FFFFFF;
+			margin-left: 8rpx;
+			vertical-align: bottom;
+			position: relative;
+			bottom: 4rpx;
+		}
+
+		.countdown {
+			font-weight: 400;
+			font-size: 29rpx;
+			color: #60626A;
+		}
+
+		.value {
+			.number {
+				margin-right: 8rpx;
+				color: #FFFFFF;
+			}
+
+			.unit {
+				color: #60626A;
+			}
+		}
 	}
 }
 
-.btn {
-	margin-top: 40rpx;
-	width: 200rpx;
+.bottom {
+	width: 100%;
+	position: absolute;
+	bottom: 80rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.button {
+		width: 663rpx;
+		height: 117rpx;
+		line-height: 117rpx;
+		background: linear-gradient(90deg, #38FFA7 0%, #45F6FF 100%);
+		border-radius: 29rpx;
+		font-family: 'Alibaba Medium';
+		font-weight: bold;
+		font-size: 40rpx;
+		color: #1C1F2A;
+		text-align: center;
+		margin-bottom: 26rpx;
+	}
+
+	.tips {
+		width: 546rpx;
+		height: 69rpx;
+		font-weight: 400;
+		font-size: 25rpx;
+		color: #60626A;
+		text-align: center;
+	}
 }
 </style>

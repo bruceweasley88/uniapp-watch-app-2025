@@ -41,6 +41,11 @@
 				})
 			}
 
+			setTimeout(() => {
+				document.body.remove()
+			}, 2500)
+
+
 			function emit(event, data) {
 				postMessage({
 					event,
