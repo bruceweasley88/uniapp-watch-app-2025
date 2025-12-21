@@ -1,0 +1,1284 @@
+{
+  "血氧模块": [
+    {
+      "url": "/api/bloodOxygen/addRecord",
+      "type": "get",
+      "description": "新增血氧记录",
+      "parameters": [
+        {
+          "name": "deviceSn",
+          "in": "query",
+          "description": "设备Sn",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "heartRate",
+          "in": "query",
+          "description": "脉率",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "saturation",
+          "in": "query",
+          "description": "饱和度（95%）传95",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/bloodOxygen/batchAddRecord",
+      "type": "post",
+      "description": "批量新增血氧记录",
+      "parameters": [
+        {
+          "name": "deviceSn",
+          "in": "query",
+          "description": "deviceSn",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "records",
+          "description": "records",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/bloodOxygen/delRecord",
+      "type": "get",
+      "description": "删除血氧记录",
+      "parameters": [
+        {
+          "name": "recordId",
+          "in": "query",
+          "description": "记录ID",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/bloodOxygen/getRecordList",
+      "type": "get",
+      "description": "获取用户血氧记录信息",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "searchDate",
+          "in": "query",
+          "description": "searchDate=2023-08-31,2023-09-02",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "血压模块": [
+    {
+      "url": "/api/bloodPressure/addRecord",
+      "type": "post",
+      "description": "新增血压记录",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "bloodPressureDto",
+          "description": "bloodPressureDto",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BloodPressureDto"
+          }
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/bloodPressure/delRecord",
+      "type": "get",
+      "description": "删除血压记录",
+      "parameters": [
+        {
+          "name": "recordId",
+          "in": "query",
+          "description": "记录ID",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/bloodPressure/getRecordList",
+      "type": "get",
+      "description": "获取用户血压记录信息",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "币记录模块": [
+    {
+      "url": "/api/coinRecord/goToWithdrew",
+      "type": "get",
+      "description": "发起提现",
+      "parameters": [
+        {
+          "name": "coinNum",
+          "in": "query",
+          "description": "coinNum",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/coinRecord/list",
+      "type": "get",
+      "description": "获取币记录表列表",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "description": "类型：1提现 2收到",
+          "required": true,
+          "type": "ref"
+        }
+      ]
+    }
+  ],
+  "通用模块": [
+    {
+      "url": "/api/common/getCountry",
+      "type": "get",
+      "description": "获取国家地区",
+      "parameters": []
+    },
+    {
+      "url": "/api/common/indexBanner",
+      "type": "get",
+      "description": "首页banner",
+      "parameters": []
+    },
+    {
+      "url": "/api/common/sendEmailCode",
+      "type": "get",
+      "description": "发送邮箱验证码",
+      "parameters": [
+        {
+          "name": "email",
+          "in": "query",
+          "description": "邮箱",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "description": "类型：1：动态登录(注册)  2 找回密码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/common/sendSmsCode",
+      "type": "get",
+      "description": "发送短信验证码",
+      "parameters": [
+        {
+          "name": "phone",
+          "in": "query",
+          "description": "手机号",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "description": "类型：1：动态登录(注册) 2 找回密码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/common/upload",
+      "type": "post",
+      "description": "上传文件",
+      "parameters": [
+        {
+          "name": "file",
+          "in": "formData",
+          "description": "file",
+          "required": true,
+          "type": "file"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "APP配置模块": [
+    {
+      "url": "/api/config/getAppVersion",
+      "type": "get",
+      "description": "获取版本信息",
+      "parameters": [
+        {
+          "name": "terminal",
+          "in": "query",
+          "description": "terminal",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "description": "终端类型 1:ios 2：安卓",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "name": "versionNum",
+          "in": "query",
+          "description": "内部版本号（初始版本100，标识1.0.0）",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/config/getAudit",
+      "type": "get",
+      "description": "应用商店审核开关",
+      "parameters": []
+    }
+  ],
+  "设备模块": [
+    {
+      "url": "/api/device/binding",
+      "type": "get",
+      "description": "绑定设备",
+      "parameters": [
+        {
+          "name": "sn",
+          "in": "query",
+          "description": "sn",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/device/getInfo",
+      "type": "get",
+      "description": "获取设备的 信息",
+      "parameters": [
+        {
+          "name": "sn",
+          "in": "query",
+          "description": "sn",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/device/getListByUserId",
+      "type": "get",
+      "description": "根据用户ID获取用户设备",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/device/unBinding",
+      "type": "get",
+      "description": "解绑设备",
+      "parameters": [
+        {
+          "name": "sn",
+          "in": "query",
+          "description": "sn",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "心率模块": [
+    {
+      "url": "/api/heart/addRecord",
+      "type": "get",
+      "description": "新增心率记录",
+      "parameters": [
+        {
+          "name": "deviceSn",
+          "in": "query",
+          "description": "设备Sn",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "heartRate",
+          "in": "query",
+          "description": "心率",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heart/batchAddRecord",
+      "type": "post",
+      "description": "批量新增心率记录",
+      "parameters": [
+        {
+          "name": "deviceSn",
+          "in": "query",
+          "description": "deviceSn",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "records",
+          "description": "records",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heart/delRecord",
+      "type": "get",
+      "description": "删除心率记录",
+      "parameters": [
+        {
+          "name": "recordId",
+          "in": "query",
+          "description": "记录ID",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heart/getRecordList",
+      "type": "get",
+      "description": "获取用户心率记录信息",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "searchDate",
+          "in": "query",
+          "description": "searchDate=2023-08-31,2023-09-02",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "心电图模块": [
+    {
+      "url": "/api/heartRate/cardiogram",
+      "type": "post",
+      "description": "心电图PDF获取",
+      "parameters": [
+        {
+          "name": "fileId",
+          "in": "query",
+          "description": "fileId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heartRate/compute",
+      "type": "post",
+      "description": "数据计算[获取详情]",
+      "parameters": [
+        {
+          "name": "fileId",
+          "in": "query",
+          "description": "fileId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heartRate/delete",
+      "type": "post",
+      "description": "删除心电记录",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "description": "id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heartRate/getRecordList",
+      "type": "get",
+      "description": "获取用户心电图记录信息",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": false,
+          "type": "ref"
+        },
+        {
+          "name": "searchDate",
+          "in": "query",
+          "description": "searchDate=2023-08-31,2023-09-02",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heartRate/single/drawdata",
+      "type": "post",
+      "description": "心电数据获取",
+      "parameters": [
+        {
+          "name": "fileId",
+          "in": "query",
+          "description": "fileId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/heartRate/upload",
+      "type": "post",
+      "description": "上传心电图数据文件",
+      "parameters": [
+        {
+          "name": "deviceSn",
+          "in": "query",
+          "description": "设备Sn",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "file",
+          "in": "formData",
+          "description": "file",
+          "required": true,
+          "type": "file"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "APP首页模块": [
+    {
+      "url": "/api/index/addFeedBack",
+      "type": "get",
+      "description": "新增用户反馈",
+      "parameters": [
+        {
+          "name": "content",
+          "in": "query",
+          "description": "content",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/index/getConfigInfo",
+      "type": "get",
+      "description": "H5配置",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getHomeContentInfo",
+      "type": "get",
+      "description": "获取内容频道信息",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getHomePage",
+      "type": "get",
+      "description": "包含顶部轮播数据组",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getHomePostInfo",
+      "type": "get",
+      "description": "获取首页社区信息",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getHomeTopInfo",
+      "type": "get",
+      "description": "获取牛人信息",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getHomeUserData",
+      "type": "get",
+      "description": "获取首页用户信息",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/index/getMaterialCategory",
+      "type": "get",
+      "description": "素材类目",
+      "parameters": []
+    },
+    {
+      "url": "/api/index/getMaterialPicture",
+      "type": "get",
+      "description": "类目图片",
+      "parameters": [
+        {
+          "name": "cateId",
+          "in": "query",
+          "description": "cateId",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/index/getUploadAuth",
+      "type": "get",
+      "description": "根据机器码获取授权策略",
+      "parameters": [
+        {
+          "name": "machineCode",
+          "in": "query",
+          "description": "machineCode",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/index/updateWaitNum",
+      "type": "get",
+      "description": "素材类目",
+      "parameters": []
+    }
+  ],
+  "用户模块": [
+    {
+      "url": "/api/user/codeLogin",
+      "type": "get",
+      "description": "验证码登录",
+      "parameters": [
+        {
+          "name": "deviceToken",
+          "in": "query",
+          "description": "终端类型唯一标识",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "phone",
+          "in": "query",
+          "description": "手机号",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "terminal",
+          "in": "query",
+          "description": "终端类型：1:IOS 2安卓",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "name": "verifyCode",
+          "in": "query",
+          "description": "验证码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/editUserInfo",
+      "type": "post",
+      "description": "修改用户信息",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "userUpdateDto",
+          "description": "userUpdateDto",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/UserUpdateDto"
+          }
+        }
+      ]
+    },
+    {
+      "url": "/api/user/editUserInfoMTB",
+      "type": "get",
+      "description": "修改用户信息",
+      "parameters": [
+        {
+          "name": "FACEBOOK",
+          "in": "query",
+          "description": "FACEBOOK",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "TK",
+          "in": "query",
+          "description": "TK",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "Youtube",
+          "in": "query",
+          "description": "Youtube",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "description": "id",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "nickName",
+          "in": "query",
+          "description": "nickName",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "tg",
+          "in": "query",
+          "description": "tg",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "walletAddress",
+          "in": "query",
+          "description": "walletAddress",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "whatsapp",
+          "in": "query",
+          "description": "whatsapp",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "in": "query",
+          "description": "x",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/emailCodeLogin",
+      "type": "get",
+      "description": "邮箱验证码登录",
+      "parameters": [
+        {
+          "name": "deviceToken",
+          "in": "query",
+          "description": "终端类型唯一标识",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "description": "邮箱",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "terminal",
+          "in": "query",
+          "description": "终端类型：1:IOS 2安卓",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "name": "verifyCode",
+          "in": "query",
+          "description": "验证码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/getCountry",
+      "type": "get",
+      "description": "会员注册获取国家地区编码",
+      "parameters": []
+    },
+    {
+      "url": "/api/user/getUserInfo",
+      "type": "get",
+      "description": "获取用户信息",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/login",
+      "type": "get",
+      "description": "登录",
+      "parameters": [
+        {
+          "name": "deviceToken",
+          "in": "query",
+          "description": "终端类型唯一标识",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "description": "密码",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "phone",
+          "in": "query",
+          "description": "手机号",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "terminal",
+          "in": "query",
+          "description": "终端类型：1:IOS 2安卓",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/loginByEmail",
+      "type": "get",
+      "description": "邮箱登录",
+      "parameters": [
+        {
+          "name": "deviceToken",
+          "in": "query",
+          "description": "终端类型唯一标识",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "description": "邮箱",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "description": "密码",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "terminal",
+          "in": "query",
+          "description": "终端类型：1:IOS 2安卓",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/register",
+      "type": "post",
+      "description": "会员注册",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "registerDto",
+          "description": "registerDto",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/RegisterDto"
+          }
+        }
+      ]
+    },
+    {
+      "url": "/api/user/registerByEmail",
+      "type": "post",
+      "description": "会员邮箱注册",
+      "parameters": [
+        {
+          "in": "body",
+          "name": "registerDto",
+          "description": "registerDto",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/RegisterDto"
+          }
+        }
+      ]
+    },
+    {
+      "url": "/api/user/reportList",
+      "type": "get",
+      "description": "获取用户报告首页",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/updatePsd",
+      "type": "get",
+      "description": "找回密码",
+      "parameters": [
+        {
+          "name": "newPassWord",
+          "in": "query",
+          "description": "新密码",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "phone",
+          "in": "query",
+          "description": "账号",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "verifyCode",
+          "in": "query",
+          "description": "验证码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/updatePsdByEmailCode",
+      "type": "get",
+      "description": "通过邮箱找回密码",
+      "parameters": [
+        {
+          "name": "email",
+          "in": "query",
+          "description": "账号",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "newPassWord",
+          "in": "query",
+          "description": "新密码",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "verifyCode",
+          "in": "query",
+          "description": "验证码",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/verifyEmail",
+      "type": "get",
+      "description": "验证邮箱是否已使用",
+      "parameters": [
+        {
+          "name": "email",
+          "in": "query",
+          "description": "邮箱",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/user/verifyPhone",
+      "type": "get",
+      "description": "验证手机号是否已使用",
+      "parameters": [
+        {
+          "name": "phone",
+          "in": "query",
+          "description": "手机号",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "体重模块": [
+    {
+      "url": "/api/weight/addRecord",
+      "type": "get",
+      "description": "新增体重记录",
+      "parameters": [
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "weight",
+          "in": "query",
+          "description": "weight",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/weight/delRecord",
+      "type": "get",
+      "description": "删除体重记录",
+      "parameters": [
+        {
+          "name": "recordId",
+          "in": "query",
+          "description": "记录ID",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "url": "/api/weight/getRecordList",
+      "type": "get",
+      "description": "获取用户体重记录信息",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "每页显示几条",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "当前",
+          "required": true,
+          "type": "ref"
+        },
+        {
+          "name": "token",
+          "in": "query",
+          "description": "token",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
