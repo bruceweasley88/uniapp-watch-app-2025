@@ -16,7 +16,7 @@
 					<view v-for="(deviceName, deviceId) in devices" :key="deviceId" class="device-item"
 						@click.stop="clickConnectAndBindding(deviceId)">
 						<view class="device-name click-active">{{ deviceName }}</view>
-						<view class="device-icon click-active">></view>
+						<view class="device-icon click-active"></view>
 					</view>
 				</view>
 			</view>
@@ -114,7 +114,7 @@ export default {
 			this.binddingTime = 60;
 			setTimeout(() => {
 				this.currentStatus = 'success';
-			}, 300)
+			}, 500)
 		},
 		async clickConnectAndBindding(deviceId) {
 			await this.startBinding(() => this.connect(deviceId));
@@ -131,7 +131,7 @@ export default {
 				uni.$on('onPeripheralDiscovered', handleDeviceDiscovered);
 				setTimeout(() => {
 					// 停止
-					// stopScan();
+					stopScan();
 					uni.$off('onPeripheralDiscovered', handleDeviceDiscovered);
 					resolve()
 				}, 3000)
@@ -321,6 +321,7 @@ export default {
 }
 
 .device-list-title {
+	margin-top: 180rpx;
 	background: #FFFFFF;
 	border-radius: 24px 24px 0 0;
 	width: 600rpx;
@@ -328,8 +329,10 @@ export default {
 	font-weight: bold;
 	color: #1C1F2A;
 	text-align: center;
-	padding: 40rpx 30rpx 30rpx;
+	padding-top: 30rpx;
+	padding-bottom: 10rpx;
 	font-family: 'Alibaba Medium';
+	border-bottom: 1px solid #eee;
 }
 
 .device-list-content {
@@ -361,6 +364,10 @@ export default {
 .device-icon {
 	font-size: 33rpx;
 	color: #7D7E83;
+	width: 30rpx;
+	height: 30rpx;
+	background-size: cover;
+	background-image: url('/static/img/icon_moreb.webp');
 }
 
 .device-list-content::-webkit-scrollbar {

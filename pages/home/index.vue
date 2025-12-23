@@ -11,7 +11,7 @@
 				</view>
 			</view>
 			<view class="user-head">
-				<image src="/static/img/icon_photo.webp" mode="aspectFill" />
+				<image :src="getUserHeadImg()" mode="aspectFill" />
 			</view>
 		</view>
 
@@ -72,6 +72,7 @@ import AlertPopup from '@/components/alert-popup.vue'
 import { commonGetIndexBanner } from '@/apis/commonApi.js'
 import { deviceGetListByUser } from '@/apis/deviceApi.js'
 import { currentBindUser, init } from '../../utils/watch';
+import { userGetInfo } from '../../apis/userApi';
 
 export default {
 	components: {
@@ -81,23 +82,24 @@ export default {
 		return {
 			alertProfile: true,
 			bannerList: [],
-			// device: []
+			// device: [],
+			userInfo: null
 		}
 	},
 	onLoad() {
-		// #ifdef APP-PLUS
 		const token = uni.getStorageSync('token')
 		if (token) {
+			// #ifdef APP-PLUS
 			init();
+			// #endif
 		}
-		// #endif
 	},
 	onShow() {
 		const token = uni.getStorageSync('token')
 		console.log('token', token)
 		if (token) {
-			// #ifdef APP-PLUS
 			this.init();
+			// #ifdef APP-PLUS
 			setTimeout(() => plus.navigator.closeSplashscreen(), 200);
 			// #endif
 		} else {
@@ -127,6 +129,13 @@ export default {
 		async getDeviceList() {
 			const res = await deviceGetListByUser();
 			this.device = res.data || [];
+		},
+		async getUserInfo() {
+			const userInfo = await userGetInfo();
+			this.userInfo = userInfo.data;
+		},
+		getUserHeadImg() {
+			return this.userInfo?.headImg || '/static/img/icon_photo.webp'
 		},
 		toMeasurement(type) {
 			if (currentBindUser) {

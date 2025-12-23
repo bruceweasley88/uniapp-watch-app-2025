@@ -25,7 +25,15 @@ export function init() {
     }
 
     if (type === 'onFitCloudLoginUserObjectResult') {
+      // 空的数据{}，仅用来判断是否绑定
       currentBindUser = data;
+    }
+
+    if(type === 'onBindUserObject') {
+      if(data.succeed) {
+        // 暂时用空的数据，不知道为什么onFitCloudLoginUserObjectResult返回的空的
+        currentBindUser = {};
+      }
     }
     console.log(type, data)
     uni.$emit(type, data)

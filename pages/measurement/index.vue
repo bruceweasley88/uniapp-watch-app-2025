@@ -78,6 +78,9 @@ export default {
 			if (this.start) {
 				this.timer = setInterval(() => {
 					this.current = this.current - 1;
+					if (this.current < 0) {
+						this.startOrStop();
+					}
 				}, 1000)
 				startMeasure(this.getKitType(), 50, 1)
 				uni.$on("onRealTimeHealthMeasuringData", this.onData)
@@ -87,10 +90,11 @@ export default {
 			}
 
 		},
+		
 		onData(data) {
 			const _data = data?.list?.[0];
-			if(_data) {
-				this.currentData = {..._data};
+			if (_data) {
+				this.currentData = { ..._data };
 			}
 		},
 		getKitType() {

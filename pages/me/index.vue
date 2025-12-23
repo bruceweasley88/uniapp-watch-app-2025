@@ -5,9 +5,9 @@
 		<view class="top">
 			<view class="user-info click-active" @click="toPresonal">
 				<view class="user-head">
-					<image src="/static/img/icon_photo.webp" mode="aspectFill" style="width: 100%; height: 100%;" />
+					<image :src="getUserHeadImg()" mode="aspectFill" style="width: 100%; height: 100%;" />
 				</view>
-				<view class="user-name">Peppertones</view>
+				<view class="user-name">{{ userInfo?.nickName || 'Peppertones' }}</view>
 			</view>
 
 			<view class="more click-active" @click="toPresonal"></view>
@@ -71,16 +71,28 @@
 </template>
 
 <script>
+import { userGetInfo } from '../../apis/userApi';
+
 export default {
 	data() {
 		return {
-
+			userInfo: null,
 		}
 	},
 	onLoad() {
-		plus.navigator.closeSplashscreen()
+
+	},
+	onShow() {
+		this.getUserInfo();
 	},
 	methods: {
+		async getUserInfo() {
+			const userInfo = await userGetInfo();
+			this.userInfo = userInfo.data;
+		},
+		getUserHeadImg() {
+			return this.userInfo?.headImg || '/static/img/icon_photo.webp'
+		},
 		toDevice() {
 			uni.navigateTo({
 				url: '/pages/device/index'
