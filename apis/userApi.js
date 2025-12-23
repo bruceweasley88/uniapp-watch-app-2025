@@ -76,6 +76,7 @@ export const userGetInfo = (data) => {
  * @param {Object} data - 请求参数对象
  * @param {string} data.phone - 手机号码
  * @param {string} data.password - 登录密码
+ * @param {string} data.terminal - 终端类型：固定1
  * @param {string} [data.areaCode] - 区号，默认86
  * @returns {Promise<Object>} 返回Promise对象，包含登录成功后的用户信息
  */
@@ -88,6 +89,7 @@ export const userPasswordLogin = (data) => {
  * @param {Object} data - 请求参数对象
  * @param {string} data.email - 邮箱地址
  * @param {string} data.password - 登录密码
+ * @param {string} data.terminal - 终端类型：固定1
  * @returns {Promise<Object>} 返回Promise对象，包含登录成功后的用户信息
  */
 export const userEmailLogin = (data) => {
@@ -134,26 +136,27 @@ export const userGetReportList = (data) => {
 /**
  * @description 修改密码
  * @param {Object} data - 请求参数对象
- * @param {string} data.token - 用户认证令牌
- * @param {string} data.oldPassword - 原密码
+ * @param {string} data.phone - 手机
+ * @param {string} data.verifyCode - 验证码
  * @param {string} data.newPassword - 新密码
  * @returns {Promise<Object>} 返回Promise对象，包含修改结果
  */
-export const userUpdatePassword = (data) => {
+export const updatePsd = (data) => {
   return get('/api/user/updatePsd', data)
 }
 
 /**
- * @description 通过邮箱验证码修改密码
+ * @description 修改密码
  * @param {Object} data - 请求参数对象
- * @param {string} data.email - 邮箱地址
- * @param {string} data.code - 验证码
- * @param {string} data.password - 新密码
+ * @param {string} data.email - 手机
+ * @param {string} data.verifyCode - 验证码
+ * @param {string} data.newPassword - 新密码
  * @returns {Promise<Object>} 返回Promise对象，包含修改结果
  */
-export const userUpdatePasswordByEmail = (data) => {
+export const updatePsdByEmailCode = (data) => {
   return get('/api/user/updatePsdByEmailCode', data)
 }
+
 
 /**
  * @description 验证邮箱

@@ -17,7 +17,7 @@
 						<text class="current">{{ current }}</text>
 						<text class="countdown">Countdown</text>
 						<text class="value">
-							<text class="number">--</text>
+							<text class="number">{{ currentData[getDataKey()] || '--' }}</text>
 							<text class="unit">{{ getUnit() }}</text>
 						</text>
 					</view>
@@ -38,6 +38,8 @@
 import CircleProgress from '../../components/circle-progress.vue';
 import NavBar from '../../components/nav-bar.vue';
 import XdChart from '../../components/xd-chart.vue';
+import { startMeasure, stopMeasure } from '../../utils/watch';
+
 
 export default {
 	components: {
@@ -54,8 +56,9 @@ export default {
 			unit: '',
 
 			current: 60,
-			timer: null
+			timer: null,
 
+			currentData: {}
 
 		}
 	},
@@ -76,11 +79,34 @@ export default {
 				this.timer = setInterval(() => {
 					this.current = this.current - 1;
 				}, 1000)
+				startMeasure(this.getKitType(), 50, 1)
+				uni.$on("onRealTimeHealthMeasuringData", this.onData)
 			} else {
-
+				stopMeasure()
+				ni.$off("onRealTimeHealthMeasuringData", this.onData)
 			}
 
-
+		},
+		onData(data) {
+			const _data = data?.list?.[0];
+			if(_data) {
+				this.currentData = {..._data};
+			}
+		},
+		getKitType() {
+			switch (this.type) {
+				case 'heart_rate': return 'heartrate';
+				case 'blood_oxygen': return 'bloodoxygen';
+				case 'blood_pressure': return 'bloodpressure';
+				case 'ecg': return 'ecg';
+			}
+		},
+		getDataKey() {
+			switch (this.type) {
+				case 'heart_rate': return 'heartRate';
+				case 'blood_oxygen': return 'bloodOxygen';
+				case 'blood_pressure': return 'systolic';
+			}
 		},
 		getTitle() {
 			switch (this.type) {

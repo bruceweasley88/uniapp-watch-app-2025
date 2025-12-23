@@ -9,7 +9,9 @@ export const fitInit : FitInit = function () {
 export const onEvent : onEventFunction = function (callbackParam : (type : string, data : UTSJSONObject) => void) {
 	FitCloudKitManager.onEvent(
 		callback = (type : string, data : UTSJSONObject) => {
-			console.log(type, data)
+			if(type != "onLogMessage") {
+				console.log("|||", type, data)
+			}
 			callbackParam(type, data)
 		}
 	)

@@ -422,11 +422,11 @@
 		</data>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		GKCHCtSTBbvIzzT5WF7h2g6ODT0=
+		D7dHNP3RV8EcehiNu3WzRf4G32s=
 		</data>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Rv7K325EPjpnB3u96lCzErkwp70=
+		hCXrdgH6ugfW/PCALqQBB7EyOHE=
 		</data>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -442,7 +442,7 @@
 		</data>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		eIsJNJ2/u+4vHg7DUgkbQTdmNyM=
+		YZJ9k0vbWwCt2GAkmU7uAGblAok=
 		</data>
 		<key>config.json</key>
 		<data>
@@ -879,14 +879,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DlemJE+FXt9USahG0r2aZrkTmfadl8qJrw2AYmDcvWU=
+			JEqNfQlGy3YlApvroDbL1BWrWy0yob7CyPARl+0Pb4k=
 			</data>
 		</dict>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6i8vp1Ev2EjyNPYq0D6DXdK0c8rSKV6nXUZhLq89sE8=
+			BRMXHDS0vsiWryrBVThlHEctqrA8fkgXoEGBDV1DCMU=
 			</data>
 		</dict>
 		<key>Modules/unimoduleWatchSdk.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -914,7 +914,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qIkB0W5bI9ueZVYMjEENOwLaBNGgfFEYL/CimOYQLaU=
+			1qH6kmjddXwzgb9QxKf8MXJ6cf/NO5oW5RUqNIiBicU=
 			</data>
 		</dict>
 		<key>config.json</key>

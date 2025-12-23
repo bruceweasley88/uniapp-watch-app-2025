@@ -142,7 +142,11 @@
       "backgroundColor": "#020206",
       "iconfontSrc": "/static/Alibaba-PuHuiTi-Medium.otf",
       "selectedIndex": 0,
-      "shown": true
+      "shown": true,
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 0
     }
   },
   "app-harmony": {

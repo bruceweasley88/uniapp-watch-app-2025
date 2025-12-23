@@ -16,6 +16,8 @@ export default {
 		// 	url: '/pages/home/index',
 		// 	success: () => plus.navigator.closeSplashscreen(),
 		// });
+
+		
 		uni.redirectTo({
 			url: '/pages/login/index',
 			success: () => plus.navigator.closeSplashscreen(),

@@ -5,7 +5,9 @@ export const fitInit: FitInit = function () {
 };
 export const onEvent: onEventFunction = function (callbackParam: (type: string, data: UTSJSONObject) => void) {
     FitCloudKitManager.onEvent(callback = (type: string, data: UTSJSONObject) => {
-        __f__('log', 'at uni_modules/watch-sdk/utssdk/app-ios/index.uts:12', type, data);
+        if (type != "onLogMessage") {
+            __f__('log', 'at uni_modules/watch-sdk/utssdk/app-ios/index.uts:13', "|||", type, data);
+        }
         callbackParam(type, data);
     });
 };

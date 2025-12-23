@@ -109,7 +109,7 @@
 	font-weight: 500;
 }
 .verification-group uni-view[data-v-46a64346] {
-	width: 280px;
+	width: 14.375rem;
 	font-weight: 500;
 	font-size: 18px;
 	color: #FFFFFF;
@@ -141,7 +141,7 @@
 
 /* 协议勾选行 - 小字灰色 */
 .agreement-row[data-v-46a64346] {
-	padding-left: 14px;
+	padding-left: 2px;
 	color: #7D7E83;
 	font-size: 14px;
 	font-weight: 400;
@@ -196,4 +196,21 @@
 	font-size: 16px;
 	color: #42E3E7;
 	font-weight: 500;
+}
+
+/* 验证码按钮禁用状态 */
+.verification-group .disabled[data-v-46a64346] {
+	color: #7D7E83;
+	cursor: not-allowed;
+}
+
+/* 输入框placeholder样式 */
+.phone-input[data-v-46a64346]::-webkit-input-placeholder, .email-input[data-v-46a64346]::-webkit-input-placeholder, .verification-group uni-input[data-v-46a64346]::-webkit-input-placeholder, .password-input[data-v-46a64346]::-webkit-input-placeholder {
+	color: #7D7E83;
+}
+.phone-input[data-v-46a64346]::placeholder,
+.email-input[data-v-46a64346]::placeholder,
+.verification-group uni-input[data-v-46a64346]::placeholder,
+.password-input[data-v-46a64346]::placeholder {
+	color: #7D7E83;
 }

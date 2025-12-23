@@ -2,7 +2,7 @@
 	<view class="page">
 
 		<!-- 顶部 -->
-		<view class="top">
+		<view class="top" @click="toTest">
 			<view class="hst">
 				<view class="title">Mining progress</view>
 				<view class="number">
@@ -18,13 +18,10 @@
 
 		<!-- 海报 -->
 		<view class="poster">
-			<swiper class="swiper" circular :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500">
-				<swiper-item>
-					<image src="/static/img/img_banner.webp" style="height: 100%; width: 100%;"></image>
-				</swiper-item>
-
-				<swiper-item>
-					<image src="/static/img/img_banner.webp" style="height: 100%; width: 100%;"></image>
+			<swiper class="swiper" circular :indicator-dots="bannerList.length > 1" :autoplay="bannerList.length > 1"
+				:interval="3000" :duration="500">
+				<swiper-item v-for="(item, index) in bannerList" :key="index">
+					<image :src="item.image" style="height: 100%; width: 100%;"></image>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -35,7 +32,7 @@
 			<view class="item item-bg-ecg click-active" @click="toMeasurement('ecg')">
 				<view class="title">ECG</view>
 				<view class="sub-title">Measure ECG</view>
-				<view class="button" style="color: #6E67E2;">Record</view>
+				<view class="button" style="color: #6E67E2;">Detect</view>
 			</view>
 
 			<view class="item item-bg-heartrate click-active" @click="toMeasurement('heart_rate')">
@@ -72,6 +69,9 @@
 
 <script>
 import AlertPopup from '@/components/alert-popup.vue'
+import { commonGetIndexBanner } from '@/apis/commonApi.js'
+import { deviceGetListByUser } from '@/apis/deviceApi.js'
+import { currentBindUser, init } from '../../utils/watch';
 
 export default {
 	components: {
@@ -79,26 +79,74 @@ export default {
 	},
 	data() {
 		return {
-
-			alertProfile: true
-
+			alertProfile: true,
+			bannerList: [],
+			// device: []
 		}
 	},
 	onLoad() {
-	},
-	onShow() {
 		// #ifdef APP-PLUS
-		plus.navigator.closeSplashscreen();
+		const token = uni.getStorageSync('token')
+		if (token) {
+			init();
+		}
 		// #endif
 	},
+	onShow() {
+		const token = uni.getStorageSync('token')
+		console.log('token', token)
+		if (token) {
+			// #ifdef APP-PLUS
+			this.init();
+			setTimeout(() => plus.navigator.closeSplashscreen(), 200);
+			// #endif
+		} else {
+			uni.redirectTo({
+				url: '/pages/login/index',
+				success: () => {
+					// #ifdef APP-PLUS
+					setTimeout(() => plus.navigator.closeSplashscreen(), 200);
+					// #endif
+				},
+			})
+		}
+	},
 	methods: {
+		init() {
+			this.getIndexBanner();
+			// this.getDeviceList();
+		},
+		// 海报
+		async getIndexBanner() {
+			if (!this.bannerList.length) {
+				const res = await commonGetIndexBanner();
+				this.bannerList = res.data || [];
+			}
+
+		},
+		async getDeviceList() {
+			const res = await deviceGetListByUser();
+			this.device = res.data || [];
+		},
 		toMeasurement(type) {
-			uni.navigateTo({
-				url: '/pages/measurement/index?type=' + type
-			});
+			if (currentBindUser) {
+				uni.navigateTo({
+					url: '/pages/measurement/index?type=' + type
+				});
+			} else {
+				uni.navigateTo({
+					url: '/pages/device/index'
+				});
+			}
+
 		},
 		handleStartDetection() {
-			
+
+		},
+		toTest() {
+			uni.navigateTo({
+				url: '/pages/test/index'
+			});
 		}
 	}
 }
@@ -175,7 +223,7 @@ export default {
 
 .poster {
 
-	height: 140px;
+	height: 150px;
 	padding: 0 20px;
 	margin-bottom: 20px;
 

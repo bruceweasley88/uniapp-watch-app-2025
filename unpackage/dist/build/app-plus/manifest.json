@@ -90,7 +90,7 @@
     },
     "allowsInlineMediaPlayback": true,
     "safearea": {
-      "background": "#FFFFFF",
+      "background": "#020206",
       "bottom": {
         "offset": "auto"
       }
@@ -111,20 +111,36 @@
     },
     "tabBar": {
       "position": "bottom",
-      "color": "#999",
-      "selectedColor": "#007aff",
+      "color": "#FFFFFF",
+      "selectedColor": "#44F6FB",
       "borderStyle": "rgba(0,0,0,0.4)",
       "blurEffect": "none",
       "fontSize": "10px",
       "iconWidth": "24px",
       "spacing": "3px",
-      "height": "50px",
+      "height": "82px",
       "list": [
         {
           "pagePath": "pages/home/index",
-          "text": "首页"
+          "text": "Home",
+          "iconPath": "/static/img/icon_homeu.webp",
+          "selectedIconPath": "/static/img/icon_homes.webp"
+        },
+        {
+          "pagePath": "pages/report/index",
+          "text": "Report",
+          "iconPath": "/static/img/icon_reportu.webp",
+          "selectedIconPath": "/static/img/icon_reports.webp"
+        },
+        {
+          "pagePath": "pages/me/index",
+          "text": "Me",
+          "iconPath": "/static/img/icon_meu.webp",
+          "selectedIconPath": "/static/img/icon_mes.webp"
         }
       ],
+      "backgroundColor": "#020206",
+      "iconfontSrc": "/static/Alibaba-PuHuiTi-Medium.otf",
       "selectedIndex": 0,
       "shown": true,
       "child": [
@@ -142,7 +158,7 @@
       "enable": false
     },
     "safearea": {
-      "background": "#FFFFFF",
+      "background": "#020206",
       "bottom": {
         "offset": "auto"
       }

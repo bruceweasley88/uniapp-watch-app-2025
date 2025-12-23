@@ -9,31 +9,58 @@
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
 				<view class="country-code click-active">+86</view>
-				<input type="tel" class="phone-input" placeholder="Mobile number" />
+				<input
+					type="tel"
+					class="phone-input"
+					placeholder="Mobile number"
+					v-model="phone"
+					maxlength="11"
+				/>
 			</view>
 
 			<!-- 邮箱输入组 -->
 			<view class="email-group" v-else>
-				<input type="email" class="email-input" placeholder="Email address" />
+				<input
+					type="email"
+					class="email-input"
+					placeholder="Email address"
+					v-model="email"
+				/>
 			</view>
 
 			<!-- 验证码 -->
 			<view class="verification-group">
-				<input type="text" placeholder="Verification code" />
-				<view class="click-active">sent code</view>
+				<input
+					type="text"
+					placeholder="Verification code"
+					v-model="code"
+					maxlength="6"
+				/>
+				<view
+					class="click-active"
+					@click="sendCode"
+					:class="{ disabled: countdown > 0 }"
+				>
+					{{ countdown > 0 ? `${countdown}s` : 'sent code' }}
+				</view>
 			</view>
 
 			<!-- 密码输入框 -->
-			<input type="password" class="password-input" placeholder="New password" />
+			<input
+				type="password"
+				class="password-input"
+				placeholder="New password"
+				v-model="password"
+			/>
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
-				<view class="checkbox click-active"></view>
-				<text>I have read the <text class="color-white">user agreement</text> and I accept it</text>
+				<view :class="`checkbox click-active ${accept ? 'selected' : ''}`" @click="accept = !accept"></view>
+				<text @click="accept = !accept">I have read the <text class="color-white">user agreement</text> and I accept it</text>
 			</view>
 
 			<!-- 按钮（渐变色背景） -->
-			<button class="submit-btn click-active">Reset</button>
+			<button class="submit-btn click-active" @click="reset">Reset</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
@@ -49,18 +76,179 @@
 </template>
 
 <script>
+import { updatePsd, updatePsdByEmailCode } from '@/apis/userApi.js'
+import { commonSendSmsCode, commonSendEmailCode } from '@/apis/commonApi.js'
+
 export default {
 	data() {
 		return {
-			type: 'mobile'  // 登录类型，默认为手机号登录，可选值：'phone'（手机号登录）、'email'（邮箱登录）
+			type: 'mobile',  // 重置类型：'mobile' 或 'email'
+			accept: true,   // 是否同意用户协议
+
+			// 表单数据
+			phone: '',       // 手机号
+			email: '',       // 邮箱
+			code: '',        // 验证码
+			password: '',    // 新密码
+
+			// 验证码倒计时
+			countdown: 0,    // 倒计时秒数
+			countdownTimer: null,  // 定时器
 		}
 	},
 	onLoad() {
 
 	},
+	onUnload() {
+		if (this.countdownTimer) {
+			clearInterval(this.countdownTimer)
+		}
+	},
 	methods: {
 		goToLogin() {
 			uni.navigateBack();
+		},
+
+		// 发送验证码
+		async sendCode() {
+			// 校验倒计时
+			if (this.countdown > 0) return
+
+			try {
+				// 验证输入
+				if (this.type === 'mobile' && !this.phone) {
+					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					return
+				}
+				if (this.type === 'email' && !this.email) {
+					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					return
+				}
+
+				// 调用API - 使用type='2'找回密码类型
+				if (this.type === 'mobile') {
+					await commonSendSmsCode({
+						phone: this.phone,
+						areaCode: '86',
+						type: '2'
+					})
+				} else {
+					await commonSendEmailCode({
+						email: this.email,
+						type: '2'
+					})
+				}
+
+				uni.showToast({ title: 'Verification code sent', icon: 'success' })
+
+				// 开始倒计时
+				this.startCountdown()
+
+			} catch (error) {
+				uni.showToast({ title: error.message || 'Send failed', icon: 'none' })
+			}
+		},
+
+		// 开始倒计时
+		startCountdown() {
+			this.countdown = 60
+			this.countdownTimer = setInterval(() => {
+				this.countdown--
+				if (this.countdown <= 0) {
+					clearInterval(this.countdownTimer)
+					this.countdownTimer = null
+				}
+			}, 1000)
+		},
+
+		// 验证表单
+		validateForm() {
+			// 验证手机号或邮箱
+			if (this.type === 'mobile') {
+				if (!this.phone) {
+					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					return false
+				}
+				if (!/^1[3-9]\d{9}$/.test(this.phone)) {
+					uni.showToast({ title: 'Please enter valid phone number', icon: 'none' })
+					return false
+				}
+			} else {
+				if (!this.email) {
+					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					return false
+				}
+				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
+					uni.showToast({ title: 'Please enter valid email address', icon: 'none' })
+					return false
+				}
+			}
+
+			// 验证验证码
+			if (!this.code) {
+				uni.showToast({ title: 'Please enter verification code', icon: 'none' })
+				return false
+			}
+
+			// 验证新密码
+			if (!this.password) {
+				uni.showToast({ title: 'Please enter new password', icon: 'none' })
+				return false
+			}
+			if (this.password.length < 6) {
+				uni.showToast({ title: 'Password must be at least 6 characters', icon: 'none' })
+				return false
+			}
+
+			// 验证协议
+			if (!this.accept) {
+				uni.showToast({ title: 'Please accept user agreement', icon: 'none' })
+				return false
+			}
+
+			return true
+		},
+
+		// 重置密码
+		async reset() {
+			if (!this.validateForm()) return
+
+			try {
+
+				if (this.type === 'mobile') {
+					console.log({
+						phone: this.phone,
+						verifyCode: this.code,
+						newPassword: this.password
+					})
+
+					// 手机号重置密码
+					await updatePsd({
+						phone: this.phone,
+						verifyCode: this.code,
+						newPassWord: this.password
+					})
+				} else {
+					// 邮箱重置密码
+					await updatePsdByEmailCode({
+						email: this.email,
+						verifyCode: this.code,
+						newPassWord: this.password
+					})
+				}
+
+				uni.hideLoading()
+				uni.showToast({ title: 'successful', icon: 'success' })
+
+				// 延迟跳转到登录页
+				setTimeout(() => {
+					this.goToLogin()
+				}, 1500)
+
+			} catch (error) {
+				uni.hideLoading()
+				uni.showToast({ title: error.message || 'Reset failed', icon: 'none' })
+			}
 		}
 	}
 }
@@ -187,7 +375,7 @@ export default {
 }
 
 .verification-group view {
-	width: 280px;
+	width: 460rpx;
 	font-weight: 500;
 	font-size: 18px;
 	color: #FFFFFF;
@@ -274,5 +462,24 @@ export default {
 	font-size: 16px;
 	color: #42E3E7;
 	font-weight: 500;
+}
+
+/* 验证码按钮禁用状态 */
+.verification-group .disabled {
+	color: #7D7E83;
+	cursor: not-allowed;
+}
+
+/* 输入框placeholder样式 */
+.phone-input::placeholder,
+.email-input::placeholder,
+.verification-group input::placeholder,
+.password-input::placeholder {
+	color: #7D7E83;
+}
+
+/* 协议勾选行样式调整 */
+.agreement-row {
+	padding-left: 2px;
 }
 </style>

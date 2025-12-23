@@ -31,6 +31,16 @@ if (uni.restoreGlobal) {
 }
 (function(vue) {
   "use strict";
+  function formatAppLog(type, filename, ...args) {
+    if (uni.__log__) {
+      uni.__log__(type, filename, ...args);
+    } else {
+      console[type].apply(console, [...args, filename]);
+    }
+  }
+  function resolveEasycom(component, easycom) {
+    return typeof component === "string" ? easycom : component;
+  }
   const _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) {
@@ -38,282 +48,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$n = {
-    data() {
-      return {};
-    },
-    onShow() {
-      uni.redirectTo({
-        url: "/pages/login/index",
-        success: () => plus.navigator.closeSplashscreen()
-      });
-    },
-    methods: {}
-  };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page" });
-  }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-1cf27b2a"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/index/index.vue"]]);
   const _sfc_main$m = {
-    data() {
-      return {
-        type: "mobile"
-        // 登录类型，默认为手机号登录，可选值：'mobile'（手机号登录）、'email'（邮箱登录）
-      };
-    },
-    onShow() {
-      plus.navigator.closeSplashscreen();
-    },
-    methods: {
-      goToRegister() {
-        uni.navigateTo({
-          url: "/pages/register/index"
-        });
-      },
-      goToForgot() {
-        uni.navigateTo({
-          url: "/pages/forgot/index"
-        });
-      },
-      goToHome() {
-        uni.switchTab({
-          url: "/pages/home/index"
-        });
-      }
-    }
-  };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "login-page" }, [
-      vue.createElementVNode("view", { class: "login-card" }, [
-        vue.createElementVNode("text", { class: "title" }, "Hello!"),
-        vue.createElementVNode("view", { class: "subtitle" }, "Welcome back to danke!"),
-        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
-          key: 0,
-          class: "phone-group"
-        }, [
-          vue.createElementVNode("view", { class: "country-code" }, "+86"),
-          vue.createElementVNode("input", {
-            type: "tel",
-            class: "phone-input",
-            placeholder: "Mobile number"
-          })
-        ])) : (vue.openBlock(), vue.createElementBlock("view", {
-          key: 1,
-          class: "email-group"
-        }, [
-          vue.createElementVNode("input", {
-            type: "email",
-            class: "email-input",
-            placeholder: "Email address"
-          })
-        ])),
-        vue.createElementVNode("input", {
-          type: "password",
-          class: "password-input",
-          placeholder: "Password"
-        }),
-        vue.createElementVNode("view", { class: "agreement-row" }, [
-          vue.createElementVNode("view", { class: "checkbox selected click-active-max" }),
-          vue.createElementVNode("text", null, [
-            vue.createTextVNode("I have read the "),
-            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
-            vue.createTextVNode(" and I accept it")
-          ])
-        ]),
-        vue.createElementVNode("button", {
-          class: "login-btn click-active",
-          onClick: _cache[0] || (_cache[0] = (...args) => $options.goToHome && $options.goToHome(...args))
-        }, "Log in"),
-        vue.createElementVNode("view", { class: "link-row" }, [
-          vue.createElementVNode("text", {
-            class: "color-white click-active",
-            onClick: _cache[1] || (_cache[1] = (...args) => $options.goToRegister && $options.goToRegister(...args))
-          }, "Create new account"),
-          vue.createElementVNode("text", null, "|"),
-          vue.createElementVNode("text", {
-            class: "click-active",
-            onClick: _cache[2] || (_cache[2] = (...args) => $options.goToForgot && $options.goToForgot(...args))
-          }, "Forgot password")
-        ]),
-        vue.createElementVNode(
-          "text",
-          {
-            class: "login-type-link click-active",
-            onClick: _cache[3] || (_cache[3] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
-          },
-          " Log in with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
-          1
-          /* TEXT */
-        )
-      ])
-    ]);
-  }
-  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
-  const _sfc_main$l = {
-    data() {
-      return {
-        type: "mobile"
-        // 登录类型，默认为手机号登录，可选值：'phone'（手机号登录）、'email'（邮箱登录）
-      };
-    },
-    onLoad() {
-    },
-    methods: {
-      goToLogin() {
-        uni.navigateBack();
-      }
-    }
-  };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
-      vue.createElementVNode("view", { class: "cotent-card" }, [
-        vue.createElementVNode("text", { class: "title" }, "Sign up"),
-        vue.createElementVNode("view", { class: "subtitle" }, "Please to register on account"),
-        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
-          key: 0,
-          class: "phone-group"
-        }, [
-          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
-          vue.createElementVNode("input", {
-            type: "tel",
-            class: "phone-input",
-            placeholder: "Mobile number"
-          })
-        ])) : (vue.openBlock(), vue.createElementBlock("view", {
-          key: 1,
-          class: "email-group"
-        }, [
-          vue.createElementVNode("input", {
-            type: "email",
-            class: "email-input",
-            placeholder: "Email address"
-          })
-        ])),
-        vue.createElementVNode("view", { class: "verification-group" }, [
-          vue.createElementVNode("input", {
-            type: "text",
-            placeholder: "Verification code"
-          }),
-          vue.createElementVNode("view", { class: "click-active" }, "sent code")
-        ]),
-        vue.createElementVNode("input", {
-          type: "password",
-          class: "password-input",
-          placeholder: "Password"
-        }),
-        vue.createElementVNode("view", { class: "agreement-row" }, [
-          vue.createElementVNode("view", { class: "checkbox click-active" }),
-          vue.createElementVNode("text", null, [
-            vue.createTextVNode("I have read the "),
-            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
-            vue.createTextVNode(" and I accept it")
-          ])
-        ]),
-        vue.createElementVNode("button", { class: "submit-btn click-active" }, "Create new account"),
-        vue.createElementVNode("view", { class: "link-row" }, [
-          vue.createElementVNode(
-            "text",
-            {
-              class: "color-white click-active",
-              onClick: _cache[0] || (_cache[0] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
-            },
-            " Register with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", null, "|"),
-          vue.createElementVNode("text", {
-            class: "click-active",
-            onClick: _cache[1] || (_cache[1] = (...args) => $options.goToLogin && $options.goToLogin(...args))
-          }, "Log in")
-        ])
-      ])
-    ]);
-  }
-  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
-  const _sfc_main$k = {
-    data() {
-      return {
-        type: "mobile"
-        // 登录类型，默认为手机号登录，可选值：'phone'（手机号登录）、'email'（邮箱登录）
-      };
-    },
-    onLoad() {
-    },
-    methods: {
-      goToLogin() {
-        uni.navigateBack();
-      }
-    }
-  };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
-      vue.createElementVNode("view", { class: "cotent-card" }, [
-        vue.createElementVNode("text", { class: "title" }, "Forgot password"),
-        vue.createElementVNode("view", { class: "subtitle" }, "Please change your password"),
-        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
-          key: 0,
-          class: "phone-group"
-        }, [
-          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
-          vue.createElementVNode("input", {
-            type: "tel",
-            class: "phone-input",
-            placeholder: "Mobile number"
-          })
-        ])) : (vue.openBlock(), vue.createElementBlock("view", {
-          key: 1,
-          class: "email-group"
-        }, [
-          vue.createElementVNode("input", {
-            type: "email",
-            class: "email-input",
-            placeholder: "Email address"
-          })
-        ])),
-        vue.createElementVNode("view", { class: "verification-group" }, [
-          vue.createElementVNode("input", {
-            type: "text",
-            placeholder: "Verification code"
-          }),
-          vue.createElementVNode("view", { class: "click-active" }, "sent code")
-        ]),
-        vue.createElementVNode("input", {
-          type: "password",
-          class: "password-input",
-          placeholder: "New password"
-        }),
-        vue.createElementVNode("view", { class: "agreement-row" }, [
-          vue.createElementVNode("view", { class: "checkbox click-active" }),
-          vue.createElementVNode("text", null, [
-            vue.createTextVNode("I have read the "),
-            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
-            vue.createTextVNode(" and I accept it")
-          ])
-        ]),
-        vue.createElementVNode("button", { class: "submit-btn click-active" }, "Reset"),
-        vue.createElementVNode("view", { class: "link-row" }, [
-          vue.createElementVNode(
-            "text",
-            {
-              class: "color-white click-active",
-              onClick: _cache[0] || (_cache[0] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
-            },
-            " Register with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", null, "|"),
-          vue.createElementVNode("text", {
-            class: "click-active",
-            onClick: _cache[1] || (_cache[1] = (...args) => $options.goToLogin && $options.goToLogin(...args))
-          }, "Log in")
-        ])
-      ])
-    ]);
-  }
-  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
-  const _sfc_main$j = {
     name: "AlertPopup",
     props: {
       // 弹窗显隐状态
@@ -353,7 +88,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return $props.visible ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -410,37 +145,173 @@ if (uni.restoreGlobal) {
       /* NEED_HYDRATION */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
+  const AlertPopup = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-d189285d"], ["__file", "/Users/bruce-mac/ios-watch-app/components/alert-popup.vue"]]);
+  const url = "http://47.115.204.186:8088";
+  const request = (options) => {
+    const token = uni.getStorageSync("token");
+    const data = { ...options.data, token };
+    return new Promise((resolve, reject) => {
+      uni.request({
+        ...options,
+        url: url + options.url,
+        data,
+        success: (res) => {
+          if (res.data.code === 401) {
+            uni.navigateTo({ url: "/pages/login/login" });
+            uni.showToast({
+              title: "请先登录",
+              icon: "none",
+              duration: 2e3
+            });
+            throw new Error("请先登录");
+          }
+          if (res.data.code !== 200) {
+            uni.showToast({
+              title: res.data.msg || "Request failed",
+              icon: "none",
+              duration: 2e3
+            });
+            throw new Error(res.data.msg);
+          }
+          resolve(res.data);
+        },
+        fail: reject
+      });
+    });
+  };
+  const get = (url2, data) => {
+    return request({ url: url2, method: "GET", data });
+  };
+  const post = (url2, data) => {
+    return request({ url: url2, method: "POST", data });
+  };
+  const commonGetIndexBanner = () => {
+    return get("/api/common/indexBanner");
+  };
+  const commonSendEmailCode = (data) => {
+    return get("/api/common/sendEmailCode", data);
+  };
+  const commonSendSmsCode = (data) => {
+    return get("/api/common/sendSmsCode", data);
+  };
+  const deviceGetListByUser = (data) => {
+    return get("/api/device/getListByUserId", data);
+  };
+  const { registerUTSInterface, initUTSProxyClass, initUTSProxyFunction, initUTSPackageName, initUTSIndexClassName, initUTSClassName } = uni;
+  const name = "watchSdk";
+  const moduleName = "watch-sdk";
+  const moduleType = "";
+  const errMsg = ``;
+  const is_uni_modules = true;
+  const pkg = /* @__PURE__ */ initUTSPackageName(name, is_uni_modules);
+  const cls = /* @__PURE__ */ initUTSIndexClassName(name, is_uni_modules);
+  const fitInit = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "fitInitByJs", keepAlive: false, params: [], return: "" });
+  const onEvent = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "onEventByJs", keepAlive: false, params: [{ "name": "callback", "type": "UTSCallback" }], return: "" });
+  const startScan = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "startScanByJs", keepAlive: false, params: [], return: "" });
+  const stopScan = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "stopScanByJs", keepAlive: false, params: [], return: "" });
+  const connect = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "connectByJs", keepAlive: false, params: [{ "name": "deviceId", "type": "string" }], return: "" });
+  const bind = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "bindByJs", keepAlive: false, params: [{ "name": "userId", "type": "string" }], return: "" });
+  const unbind = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "unbindByJs", keepAlive: false, params: [], return: "" });
+  const syncData = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "syncDataByJs", keepAlive: false, params: [], return: "" });
+  const startMeasure = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "startMeasureByJs", keepAlive: false, params: [{ "name": "type", "type": "string" }, { "name": "interval", "type": "UInt8" }, { "name": "minutes", "type": "UInt8" }], return: "" });
+  const stopMeasure = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "stopMeasureByJs", keepAlive: false, params: [], return: "" });
+  const getAllConfig = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "getAllConfigByJs", keepAlive: false, params: [], return: "" });
+  let currentConnect = false;
+  let currentBindUser = null;
+  function init() {
+    fitInit();
+    onEvent((type, data) => {
+      if (type === "onLogMessage") {
+        return;
+      }
+      if (type === "onPeripheralConnectedNotification") {
+        currentConnect = true;
+      }
+      if (type === "onPeripherialConnectFailureNotification") {
+        currentConnect = false;
+      }
+      if (type === "onFitCloudLoginUserObjectResult") {
+        currentBindUser = data;
+      }
+      formatAppLog("log", "at utils/watch.js:30", type, data);
+      uni.$emit(type, data);
+    });
+  }
   const _imports_0$6 = "/static/img/icon_photo.webp";
-  const _imports_1$2 = "/static/img/img_banner.webp";
-  const _sfc_main$i = {
+  const _sfc_main$l = {
     components: {
       AlertPopup
     },
     data() {
       return {
-        alertProfile: true
+        alertProfile: true,
+        bannerList: []
+        // device: []
       };
     },
     onLoad() {
+      const token = uni.getStorageSync("token");
+      if (token) {
+        init();
+      }
     },
     onShow() {
-      plus.navigator.closeSplashscreen();
+      const token = uni.getStorageSync("token");
+      formatAppLog("log", "at pages/home/index.vue:97", "token", token);
+      if (token) {
+        this.init();
+        setTimeout(() => plus.navigator.closeSplashscreen(), 200);
+      } else {
+        uni.redirectTo({
+          url: "/pages/login/index",
+          success: () => {
+            setTimeout(() => plus.navigator.closeSplashscreen(), 200);
+          }
+        });
+      }
     },
     methods: {
+      init() {
+        this.getIndexBanner();
+      },
+      // 海报
+      async getIndexBanner() {
+        if (!this.bannerList.length) {
+          const res = await commonGetIndexBanner();
+          this.bannerList = res.data || [];
+        }
+      },
+      async getDeviceList() {
+        const res = await deviceGetListByUser();
+        this.device = res.data || [];
+      },
       toMeasurement(type) {
-        uni.navigateTo({
-          url: "/pages/measurement/index?type=" + type
-        });
+        if (currentBindUser) {
+          uni.navigateTo({
+            url: "/pages/measurement/index?type=" + type
+          });
+        } else {
+          uni.navigateTo({
+            url: "/pages/device/index"
+          });
+        }
       },
       handleStartDetection() {
+      },
+      toTest() {
+        uni.navigateTo({
+          url: "/pages/test/index"
+        });
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_alert_popup = vue.resolveComponent("alert-popup");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
-      vue.createElementVNode("view", { class: "top" }, [
+      vue.createElementVNode("view", {
+        class: "top",
+        onClick: _cache[0] || (_cache[0] = (...args) => $options.toTest && $options.toTest(...args))
+      }, [
         vue.createElementVNode("view", { class: "hst" }, [
           vue.createElementVNode("view", { class: "title" }, "Mining progress"),
           vue.createElementVNode("view", { class: "number" }, [
@@ -459,40 +330,42 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("swiper", {
           class: "swiper",
           circular: "",
-          "indicator-dots": true,
-          autoplay: true,
+          "indicator-dots": $data.bannerList.length > 1,
+          autoplay: $data.bannerList.length > 1,
           interval: 3e3,
           duration: 500
         }, [
-          vue.createElementVNode("swiper-item", null, [
-            vue.createElementVNode("image", {
-              src: _imports_1$2,
-              style: { "height": "100%", "width": "100%" }
-            })
-          ]),
-          vue.createElementVNode("swiper-item", null, [
-            vue.createElementVNode("image", {
-              src: _imports_1$2,
-              style: { "height": "100%", "width": "100%" }
-            })
-          ])
-        ])
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.bannerList, (item, index) => {
+              return vue.openBlock(), vue.createElementBlock("swiper-item", { key: index }, [
+                vue.createElementVNode("image", {
+                  src: item.image,
+                  style: { "height": "100%", "width": "100%" }
+                }, null, 8, ["src"])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ], 8, ["indicator-dots", "autoplay"])
       ]),
       vue.createElementVNode("view", { class: "box" }, [
         vue.createElementVNode("view", {
           class: "item item-bg-ecg click-active",
-          onClick: _cache[0] || (_cache[0] = ($event) => $options.toMeasurement("ecg"))
+          onClick: _cache[1] || (_cache[1] = ($event) => $options.toMeasurement("ecg"))
         }, [
           vue.createElementVNode("view", { class: "title" }, "ECG"),
           vue.createElementVNode("view", { class: "sub-title" }, "Measure ECG"),
           vue.createElementVNode("view", {
             class: "button",
             style: { "color": "#6E67E2" }
-          }, "Record")
+          }, "Detect")
         ]),
         vue.createElementVNode("view", {
           class: "item item-bg-heartrate click-active",
-          onClick: _cache[1] || (_cache[1] = ($event) => $options.toMeasurement("heart_rate"))
+          onClick: _cache[2] || (_cache[2] = ($event) => $options.toMeasurement("heart_rate"))
         }, [
           vue.createElementVNode("view", { class: "title" }, "Heart rate"),
           vue.createElementVNode("view", { class: "sub-title" }, "Focus on heart health"),
@@ -505,7 +378,7 @@ if (uni.restoreGlobal) {
       vue.createElementVNode("view", { class: "box" }, [
         vue.createElementVNode("view", {
           class: "item item-bg-bloodoxygen click-active",
-          onClick: _cache[2] || (_cache[2] = ($event) => $options.toMeasurement("blood_oxygen"))
+          onClick: _cache[3] || (_cache[3] = ($event) => $options.toMeasurement("blood_oxygen"))
         }, [
           vue.createElementVNode("view", { class: "title" }, "Blood oxygen"),
           vue.createElementVNode("view", { class: "sub-title" }, "Detection and protection"),
@@ -516,7 +389,7 @@ if (uni.restoreGlobal) {
         ]),
         vue.createElementVNode("view", {
           class: "item item-bg-bloodpressure click-active",
-          onClick: _cache[3] || (_cache[3] = ($event) => $options.toMeasurement("blood_pressure"))
+          onClick: _cache[4] || (_cache[4] = ($event) => $options.toMeasurement("blood_pressure"))
         }, [
           vue.createElementVNode("view", { class: "title" }, "Blood pressure"),
           vue.createElementVNode("view", { class: "sub-title" }, "Measure blood pressure"),
@@ -528,7 +401,7 @@ if (uni.restoreGlobal) {
       ]),
       vue.createVNode(_component_alert_popup, {
         visible: $data.alertProfile,
-        "onUpdate:visible": _cache[4] || (_cache[4] = ($event) => $data.alertProfile = $event),
+        "onUpdate:visible": _cache[5] || (_cache[5] = ($event) => $data.alertProfile = $event),
         topImage: "/static/img/icon_personal.webp",
         title: "Please fill in your height and weight",
         content: "The reference standard values ​​of the detection indicators need to be matched according to your information.",
@@ -537,7 +410,775 @@ if (uni.restoreGlobal) {
       }, null, 8, ["visible", "onOk"])
     ]);
   }
-  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
+  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-4978fed5"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/home/index.vue"]]);
+  const userPasswordLogin = (data) => {
+    return get("/api/user/login", data);
+  };
+  const userEmailLogin = (data) => {
+    return get("/api/user/loginByEmail", data);
+  };
+  const userRegister = (data) => {
+    return post("/api/user/register", data);
+  };
+  const userEmailRegister = (data) => {
+    return post("/api/user/registerByEmail", data);
+  };
+  const updatePsd = (data) => {
+    return get("/api/user/updatePsd", data);
+  };
+  const updatePsdByEmailCode = (data) => {
+    return get("/api/user/updatePsdByEmailCode", data);
+  };
+  const _sfc_main$k = {
+    data() {
+      return {
+        type: "mobile",
+        // 登录类型，默认为手机号登录，可选值：'mobile'（手机号登录）、'email'（邮箱登录）
+        accept: true,
+        // 是否同意用户协议
+        // 表单数据
+        phone: "",
+        // 手机号
+        email: "",
+        // 邮箱
+        password: ""
+        // 密码
+      };
+    },
+    onShow() {
+      setTimeout(() => plus.navigator.closeSplashscreen(), 300);
+    },
+    methods: {
+      goToRegister() {
+        uni.navigateTo({
+          url: "/pages/register/index"
+        });
+      },
+      goToForgot() {
+        uni.navigateTo({
+          url: "/pages/forgot/index"
+        });
+      },
+      // 验证表单
+      validateForm() {
+        if (this.type === "mobile") {
+          if (!this.phone) {
+            uni.showToast({ title: "Please enter phone number", icon: "none" });
+            return false;
+          }
+          if (!/^1[3-9]\d{9}$/.test(this.phone)) {
+            uni.showToast({ title: "Please enter valid phone number", icon: "none" });
+            return false;
+          }
+        } else {
+          if (!this.email) {
+            uni.showToast({ title: "Please enter email address", icon: "none" });
+            return false;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
+            uni.showToast({ title: "Please enter valid email address", icon: "none" });
+            return false;
+          }
+        }
+        if (!this.password) {
+          uni.showToast({ title: "Please enter password", icon: "none" });
+          return false;
+        }
+        if (!this.accept) {
+          uni.showToast({ title: "Please accept user agreement", icon: "none" });
+          return false;
+        }
+        return true;
+      },
+      // 登录
+      async login() {
+        if (!this.validateForm())
+          return;
+        let result;
+        if (this.type === "mobile") {
+          result = await userPasswordLogin({
+            phone: this.phone,
+            password: this.password,
+            terminal: 1,
+            deviceToken: 86
+          });
+        } else {
+          result = await userEmailLogin({
+            email: this.email,
+            password: this.password,
+            terminal: 1,
+            deviceToken: 86
+          });
+        }
+        if (result.data && result.data.token) {
+          uni.setStorageSync("token", result.data.token);
+        }
+        uni.hideLoading();
+        uni.showToast({ title: "Login successful", icon: "success" });
+        setTimeout(() => {
+          uni.switchTab({
+            url: "/pages/home/index"
+          });
+        }, 1e3);
+      }
+    }
+  };
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "login-page" }, [
+      vue.createElementVNode("view", { class: "login-card" }, [
+        vue.createElementVNode("text", { class: "title" }, "Hello!"),
+        vue.createElementVNode("view", { class: "subtitle" }, "Welcome back to danke!"),
+        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "phone-group"
+        }, [
+          vue.createElementVNode("view", { class: "country-code" }, "+86"),
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "tel",
+              class: "phone-input",
+              placeholder: "Mobile number",
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.phone = $event),
+              maxlength: "11"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.phone]
+          ])
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "email-group"
+        }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "email",
+              class: "email-input",
+              placeholder: "Email address",
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.email = $event)
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.email]
+          ])
+        ])),
+        vue.withDirectives(vue.createElementVNode(
+          "input",
+          {
+            type: "password",
+            class: "password-input",
+            placeholder: "Password",
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.password = $event)
+          },
+          null,
+          512
+          /* NEED_PATCH */
+        ), [
+          [vue.vModelText, $data.password]
+        ]),
+        vue.createElementVNode("view", { class: "agreement-row" }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(`checkbox click-active ${$data.accept ? "selected" : ""}`),
+              onClick: _cache[3] || (_cache[3] = ($event) => $data.accept = !$data.accept)
+            },
+            null,
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode("text", {
+            onClick: _cache[4] || (_cache[4] = ($event) => $data.accept = !$data.accept)
+          }, [
+            vue.createTextVNode("I have read the "),
+            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
+            vue.createTextVNode(" and I accept it")
+          ])
+        ]),
+        vue.createElementVNode("button", {
+          class: "login-btn click-active",
+          onClick: _cache[5] || (_cache[5] = (...args) => $options.login && $options.login(...args))
+        }, "Log in"),
+        vue.createElementVNode("view", { class: "link-row" }, [
+          vue.createElementVNode("text", {
+            class: "color-white click-active",
+            onClick: _cache[6] || (_cache[6] = (...args) => $options.goToRegister && $options.goToRegister(...args))
+          }, "Create new account"),
+          vue.createElementVNode("text", null, "|"),
+          vue.createElementVNode("text", {
+            class: "click-active",
+            onClick: _cache[7] || (_cache[7] = (...args) => $options.goToForgot && $options.goToForgot(...args))
+          }, "Forgot password")
+        ]),
+        vue.createElementVNode(
+          "text",
+          {
+            class: "login-type-link click-active",
+            onClick: _cache[8] || (_cache[8] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
+          },
+          " Log in with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
+          1
+          /* TEXT */
+        )
+      ])
+    ]);
+  }
+  const PagesLoginIndex = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-d08ef7d4"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/login/index.vue"]]);
+  const _sfc_main$j = {
+    data() {
+      return {
+        accept: true,
+        type: "mobile",
+        // 注册类型：'mobile' 或 'email'
+        // 表单数据
+        phone: "",
+        // 手机号
+        email: "",
+        // 邮箱
+        code: "",
+        // 验证码
+        password: "",
+        // 密码
+        // 验证码倒计时
+        countdown: 0,
+        // 倒计时秒数
+        countdownTimer: null
+        // 定时器
+      };
+    },
+    onLoad() {
+    },
+    onUnload() {
+      if (this.countdownTimer) {
+        clearInterval(this.countdownTimer);
+      }
+    },
+    methods: {
+      goToLogin() {
+        uni.navigateBack();
+      },
+      // 发送验证码
+      async sendCode() {
+        if (this.countdown > 0)
+          return;
+        try {
+          if (this.type === "mobile" && !this.phone) {
+            uni.showToast({ title: "Please enter phone number", icon: "none" });
+            return;
+          }
+          if (this.type === "email" && !this.email) {
+            uni.showToast({ title: "Please enter email address", icon: "none" });
+            return;
+          }
+          if (this.type === "mobile") {
+            await commonSendSmsCode({
+              phone: this.phone,
+              areaCode: "86",
+              type: 1
+            });
+          } else {
+            await commonSendEmailCode({
+              email: this.email,
+              type: 1
+            });
+          }
+          uni.showToast({ title: "Verification code sent", icon: "success" });
+          this.startCountdown();
+        } catch (error) {
+          uni.showToast({ title: error.message || "Send failed", icon: "none" });
+        }
+      },
+      // 开始倒计时
+      startCountdown() {
+        this.countdown = 60;
+        this.countdownTimer = setInterval(() => {
+          this.countdown--;
+          if (this.countdown <= 0) {
+            clearInterval(this.countdownTimer);
+            this.countdownTimer = null;
+          }
+        }, 1e3);
+      },
+      // 验证表单
+      validateForm() {
+        if (this.type === "mobile") {
+          if (!this.phone) {
+            uni.showToast({ title: "Please enter phone number", icon: "none" });
+            return false;
+          }
+          if (!/^1[3-9]\d{9}$/.test(this.phone)) {
+            uni.showToast({ title: "Please enter valid phone number", icon: "none" });
+            return false;
+          }
+        } else {
+          if (!this.email) {
+            uni.showToast({ title: "Please enter email address", icon: "none" });
+            return false;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
+            uni.showToast({ title: "Please enter valid email address", icon: "none" });
+            return false;
+          }
+        }
+        if (!this.code) {
+          uni.showToast({ title: "Please enter verification code", icon: "none" });
+          return false;
+        }
+        if (!this.password) {
+          uni.showToast({ title: "Please enter password", icon: "none" });
+          return false;
+        }
+        if (this.password.length < 6) {
+          uni.showToast({ title: "Password must be at least 6 characters", icon: "none" });
+          return false;
+        }
+        if (!this.accept) {
+          uni.showToast({ title: "Please accept user agreement", icon: "none" });
+          return false;
+        }
+        return true;
+      },
+      // 注册
+      async register() {
+        if (!this.validateForm())
+          return;
+        if (this.type === "mobile") {
+          await userRegister({
+            areaCode: "86",
+            phone: this.phone,
+            smsCode: this.code,
+            password: this.password,
+            email: "",
+            emailCode: ""
+          });
+        } else {
+          await userEmailRegister({
+            areaCode: "",
+            phone: "",
+            smsCode: "",
+            password: this.password,
+            email: this.email,
+            emailCode: this.code
+          });
+        }
+        uni.showToast({ title: "successful", icon: "success" });
+        setTimeout(() => {
+          this.goToLogin();
+        }, 1500);
+      }
+    }
+  };
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createElementVNode("view", { class: "cotent-card" }, [
+        vue.createElementVNode("text", { class: "title" }, "Sign up"),
+        vue.createElementVNode("view", { class: "subtitle" }, "Please to register on account"),
+        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "phone-group"
+        }, [
+          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "tel",
+              class: "phone-input",
+              placeholder: "Mobile number",
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.phone = $event),
+              maxlength: "11"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.phone]
+          ])
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "email-group"
+        }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "email",
+              class: "email-input",
+              placeholder: "Email address",
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.email = $event)
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.email]
+          ])
+        ])),
+        vue.createElementVNode("view", { class: "verification-group" }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "text",
+              placeholder: "Verification code",
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.code = $event),
+              maxlength: "6"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.code]
+          ]),
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["click-active", { disabled: $data.countdown > 0 }]),
+              onClick: _cache[3] || (_cache[3] = (...args) => $options.sendCode && $options.sendCode(...args))
+            },
+            vue.toDisplayString($data.countdown > 0 ? `${$data.countdown}s` : "sent code"),
+            3
+            /* TEXT, CLASS */
+          )
+        ]),
+        vue.withDirectives(vue.createElementVNode(
+          "input",
+          {
+            type: "password",
+            class: "password-input",
+            placeholder: "Password",
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.password = $event)
+          },
+          null,
+          512
+          /* NEED_PATCH */
+        ), [
+          [vue.vModelText, $data.password]
+        ]),
+        vue.createElementVNode("view", { class: "agreement-row" }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(`checkbox click-active ${$data.accept ? "selected" : ""}`),
+              onClick: _cache[5] || (_cache[5] = ($event) => $data.accept = !$data.accept)
+            },
+            null,
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode("text", {
+            onClick: _cache[6] || (_cache[6] = ($event) => $data.accept = !$data.accept)
+          }, [
+            vue.createTextVNode("I have read the "),
+            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
+            vue.createTextVNode(" and I accept it")
+          ])
+        ]),
+        vue.createElementVNode("button", {
+          class: "submit-btn click-active",
+          onClick: _cache[7] || (_cache[7] = (...args) => $options.register && $options.register(...args))
+        }, "Create new account"),
+        vue.createElementVNode("view", { class: "link-row" }, [
+          vue.createElementVNode(
+            "text",
+            {
+              class: "color-white click-active",
+              onClick: _cache[8] || (_cache[8] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
+            },
+            " Register with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("text", null, "|"),
+          vue.createElementVNode("text", {
+            class: "click-active",
+            onClick: _cache[9] || (_cache[9] = (...args) => $options.goToLogin && $options.goToLogin(...args))
+          }, "Log in")
+        ])
+      ])
+    ]);
+  }
+  const PagesRegisterIndex = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-46a64346"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/register/index.vue"]]);
+  const _sfc_main$i = {
+    data() {
+      return {
+        type: "mobile",
+        // 重置类型：'mobile' 或 'email'
+        accept: true,
+        // 是否同意用户协议
+        // 表单数据
+        phone: "",
+        // 手机号
+        email: "",
+        // 邮箱
+        code: "",
+        // 验证码
+        password: "",
+        // 新密码
+        // 验证码倒计时
+        countdown: 0,
+        // 倒计时秒数
+        countdownTimer: null
+        // 定时器
+      };
+    },
+    onLoad() {
+    },
+    onUnload() {
+      if (this.countdownTimer) {
+        clearInterval(this.countdownTimer);
+      }
+    },
+    methods: {
+      goToLogin() {
+        uni.navigateBack();
+      },
+      // 发送验证码
+      async sendCode() {
+        if (this.countdown > 0)
+          return;
+        try {
+          if (this.type === "mobile" && !this.phone) {
+            uni.showToast({ title: "Please enter phone number", icon: "none" });
+            return;
+          }
+          if (this.type === "email" && !this.email) {
+            uni.showToast({ title: "Please enter email address", icon: "none" });
+            return;
+          }
+          if (this.type === "mobile") {
+            await commonSendSmsCode({
+              phone: this.phone,
+              areaCode: "86",
+              type: "2"
+            });
+          } else {
+            await commonSendEmailCode({
+              email: this.email,
+              type: "2"
+            });
+          }
+          uni.showToast({ title: "Verification code sent", icon: "success" });
+          this.startCountdown();
+        } catch (error) {
+          uni.showToast({ title: error.message || "Send failed", icon: "none" });
+        }
+      },
+      // 开始倒计时
+      startCountdown() {
+        this.countdown = 60;
+        this.countdownTimer = setInterval(() => {
+          this.countdown--;
+          if (this.countdown <= 0) {
+            clearInterval(this.countdownTimer);
+            this.countdownTimer = null;
+          }
+        }, 1e3);
+      },
+      // 验证表单
+      validateForm() {
+        if (this.type === "mobile") {
+          if (!this.phone) {
+            uni.showToast({ title: "Please enter phone number", icon: "none" });
+            return false;
+          }
+          if (!/^1[3-9]\d{9}$/.test(this.phone)) {
+            uni.showToast({ title: "Please enter valid phone number", icon: "none" });
+            return false;
+          }
+        } else {
+          if (!this.email) {
+            uni.showToast({ title: "Please enter email address", icon: "none" });
+            return false;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
+            uni.showToast({ title: "Please enter valid email address", icon: "none" });
+            return false;
+          }
+        }
+        if (!this.code) {
+          uni.showToast({ title: "Please enter verification code", icon: "none" });
+          return false;
+        }
+        if (!this.password) {
+          uni.showToast({ title: "Please enter new password", icon: "none" });
+          return false;
+        }
+        if (this.password.length < 6) {
+          uni.showToast({ title: "Password must be at least 6 characters", icon: "none" });
+          return false;
+        }
+        if (!this.accept) {
+          uni.showToast({ title: "Please accept user agreement", icon: "none" });
+          return false;
+        }
+        return true;
+      },
+      // 重置密码
+      async reset() {
+        if (!this.validateForm())
+          return;
+        try {
+          if (this.type === "mobile") {
+            formatAppLog("log", "at pages/forgot/index.vue:219", {
+              phone: this.phone,
+              verifyCode: this.code,
+              newPassword: this.password
+            });
+            await updatePsd({
+              phone: this.phone,
+              verifyCode: this.code,
+              newPassWord: this.password
+            });
+          } else {
+            await updatePsdByEmailCode({
+              email: this.email,
+              verifyCode: this.code,
+              newPassWord: this.password
+            });
+          }
+          uni.hideLoading();
+          uni.showToast({ title: "successful", icon: "success" });
+          setTimeout(() => {
+            this.goToLogin();
+          }, 1500);
+        } catch (error) {
+          uni.hideLoading();
+          uni.showToast({ title: error.message || "Reset failed", icon: "none" });
+        }
+      }
+    }
+  };
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createElementVNode("view", { class: "cotent-card" }, [
+        vue.createElementVNode("text", { class: "title" }, "Forgot password"),
+        vue.createElementVNode("view", { class: "subtitle" }, "Please change your password"),
+        $data.type === "mobile" ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "phone-group"
+        }, [
+          vue.createElementVNode("view", { class: "country-code click-active" }, "+86"),
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "tel",
+              class: "phone-input",
+              placeholder: "Mobile number",
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.phone = $event),
+              maxlength: "11"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.phone]
+          ])
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "email-group"
+        }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "email",
+              class: "email-input",
+              placeholder: "Email address",
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.email = $event)
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.email]
+          ])
+        ])),
+        vue.createElementVNode("view", { class: "verification-group" }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              type: "text",
+              placeholder: "Verification code",
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.code = $event),
+              maxlength: "6"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.code]
+          ]),
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["click-active", { disabled: $data.countdown > 0 }]),
+              onClick: _cache[3] || (_cache[3] = (...args) => $options.sendCode && $options.sendCode(...args))
+            },
+            vue.toDisplayString($data.countdown > 0 ? `${$data.countdown}s` : "sent code"),
+            3
+            /* TEXT, CLASS */
+          )
+        ]),
+        vue.withDirectives(vue.createElementVNode(
+          "input",
+          {
+            type: "password",
+            class: "password-input",
+            placeholder: "New password",
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.password = $event)
+          },
+          null,
+          512
+          /* NEED_PATCH */
+        ), [
+          [vue.vModelText, $data.password]
+        ]),
+        vue.createElementVNode("view", { class: "agreement-row" }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(`checkbox click-active ${$data.accept ? "selected" : ""}`),
+              onClick: _cache[5] || (_cache[5] = ($event) => $data.accept = !$data.accept)
+            },
+            null,
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode("text", {
+            onClick: _cache[6] || (_cache[6] = ($event) => $data.accept = !$data.accept)
+          }, [
+            vue.createTextVNode("I have read the "),
+            vue.createElementVNode("text", { class: "color-white" }, "user agreement"),
+            vue.createTextVNode(" and I accept it")
+          ])
+        ]),
+        vue.createElementVNode("button", {
+          class: "submit-btn click-active",
+          onClick: _cache[7] || (_cache[7] = (...args) => $options.reset && $options.reset(...args))
+        }, "Reset"),
+        vue.createElementVNode("view", { class: "link-row" }, [
+          vue.createElementVNode(
+            "text",
+            {
+              class: "color-white click-active",
+              onClick: _cache[8] || (_cache[8] = ($event) => $data.type = $data.type === "mobile" ? "email" : "mobile")
+            },
+            " Register with " + vue.toDisplayString($data.type === "mobile" ? "Email" : "Mobile"),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("text", null, "|"),
+          vue.createElementVNode("text", {
+            class: "click-active",
+            onClick: _cache[9] || (_cache[9] = (...args) => $options.goToLogin && $options.goToLogin(...args))
+          }, "Log in")
+        ])
+      ])
+    ]);
+  }
+  const PagesForgotIndex = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-ec6901be"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/forgot/index.vue"]]);
   const _sfc_main$h = {
     data() {
       return {};
@@ -933,18 +1574,20 @@ if (uni.restoreGlobal) {
     },
     data() {
       return {
-        list: [
-          { name: "Danke H1Pro-5830", time: "2024-05-12 10:12", connected: true },
-          { name: "Danke H1Pro-5822", time: "2024-05-12 10:12", connected: false }
-        ]
+        list: []
       };
     },
     onload() {
     },
     onShow() {
       plus.navigator.closeSplashscreen();
+      this.loadDeviceList();
     },
     methods: {
+      async loadDeviceList() {
+        const res = await deviceGetListByUser();
+        this.list = res.data || [];
+      },
       toBindding() {
         uni.navigateTo({
           url: "/pages/bindding/index"
@@ -1033,76 +1676,6 @@ if (uni.restoreGlobal) {
     ]);
   }
   const PagesDeviceIndex = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-1d9691da"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/device/index.vue"]]);
-  const _imports_0$1 = "/static/img/img_diffusion.webp";
-  const _imports_1 = "/static/img/img_watchb.webp";
-  const _sfc_main$b = {
-    components: {
-      NavBar,
-      AlertPopup
-    },
-    data() {
-      return {
-        currentStatus: "success"
-      };
-    },
-    onload() {
-    },
-    onShow() {
-      plus.navigator.closeSplashscreen();
-    },
-    methods: {
-      handleStartDetection() {
-      }
-    }
-  };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_nav_bar = vue.resolveComponent("nav-bar");
-    const _component_alert_popup = vue.resolveComponent("alert-popup");
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
-      vue.createVNode(_component_nav_bar, { title: "Binding Device" }),
-      $data.currentStatus === "search" ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 0,
-        class: "search"
-      }, [
-        vue.createElementVNode("view", { class: "title" }, "Make sure Bluetooth is turned on"),
-        vue.createElementVNode("image", {
-          class: "image",
-          src: _imports_0$1
-        }),
-        vue.createElementVNode("view", { class: "tip" }, "Searching for devices...")
-      ])) : vue.createCommentVNode("v-if", true),
-      $data.currentStatus === "binding" ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 1,
-        class: "binding"
-      }, [
-        vue.createElementVNode("view", { class: "title" }, "Keep your smartwatch screen lit during binding"),
-        vue.createElementVNode("image", {
-          class: "image",
-          src: _imports_1
-        }),
-        vue.createElementVNode("view", { class: "tip" }, "Binding is in progress...")
-      ])) : vue.createCommentVNode("v-if", true),
-      vue.createVNode(_component_alert_popup, {
-        visible: $data.currentStatus === "success",
-        topImage: "/static/img/icon_personal.webp",
-        title: "Binding successful",
-        content: "Please make sure the watch is in contact with your skin and do not move it. Click the 'Start Detection' button to start the detection.",
-        buttonText: "Start detection",
-        onOk: $options.handleStartDetection
-      }, null, 8, ["visible", "onOk"])
-    ]);
-  }
-  const PagesBinddingIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-b7239250"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/bindding/index.vue"]]);
-  function formatAppLog(type, filename, ...args) {
-    if (uni.__log__) {
-      uni.__log__(type, filename, ...args);
-    } else {
-      console[type].apply(console, [...args, filename]);
-    }
-  }
-  function resolveEasycom(component, easycom) {
-    return typeof component === "string" ? easycom : component;
-  }
   const echartProps = {
     lStyle: String,
     isDisableScroll: Boolean,
@@ -1484,19 +2057,19 @@ if (uni.restoreGlobal) {
     "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define(["exports"], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).echarts = {});
   }(void 0, function(t) {
     /*! *****************************************************************************
-    	    Copyright (c) Microsoft Corporation.
+            Copyright (c) Microsoft Corporation.
     
-    	    Permission to use, copy, modify, and/or distribute this software for any
-    	    purpose with or without fee is hereby granted.
+            Permission to use, copy, modify, and/or distribute this software for any
+            purpose with or without fee is hereby granted.
     
-    	    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-    	    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-    	    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-    	    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-    	    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-    	    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-    	    PERFORMANCE OF THIS SOFTWARE.
-    	    ***************************************************************************** */
+            THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+            REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+            AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+            INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+            LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+            OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+            PERFORMANCE OF THIS SOFTWARE.
+            ***************************************************************************** */
     var e = function(t2, n2) {
       return e = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(t3, e2) {
         t3.__proto__ = e2;
@@ -3167,14 +3740,14 @@ if (uni.restoreGlobal) {
     function ei(t2, e2) {
       return t2[0] = e2[0], t2[1] = e2[1], t2[2] = e2[2], t2[3] = e2[3], t2;
     }
-    var ni = new Xn(20), ii = null;
+    var ni2 = new Xn(20), ii = null;
     function ri(t2, e2) {
-      ii && ei(ii, e2), ii = ni.put(t2, ii || e2.slice());
+      ii && ei(ii, e2), ii = ni2.put(t2, ii || e2.slice());
     }
     function oi(t2, e2) {
       if (t2) {
         e2 = e2 || [];
-        var n2 = ni.get(t2);
+        var n2 = ni2.get(t2);
         if (n2)
           return ei(e2, n2);
         var i2 = (t2 += "").replace(/ /g, "").toLowerCase();
@@ -33433,7 +34006,7 @@ if (uni.restoreGlobal) {
     }, t.setPlatformAPI = h, t.throttle = uv, t.time = xw, t.use = h_, t.util = ww, t.vector = Xt, t.version = "6.0.0", t.zrUtil = Mt, t.zrender = uo, Object.defineProperty(t, "__esModule", { value: true });
   });
   const echartsLibrary = globalThis.echarts;
-  const _sfc_main$a = vue.defineComponent({
+  const _sfc_main$b = vue.defineComponent({
     props: echartProps,
     emits: ["finished"],
     setup(props, { emit, expose }) {
@@ -33579,7 +34152,7 @@ if (uni.restoreGlobal) {
         dispatch.call(handler, "mousemove", touch);
         dispatch.call(handler, "touchend", touch);
       };
-      const init = async (echartsLib = echartsLibrary, ...args) => {
+      const init2 = async (echartsLib = echartsLibrary, ...args) => {
         const library = echartsLib || echartsLibrary;
         if (!library) {
           formatAppLog("error", "at uni_modules/lime-echart/components/l-echart/l-echart.vue:307", "ECharts library is required");
@@ -33623,7 +34196,7 @@ if (uni.restoreGlobal) {
         dispose();
       });
       expose({
-        init,
+        init: init2,
         setOption,
         hideLoading,
         showLoading,
@@ -33642,7 +34215,7 @@ if (uni.restoreGlobal) {
       };
     }
   });
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return _ctx.canvasId ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -33669,8 +34242,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-e9a2d99c"], ["__file", "/Users/bruce-mac/ios-watch-app/uni_modules/lime-echart/components/l-echart/l-echart.vue"]]);
-  const _sfc_main$9 = {
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-e9a2d99c"], ["__file", "/Users/bruce-mac/ios-watch-app/uni_modules/lime-echart/components/l-echart/l-echart.vue"]]);
+  const _sfc_main$a = {
     name: "CircleProgress",
     props: {
       max: {
@@ -33769,7 +34342,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_l_echart = resolveEasycom(vue.resolveDynamicComponent("l-echart"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "circle-progress-container" }, [
       vue.createElementVNode("view", { class: "chart-box" }, [
@@ -33783,7 +34356,213 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const CircleProgress = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-1e90f78c"], ["__file", "/Users/bruce-mac/ios-watch-app/components/circle-progress.vue"]]);
+  const CircleProgress = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-1e90f78c"], ["__file", "/Users/bruce-mac/ios-watch-app/components/circle-progress.vue"]]);
+  const _imports_0$1 = "/static/img/img_diffusion.webp";
+  const _imports_1 = "/static/img/img_watchb.webp";
+  const _sfc_main$9 = {
+    components: {
+      NavBar,
+      AlertPopup,
+      CircleProgress
+    },
+    data() {
+      return {
+        currentStatus: "",
+        devices: {},
+        showDevices: false,
+        binddingTime: 1
+      };
+    },
+    onLoad() {
+    },
+    onShow() {
+      this.init();
+    },
+    onUnload() {
+      stopScan();
+    },
+    methods: {
+      init() {
+        this.currentStatus = "search";
+        if (currentConnect) {
+          this.currentStatus = "bindding";
+          if (currentBindUser) {
+            this.currentStatus = "success";
+          }
+        }
+        this.run();
+      },
+      async run() {
+        switch (this.currentStatus) {
+          case "search":
+            await this.startScan();
+            break;
+          case "bindding":
+            await this.startBinding();
+            break;
+        }
+      },
+      async startScan() {
+        await this.scan();
+        this.showDevices = true;
+      },
+      async startBinding(before) {
+        this.currentStatus = "bindding";
+        const timer = setInterval(() => {
+          if (this.binddingTime < 50) {
+            this.binddingTime = this.binddingTime + 1;
+          } else {
+            clearInterval(timer);
+          }
+        }, 500);
+        await (before == null ? void 0 : before());
+        await this.bind();
+        clearInterval(timer);
+        this.binddingTime = 60;
+        setTimeout(() => {
+          this.currentStatus = "success";
+        }, 300);
+      },
+      async clickConnectAndBindding(deviceId) {
+        await this.startBinding(() => this.connect(deviceId));
+      },
+      scan() {
+        return new Promise((resolve) => {
+          startScan();
+          const handleDeviceDiscovered = (data) => {
+            this.devices = {
+              ...this.devices,
+              [data.deviceId]: data.deviceName
+            };
+          };
+          uni.$on("onPeripheralDiscovered", handleDeviceDiscovered);
+          setTimeout(() => {
+            uni.$off("onPeripheralDiscovered", handleDeviceDiscovered);
+            resolve();
+          }, 3e3);
+        });
+      },
+      connect(deviceId) {
+        formatAppLog("log", "at pages/bindding/index.vue:141", "开始连接...");
+        if (currentConnect) {
+          formatAppLog("log", "at pages/bindding/index.vue:143", "已连接...");
+          return Promise.resolve(true);
+        }
+        return new Promise((resolve) => {
+          formatAppLog("log", "at pages/bindding/index.vue:147", "连接" + deviceId);
+          connect(deviceId);
+          uni.$once("onPeripheralConnectedNotification", () => {
+            formatAppLog("log", "at pages/bindding/index.vue:150", "连接" + deviceId + "成功");
+            setTimeout(() => resolve(true), 800);
+          });
+          uni.$once("onPeripherialConnectFailureNotification", () => {
+            formatAppLog("log", "at pages/bindding/index.vue:154", "连接" + deviceId + "失败");
+            resolve(false);
+          });
+        });
+      },
+      bind() {
+        formatAppLog("log", "at pages/bindding/index.vue:160", "开始绑定...");
+        if (currentBindUser) {
+          formatAppLog("log", "at pages/bindding/index.vue:162", "已绑定...");
+          return Promise.resolve(true);
+        }
+        return new Promise((resolve) => {
+          formatAppLog("log", "at pages/bindding/index.vue:166", "绑定1000");
+          bind("1000");
+          uni.$once("onBindUserObject", (data) => {
+            formatAppLog("log", "at pages/bindding/index.vue:169", "绑定1000结果", data);
+            resolve(data.succeed);
+          });
+        });
+      },
+      handleStartDetection() {
+        uni.redirectTo({
+          url: "/pages/measurement/index?type=heart_rate"
+        });
+      },
+      toHome() {
+        uni.switchTab({
+          url: "/pages/home/index"
+        });
+      }
+    }
+  };
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_nav_bar = vue.resolveComponent("nav-bar");
+    const _component_circle_progress = vue.resolveComponent("circle-progress");
+    const _component_alert_popup = vue.resolveComponent("alert-popup");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createVNode(_component_nav_bar, { title: "Binding Device" }),
+      $data.currentStatus === "search" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "search"
+      }, [
+        vue.createElementVNode("view", { class: "title" }, "Make sure Bluetooth is turned on"),
+        vue.createElementVNode("image", {
+          class: "image",
+          src: _imports_0$1
+        }),
+        vue.createElementVNode("view", { class: "tip" }, "Searching for devices..."),
+        $data.showDevices ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "device-list"
+        }, [
+          vue.createElementVNode("view", { class: "device-list-title" }, "选择设备"),
+          vue.createElementVNode("view", { class: "device-list-content" }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.devices, (deviceName, deviceId) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: deviceId,
+                  class: "device-item",
+                  onClick: vue.withModifiers(($event) => $options.clickConnectAndBindding(deviceId), ["stop"])
+                }, [
+                  vue.createElementVNode(
+                    "view",
+                    { class: "device-name click-active" },
+                    vue.toDisplayString(deviceName),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("view", { class: "device-icon click-active" }, ">")
+                ], 8, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])
+        ])) : vue.createCommentVNode("v-if", true)
+      ])) : vue.createCommentVNode("v-if", true),
+      $data.currentStatus === "bindding" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "binding"
+      }, [
+        vue.createElementVNode("view", { class: "title" }, "Keep your smartwatch screen lit during binding"),
+        vue.createElementVNode("image", {
+          class: "image",
+          src: _imports_1
+        }),
+        vue.createElementVNode("view", { class: "circle" }, [
+          vue.createVNode(_component_circle_progress, {
+            max: 60,
+            current: $data.binddingTime
+          }, null, 8, ["current"])
+        ]),
+        vue.createElementVNode("view", { class: "tip" }, "Binding is in progress...")
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createVNode(_component_alert_popup, {
+        visible: $data.currentStatus === "success",
+        topImage: "/static/img/icon_personal.webp",
+        title: "Binding successful",
+        content: "Please make sure the watch is in contact with your skin and do not move it. Click the 'Start Detection' button to start the detection.",
+        buttonText: "Start detection",
+        onOk: $options.handleStartDetection
+      }, null, 8, ["visible", "onOk"])
+    ]);
+  }
+  const PagesBinddingIndex = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-b7239250"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/bindding/index.vue"]]);
   const _sfc_main$8 = {
     name: "HeartRateWave",
     props: {
@@ -33823,7 +34602,8 @@ if (uni.restoreGlobal) {
         type: "",
         unit: "",
         current: 60,
-        timer: null
+        timer: null,
+        currentData: {}
       };
     },
     onLoad(option) {
@@ -33840,6 +34620,40 @@ if (uni.restoreGlobal) {
           this.timer = setInterval(() => {
             this.current = this.current - 1;
           }, 1e3);
+          startMeasure(this.getKitType(), 50, 1);
+          uni.$on("onRealTimeHealthMeasuringData", this.onData);
+        } else {
+          stopMeasure();
+          ni.$off("onRealTimeHealthMeasuringData", this.onData);
+        }
+      },
+      onData(data) {
+        var _a;
+        const _data = (_a = data == null ? void 0 : data.list) == null ? void 0 : _a[0];
+        if (_data) {
+          this.currentData = { ..._data };
+        }
+      },
+      getKitType() {
+        switch (this.type) {
+          case "heart_rate":
+            return "heartrate";
+          case "blood_oxygen":
+            return "bloodoxygen";
+          case "blood_pressure":
+            return "bloodpressure";
+          case "ecg":
+            return "ecg";
+        }
+      },
+      getDataKey() {
+        switch (this.type) {
+          case "heart_rate":
+            return "heartRate";
+          case "blood_oxygen":
+            return "bloodOxygen";
+          case "blood_pressure":
+            return "systolic";
         }
       },
       getTitle() {
@@ -33910,7 +34724,13 @@ if (uni.restoreGlobal) {
                 ),
                 vue.createElementVNode("text", { class: "countdown" }, "Countdown"),
                 vue.createElementVNode("text", { class: "value" }, [
-                  vue.createElementVNode("text", { class: "number" }, "--"),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "number" },
+                    vue.toDisplayString($data.currentData[$options.getDataKey()] || "--"),
+                    1
+                    /* TEXT */
+                  ),
                   vue.createElementVNode(
                     "text",
                     { class: "unit" },
@@ -34881,24 +35701,6 @@ if (uni.restoreGlobal) {
     ]);
   }
   const PagesPresonalIndex = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-9ceb864f"], ["__file", "/Users/bruce-mac/ios-watch-app/pages/presonal/index.vue"]]);
-  const { registerUTSInterface, initUTSProxyClass, initUTSProxyFunction, initUTSPackageName, initUTSIndexClassName, initUTSClassName } = uni;
-  const name = "watchSdk";
-  const moduleName = "watch-sdk";
-  const moduleType = "";
-  const errMsg = ``;
-  const is_uni_modules = true;
-  const pkg = /* @__PURE__ */ initUTSPackageName(name, is_uni_modules);
-  const cls = /* @__PURE__ */ initUTSIndexClassName(name, is_uni_modules);
-  const fitInit = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "fitInitByJs", keepAlive: false, params: [], return: "" });
-  const onEvent = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "onEventByJs", keepAlive: false, params: [{ "name": "callback", "type": "UTSCallback" }], return: "" });
-  const startScan = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "startScanByJs", keepAlive: false, params: [], return: "" });
-  const connect = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "connectByJs", keepAlive: false, params: [{ "name": "deviceId", "type": "string" }], return: "" });
-  const bind = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "bindByJs", keepAlive: false, params: [{ "name": "userId", "type": "string" }], return: "" });
-  const unbind = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "unbindByJs", keepAlive: false, params: [], return: "" });
-  const syncData = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "syncDataByJs", keepAlive: false, params: [], return: "" });
-  const startMeasure = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "startMeasureByJs", keepAlive: false, params: [{ "name": "type", "type": "string" }, { "name": "interval", "type": "UInt8" }, { "name": "minutes", "type": "UInt8" }], return: "" });
-  const stopMeasure = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "stopMeasureByJs", keepAlive: false, params: [], return: "" });
-  const getAllConfig = /* @__PURE__ */ initUTSProxyFunction(false, { moduleName, moduleType, errMsg, main: true, package: pkg, class: cls, name: "getAllConfigByJs", keepAlive: false, params: [], return: "" });
   const _sfc_main$1 = {
     data() {
       return {
@@ -34933,6 +35735,9 @@ if (uni.restoreGlobal) {
     },
     methods: {
       start() {
+        uni.showModal({
+          title: "startScan"
+        });
         startScan();
       },
       list() {
@@ -34968,18 +35773,15 @@ if (uni.restoreGlobal) {
   };
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "content" }, [
-      vue.createElementVNode("view", null, [
-        vue.createElementVNode("text", {
-          class: "title",
-          onClick: _cache[0] || (_cache[0] = ($event) => $options.start())
-        }, "[ 扫描 ]")
-      ]),
+      vue.createElementVNode("button", {
+        onClick: _cache[0] || (_cache[0] = (...args) => $options.start && $options.start(...args))
+      }, " [ 扫描 ] "),
       vue.createElementVNode("view", null, [
         (vue.openBlock(true), vue.createElementBlock(
           vue.Fragment,
           null,
           vue.renderList($options.list(), (key) => {
-            return vue.openBlock(), vue.createElementBlock("view", {
+            return vue.openBlock(), vue.createElementBlock("button", {
               onClick: ($event) => $options.connectDevice(key),
               style: { "line-height": "32px", "margin-bottom": "8px", "border": "1px solid #333" }
             }, vue.toDisplayString($data.devices[key]), 9, ["onClick"]);
@@ -35047,11 +35849,10 @@ if (uni.restoreGlobal) {
     ]);
   }
   const PagesTestIndex = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "/Users/bruce-mac/ios-watch-app/pages/test/index.vue"]]);
-  __definePage("pages/index/index", PagesIndexIndex);
+  __definePage("pages/home/index", PagesHomeIndex);
   __definePage("pages/login/index", PagesLoginIndex);
   __definePage("pages/register/index", PagesRegisterIndex);
   __definePage("pages/forgot/index", PagesForgotIndex);
-  __definePage("pages/home/index", PagesHomeIndex);
   __definePage("pages/report/index", PagesReportIndex);
   __definePage("pages/me/index", PagesMeIndex);
   __definePage("pages/upgrade/index", PagesUpgradeIndex);
@@ -35069,10 +35870,9 @@ if (uni.restoreGlobal) {
     },
     onShow: function() {
       formatAppLog("log", "at App.vue:7", "App Show");
-      plus.navigator.closeSplashscreen();
     },
     onHide: function() {
-      formatAppLog("log", "at App.vue:13", "App Hide");
+      formatAppLog("log", "at App.vue:10", "App Hide");
     }
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "/Users/bruce-mac/ios-watch-app/App.vue"]]);

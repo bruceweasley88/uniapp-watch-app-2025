@@ -15,7 +15,9 @@ public var onEvent: onEventFunction = {
 (_ callbackParam: @escaping (_ type: String, _ data: UTSJSONObject) -> Void) -> Void in
 FitCloudKitManager.onEvent(callback: {
 (_ type: String, _ data: UTSJSONObject) -> Void in
-console.log(type, data)
+if (type != "onLogMessage") {
+    console.log("|||", type, data)
+}
 callbackParam(type, data)
 })
 }

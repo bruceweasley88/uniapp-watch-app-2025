@@ -38,6 +38,7 @@
 
 <script>
 import NavBar from '../../components/nav-bar.vue';
+import { deviceGetListByUser } from '../../apis/deviceApi.js';
 
 export default {
 	components: {
@@ -45,10 +46,7 @@ export default {
 	},
 	data() {
 		return {
-			list: [
-				{ name: 'Danke H1Pro-5830', time: '2024-05-12 10:12', connected: true },
-				{ name: 'Danke H1Pro-5822', time: '2024-05-12 10:12', connected: false },
-			]
+			list: []
 		}
 	},
 	onload() {
@@ -56,8 +54,13 @@ export default {
 	},
 	onShow() {
 		plus.navigator.closeSplashscreen();
+		this.loadDeviceList();
 	},
 	methods: {
+		async loadDeviceList() {
+			const res = await deviceGetListByUser();
+			this.list = res.data || [];
+		},
 		toBindding() {
 			uni.navigateTo({
 				url: '/pages/bindding/index'

@@ -50,4 +50,3 @@ export interface ScanEvent {
 // export type MyApi = (options : MyApiOptions) => void
 // /* 同步函数定义 */
 // export type MyApiSync = (paramA : boolean) => MyApiResult
-//# sourceMappingURL=interface.uts.map

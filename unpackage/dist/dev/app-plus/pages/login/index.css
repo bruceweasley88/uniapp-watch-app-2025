@@ -110,7 +110,7 @@
 
 /* 协议勾选行 - 小字灰色 */
 .agreement-row[data-v-d08ef7d4] {
-	padding-left: 14px;
+	padding-left: 2px;
 	color: #7D7E83;
 	font-size: 14px;
 	font-weight: 400;
@@ -165,4 +165,14 @@
 	font-size: 16px;
 	color: #42E3E7;
 	font-weight: 500;
+}
+
+/* 输入框placeholder样式 */
+.phone-input[data-v-d08ef7d4]::-webkit-input-placeholder, .email-input[data-v-d08ef7d4]::-webkit-input-placeholder, .password-input[data-v-d08ef7d4]::-webkit-input-placeholder {
+	color: #7D7E83;
+}
+.phone-input[data-v-d08ef7d4]::placeholder,
+.email-input[data-v-d08ef7d4]::placeholder,
+.password-input[data-v-d08ef7d4]::placeholder {
+	color: #7D7E83;
 }

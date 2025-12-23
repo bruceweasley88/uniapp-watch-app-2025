@@ -5,9 +5,6 @@ export default {
 	},
 	onShow: function () {
 		console.log('App Show')
-		// #ifdef APP-PLUS
-		plus.navigator.closeSplashscreen();
-		// #endif
 	},
 	onHide: function () {
 		console.log('App Hide')
@@ -43,6 +40,7 @@ export default {
 
 page {
 	overflow-x: hidden;
+	background-color: #111217;
 }
 
 .color-white {

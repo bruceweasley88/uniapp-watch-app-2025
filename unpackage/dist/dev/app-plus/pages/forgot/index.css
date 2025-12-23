@@ -109,7 +109,7 @@
 	font-weight: 500;
 }
 .verification-group uni-view[data-v-ec6901be] {
-	width: 280px;
+	width: 14.375rem;
 	font-weight: 500;
 	font-size: 18px;
 	color: #FFFFFF;
@@ -195,4 +195,26 @@
 	font-size: 16px;
 	color: #42E3E7;
 	font-weight: 500;
+}
+
+/* 验证码按钮禁用状态 */
+.verification-group .disabled[data-v-ec6901be] {
+	color: #7D7E83;
+	cursor: not-allowed;
+}
+
+/* 输入框placeholder样式 */
+.phone-input[data-v-ec6901be]::-webkit-input-placeholder, .email-input[data-v-ec6901be]::-webkit-input-placeholder, .verification-group uni-input[data-v-ec6901be]::-webkit-input-placeholder, .password-input[data-v-ec6901be]::-webkit-input-placeholder {
+	color: #7D7E83;
+}
+.phone-input[data-v-ec6901be]::placeholder,
+.email-input[data-v-ec6901be]::placeholder,
+.verification-group uni-input[data-v-ec6901be]::placeholder,
+.password-input[data-v-ec6901be]::placeholder {
+	color: #7D7E83;
+}
+
+/* 协议勾选行样式调整 */
+.agreement-row[data-v-ec6901be] {
+	padding-left: 2px;
 }

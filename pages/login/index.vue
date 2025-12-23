@@ -9,26 +9,26 @@
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
 				<view class="country-code">+86</view>
-				<input type="tel" class="phone-input" placeholder="Mobile number" />
+				<input type="tel" class="phone-input" placeholder="Mobile number" v-model="phone" maxlength="11" />
 			</view>
 
 			<!-- 邮箱输入组 -->
 			<view class="email-group" v-else>
-				<input type="email" class="email-input" placeholder="Email address" />
+				<input type="email" class="email-input" placeholder="Email address" v-model="email" />
 			</view>
 
-
 			<!-- 密码输入框 -->
-			<input type="password" class="password-input" placeholder="Password" />
+			<input type="password" class="password-input" placeholder="Password" v-model="password" />
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
-				<view class="checkbox selected click-active-max"></view>
-				<text>I have read the <text class="color-white">user agreement</text> and I accept it</text>
+				<view :class="`checkbox click-active ${accept ? 'selected' : ''}`" @click="accept = !accept"></view>
+				<text @click="accept = !accept">I have read the <text class="color-white">user agreement</text> and I accept
+					it</text>
 			</view>
 
 			<!-- 登录按钮（渐变色背景） -->
-			<button class="login-btn click-active" @click="goToHome">Log in</button>
+			<button class="login-btn click-active" @click="login">Log in</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
@@ -46,14 +46,24 @@
 </template>
 
 <script>
+import { userPasswordLogin, userEmailLogin } from '@/apis/userApi.js'
+
 export default {
 	data() {
 		return {
-			type: 'mobile'  // 登录类型，默认为手机号登录，可选值：'mobile'（手机号登录）、'email'（邮箱登录）
+			type: 'mobile',  // 登录类型，默认为手机号登录，可选值：'mobile'（手机号登录）、'email'（邮箱登录）
+			accept: true,   // 是否同意用户协议
+
+			// 表单数据
+			phone: '',      // 手机号
+			email: '',      // 邮箱
+			password: ''    // 密码
 		}
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen()
+		// #ifdef APP-PLUS
+		setTimeout(() => plus.navigator.closeSplashscreen(), 300);
+		// #endif
 	},
 	methods: {
 		goToRegister() {
@@ -66,11 +76,82 @@ export default {
 				url: '/pages/forgot/index'
 			});
 		},
-		goToHome() {
-			uni.switchTab({
-				url: '/pages/home/index'
-			});
 
+		// 验证表单
+		validateForm() {
+			// 验证手机号或邮箱
+			if (this.type === 'mobile') {
+				if (!this.phone) {
+					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					return false
+				}
+				if (!/^1[3-9]\d{9}$/.test(this.phone)) {
+					uni.showToast({ title: 'Please enter valid phone number', icon: 'none' })
+					return false
+				}
+			} else {
+				if (!this.email) {
+					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					return false
+				}
+				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
+					uni.showToast({ title: 'Please enter valid email address', icon: 'none' })
+					return false
+				}
+			}
+
+			// 验证密码
+			if (!this.password) {
+				uni.showToast({ title: 'Please enter password', icon: 'none' })
+				return false
+			}
+
+			// 验证协议
+			if (!this.accept) {
+				uni.showToast({ title: 'Please accept user agreement', icon: 'none' })
+				return false
+			}
+
+			return true
+		},
+
+		// 登录
+		async login() {
+			if (!this.validateForm()) return
+
+			let result
+			if (this.type === 'mobile') {
+				// 手机号密码登录
+				result = await userPasswordLogin({
+					phone: this.phone,
+					password: this.password,
+					terminal: 1,
+					deviceToken: 86
+				})
+			} else {
+				// 邮箱密码登录
+				result = await userEmailLogin({
+					email: this.email,
+					password: this.password,
+					terminal: 1,
+					deviceToken: 86
+				})
+			}
+
+			// 保存token
+			if (result.data && result.data.token) {
+				uni.setStorageSync('token', result.data.token)
+			}
+
+			uni.hideLoading()
+			uni.showToast({ title: 'Login successful', icon: 'success' })
+
+			// 跳转到首页
+			setTimeout(() => {
+				uni.switchTab({
+					url: '/pages/home/index'
+				})
+			}, 1000)
 		}
 	}
 }
@@ -192,7 +273,7 @@ export default {
 
 /* 协议勾选行 - 小字灰色 */
 .agreement-row {
-	padding-left: 14px;
+	padding-left: 2px;
 	color: #7D7E83;
 	font-size: 14px;
 	font-weight: 400;
@@ -249,5 +330,12 @@ export default {
 	font-size: 16px;
 	color: #42E3E7;
 	font-weight: 500;
+}
+
+/* 输入框placeholder样式 */
+.phone-input::placeholder,
+.email-input::placeholder,
+.password-input::placeholder {
+	color: #7D7E83;
 }
 </style>
