@@ -71,7 +71,7 @@
 import AlertPopup from '@/components/alert-popup.vue'
 import { commonGetIndexBanner } from '@/apis/commonApi.js'
 import { deviceGetListByUser } from '@/apis/deviceApi.js'
-import { currentBindUser, init } from '../../utils/watch';
+import { currentBindUser, getAllConfig, init } from '../../utils/watch';
 import { userGetInfo } from '../../apis/userApi';
 
 export default {
@@ -85,6 +85,10 @@ export default {
 			// device: [],
 			userInfo: null,
 			initBluetoothDone: false,
+			watchConfig: null,
+
+			// 启动后至少等待3秒
+			initDone: new Promise(r => setTimeout(r, 3000))
 		}
 	},
 	onLoad() {
@@ -147,13 +151,38 @@ export default {
 				this.alertProfile = true
 			}
 
-
 		},
 		getUserHeadImg() {
 			return this.userInfo?.headImg || '/static/img/icon_photo.webp'
 		},
-		toMeasurement(type) {
+		async toMeasurement(type) {
+			await this.awaitInit();
 			if (currentBindUser) {
+				const config = this.getWatchConfig();
+				switch (type) {
+					case 'ecg':
+						if (!config.isECGSupported) {
+							return uni.showToast({ title: 'Not supported', icon: 'error' });
+						}
+						break;
+					case 'heart_rate':
+						if (!config.isHeartRateSupported) {
+							return uni.showToast({ title: 'Not supported', icon: 'error' });
+						}
+						break;
+					case 'blood_oxygen':
+						if (!config.isBloodOxygenSupported) {
+							return uni.showToast({ title: 'Not supported', icon: 'error' });
+						}
+						break;
+					case 'blood_pressure':
+						if (!config.isBloodPressureSupported) {
+							return uni.showToast({ title: 'Not supported', icon: 'error' });
+						}
+						break;
+				}
+
+
 				uni.navigateTo({
 					url: '/pages/measurement/index?type=' + type
 				});
@@ -169,14 +198,30 @@ export default {
 				url: '/pages/presonal/index'
 			})
 		},
-		handleStartDetection() {
-
-		},
 		toTest() {
 			uni.navigateTo({
 				url: '/pages/test/index'
 			});
 		},
+		getWatchConfig() {
+			if (!this.watchConfig) {
+				this.watchConfig = getAllConfig();
+			}
+			return this.watchConfig;
+		},
+		async awaitInit() {
+			if (this.initDone === true) return;
+			uni.showLoading({ title: 'loading...' });
+			await this.initDone;
+			// 还没绑定,再等待个4秒
+			for (let i = 0; i < 4; i++) {
+				if (!currentBindUser) {
+					await new Promise(r => setTimeout(r, 1000));
+				}
+			}
+			this.initDone = true;
+			uni.hideLoading();
+		}
 	}
 }
 </script>
