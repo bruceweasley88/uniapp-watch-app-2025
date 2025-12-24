@@ -87,6 +87,7 @@ public class FitCloudKitManager: NSObject {
   /** 开始扫描 */
   public static func startScanning() {
     console.log("开始扫描..")
+    shared.discoveredDevices.removeAll()
     FitCloudKit.scanPeripherals()
     console.log("等待扫描结果...")
   }
@@ -94,7 +95,6 @@ public class FitCloudKitManager: NSObject {
   /** 停止扫描 */
   public static func stopScan() {
     console.log("停止搜索")
-    shared.discoveredDevices.removeAll()
     FitCloudKit.stopScan()
   }
 
@@ -411,6 +411,7 @@ public class FitCloudKitManager: NSObject {
       UTSJSONObject([
         "deviceId": deviceId,
         "deviceName": deviceName,
+        "peripheral": device.peripheral
       ]))
   }
 

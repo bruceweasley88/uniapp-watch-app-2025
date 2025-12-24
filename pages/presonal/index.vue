@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<nav-bar title="Personal Data" button-text="Save" />
+		<nav-bar title="Personal Data" button-text="Save" @clickButton="save" />
 
 		<view class="body">
 
@@ -9,17 +9,17 @@
 			</view>
 
 			<view class="list">
-				<view class="item click-active" @click="onModify('nickname')">
+				<view class="item click-active" @click="onModify('nickName')">
 					<view class="label">Nickname</view>
-					<view :class="getValueClassName('nickname')">{{ form.nickname || 'Fill in' }}</view>
+					<view :class="getValueClassName('nickName')">{{ form.nickName || 'Fill in' }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('name')">
 					<view class="label">Name</view>
 					<view :class="getValueClassName('name')">{{ form.name || 'Fill in' }}</view>
 				</view>
-				<view class="item click-active" @click="onModify('gender')">
+				<view class="item click-active" @click="onModify('sex')">
 					<view class="label">Gender</view>
-					<view :class="getValueClassName('gender')">{{ form.gender || 'Fill in' }}</view>
+					<view :class="getValueClassName('sex')">{{ form.sex || 'Fill in' }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('age')">
 					<view class="label">Age</view>
@@ -42,7 +42,7 @@
 		</view>
 
 
-		<confirm-popup :visible="confirm === 'nickname'" title="Nickname" content="Please enter your nicename"
+		<confirm-popup :visible="confirm === 'nickName'" title="Nickname" content="Please enter your nicename"
 			@cancel="onCancel" @ok="onOk">
 			<input class="input" v-model="confirmValue" />
 		</confirm-popup>
@@ -52,7 +52,7 @@
 			<input class="input" v-model="confirmValue" />
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'gender'" title="Gender" content="Data will be synced to your personal profile"
+		<confirm-popup :visible="confirm === 'sex'" title="Gender" content="Data will be synced to your personal profile"
 			@cancel="onCancel" @ok="onOk">
 			<view class="select">
 				<view :class="`option ${confirmValue === 'male' ? 'selected' : ''}`" @click="confirmValue = 'male'">
@@ -94,6 +94,7 @@
 import NavBar from '../../components/nav-bar.vue';
 import ConfirmPopup from '../../components/confirm-popup.vue';
 import NumberPicker from '../../components/number-picker.vue';
+import { userEditInfo, userGetInfo } from '../../apis/userApi';
 
 
 export default {
@@ -106,9 +107,9 @@ export default {
 		return {
 
 			form: {
-				nickname: '',
+				nickName: '',
 				name: '',
-				gender: '',
+				sex: '',
 				age: '',
 				height: '',
 				weight: '',
@@ -116,17 +117,37 @@ export default {
 			},
 
 			// 弹窗
-			confirm: 'Nickname',
+			confirm: '',
 			confirmValue: ''
 		}
 	},
-	onload() {
-
+	onLoad() {
+		this.getUserInfo();
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen();
+
 	},
 	methods: {
+		async getUserInfo() {
+			const userInfo = await userGetInfo();
+			this.form = userInfo.data;
+		},
+		async save() {
+			userEditInfo({
+				...this.form
+			})
+
+			const reqiureField = ['nickName', 'name', 'sex', 'age', 'height', 'weight', 'address']
+
+			for (const field of reqiureField) {
+				if (!this.form[field]) {
+					uni.showToast({ title: 'Fill required', icon: 'error' })
+					return;
+				}
+			}
+
+			uni.showToast({ title: 'success', icon: 'success' })
+		},
 		toBack() {
 			uni.navigateBack();
 		},
@@ -151,7 +172,7 @@ export default {
 		},
 		onNumberPickerInput(value) {
 			this.confirmValue = value;
-		}
+		},
 	}
 }
 </script>

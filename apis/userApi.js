@@ -25,7 +25,7 @@ export const userCodeLogin = (data) => {
  * @returns {Promise<Object>} 返回Promise对象，包含操作结果
  */
 export const userEditInfo = (data) => {
-  return post('/api/user/editUserInfo', data)
+  return post('/api/user/editUserInfo?token=' + uni.getStorageSync('token'), data)
 }
 
 /**

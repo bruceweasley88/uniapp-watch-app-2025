@@ -6,14 +6,26 @@
 			<image class="image" src="/static/img/img_noupdate.webp" />
 			<view class="text">This is the latest version</view>
 			<view class="version">Danke V{{ version }}</view>
-			<view class="button click-active" @click="toBindding">Upgrade now</view>
-			<view class="back click-active-max" @click="toBack">No upgrade</view>
+
+			<view class="update-log" v-if="data?.explain?.length">
+				<view class="log-title">Update Log</view>
+				<view class="log-item" v-for="item in sortedExplain" :key="item.id">
+					<view class="log-dot"></view>
+					<view class="log-content">{{ item.content }}</view>
+				</view>
+			</view>
+
+			<view class="button click-active" @click="click">
+				{{ data?.state == 1 ? 'Upgrade now' : 'Back' }}
+			</view>
+			<view v-if="data?.state != 1" class="back ">No upgrade</view>
 		</view>
 
 	</view>
 </template>
 
 <script>
+import { configGetAppVersion } from '../../apis/configApi';
 import NavBar from '../../components/nav-bar.vue';
 
 export default {
@@ -26,18 +38,38 @@ export default {
 		const systemInfo = uni.getSystemInfoSync();
 
 		return {
-			version: systemInfo.appWgtVersion,
+			version: systemInfo.appVersion,
+			data: null
 		}
 	},
-	onload() {
-
+	computed: {
+		sortedExplain() {
+			return this.data?.explain?.sort((a, b) => a.sort - b.sort) || []
+		}
+	},
+	onLoad() {
+		this.checkout();
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen();
+
 	},
 	methods: {
-		toBack() {
-			uni.navigateBack();
+		async checkout() {
+			const res = await configGetAppVersion({
+				type: 1,
+				terminal: 1,
+				versionNum: uni.getSystemInfoSync().appVersionCode || '100'
+			})
+			this.data = res.data
+		},
+		async click() {
+			if (this.data?.state == 1) {
+				// 更新
+				uni.showToast({ title: '请手动更新', icon: 'success' })
+			} else {
+				// 不更新
+				uni.navigateBack();
+			}
 		}
 	}
 }
@@ -76,7 +108,45 @@ export default {
 		font-size: 25rpx;
 		color: #60626A;
 		text-align: center;
-		margin-bottom: 70rpx;
+		margin-bottom: 50rpx;
+	}
+
+	.update-log {
+		width: 600rpx;
+		margin-bottom: 50rpx;
+		border-radius: 16px;
+		background-color: #ffffff10;
+		padding: 28rpx;
+	}
+
+	.log-title {
+		font-size: 29rpx;
+		color: #FFFFFF;
+		font-weight: 500;
+		margin-bottom: 30rpx;
+	}
+
+	.log-item {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 20rpx;
+	}
+
+	.log-dot {
+		width: 12rpx;
+		height: 12rpx;
+		border-radius: 50%;
+		background: #38FFA7;
+		margin-right: 16rpx;
+		margin-top: 10rpx;
+		flex-shrink: 0;
+	}
+
+	.log-content {
+		flex: 1;
+		font-size: 25rpx;
+		color: #7D7E83;
+		line-height: 36rpx;
 	}
 
 	.button {

@@ -64,7 +64,7 @@
 
 		<!-- 退出账号 -->
 		<view class="logout">
-			<view class="button click-active">logout</view>
+			<view class="button click-active" @click="logout">logout</view>
 		</view>
 
 	</view>
@@ -111,6 +111,12 @@ export default {
 		toPresonal() {
 			uni.navigateTo({
 				url: '/pages/presonal/index'
+			})
+		},
+		logout() {
+			uni.setStorageSync('token', null);
+			uni.redirectTo({
+				url: '/pages/login/index'
 			})
 		}
 	}
@@ -169,13 +175,15 @@ export default {
 }
 
 .points {
-	padding: 0 20px;
 	margin-bottom: 8px;
+	display: flex;
+	justify-content: center;
 
 	.total-points {
 		background-image: url('/static/img/bg_pointb.webp');
 		background-size: cover;
-		height: 110px;
+		height: 204rpx;
+		width: 692rpx;
 
 
 		.title {
@@ -270,10 +278,11 @@ export default {
 }
 
 .wallet-block {
-	padding: 0 20px;
-	margin-bottom: 16px;
 	display: flex;
-	gap: 8px;
+	justify-content: space-between;
+	width: 692rpx;
+	margin: 0 auto;
+	margin-bottom: 16px;
 
 	.wallet,
 	.address {
@@ -283,7 +292,8 @@ export default {
 
 
 	.wallet {
-		width: calc(100% - 124px);
+		width: 451rpx;
+		height: 131rpx;
 		background-image: url('/static/img/bg_wallets.webp');
 
 		.body {
@@ -313,7 +323,8 @@ export default {
 	}
 
 	.address {
-		width: 124px;
+		height: 131rpx;
+		width: 226rpx;
 		background-image: url('/static/img/bg_walletadd.webp');
 
 		.go {

@@ -2,7 +2,7 @@
 	<view class="page">
 
 		<!-- 顶部 -->
-		<view class="top" @click="toTest">
+		<view class="top" @click="toPresonal">
 			<view class="hst">
 				<view class="title">Mining progress</view>
 				<view class="number">
@@ -61,7 +61,7 @@
 		<alert-popup v-model:visible="alertProfile" topImage="/static/img/icon_personal.webp"
 			title="Please fill in your height and weight"
 			content="The reference standard values ​​of the detection indicators need to be matched according to your information."
-			buttonText="Confirm" @ok="handleStartDetection" />
+			buttonText="Confirm" @ok="toPresonal" />
 
 
 	</view>
@@ -80,19 +80,15 @@ export default {
 	},
 	data() {
 		return {
-			alertProfile: true,
+			alertProfile: false,
 			bannerList: [],
 			// device: [],
-			userInfo: null
+			userInfo: null,
+			initBluetoothDone: false,
 		}
 	},
 	onLoad() {
-		const token = uni.getStorageSync('token')
-		if (token) {
-			// #ifdef APP-PLUS
-			init();
-			// #endif
-		}
+
 	},
 	onShow() {
 		const token = uni.getStorageSync('token')
@@ -116,7 +112,12 @@ export default {
 	methods: {
 		init() {
 			this.getIndexBanner();
+			this.initBluetooth();
 			// this.getDeviceList();
+
+			// #ifdef APP-PLUS
+			setTimeout(() => plus.navigator.closeSplashscreen(), 200);
+			// #endif
 		},
 		// 海报
 		async getIndexBanner() {
@@ -124,7 +125,14 @@ export default {
 				const res = await commonGetIndexBanner();
 				this.bannerList = res.data || [];
 			}
-
+		},
+		initBluetooth() {
+			// #ifdef APP-PLUS
+			if (this.initBluetoothDone === false) {
+				init();
+				this.initBluetoothDone = true;
+			}
+			// #endif
 		},
 		async getDeviceList() {
 			const res = await deviceGetListByUser();
@@ -133,6 +141,13 @@ export default {
 		async getUserInfo() {
 			const userInfo = await userGetInfo();
 			this.userInfo = userInfo.data;
+
+			const info = userInfo.data;
+			if (!info['weight'] || !info['height']) {
+				this.alertProfile = true
+			}
+
+
 		},
 		getUserHeadImg() {
 			return this.userInfo?.headImg || '/static/img/icon_photo.webp'
@@ -149,6 +164,11 @@ export default {
 			}
 
 		},
+		toPresonal() {
+			uni.navigateTo({
+				url: '/pages/presonal/index'
+			})
+		},
 		handleStartDetection() {
 
 		},
@@ -156,7 +176,7 @@ export default {
 			uni.navigateTo({
 				url: '/pages/test/index'
 			});
-		}
+		},
 	}
 }
 </script>
