@@ -9,13 +9,13 @@
 			</view>
 
 			<view class="content">{{ getContent() }}</view>
-			<view class="tips">Measuring, Please wait...</view>
+			<view class="tips">{{ $t('measurement.measuring') }}</view>
 
 			<view class="circle">
 				<circle-progress :max="60" :current="current">
 					<view class="circle-bg">
 						<text class="current">{{ current }}</text>
-						<text class="countdown">Countdown</text>
+						<text class="countdown">{{ $t('common.countdown') }}</text>
 						<text class="value">
 							<text class="number">{{ currentData[getDataKey()] || '--' }}</text>
 							<text class="unit">{{ getUnit() }}</text>
@@ -27,8 +27,8 @@
 		</view>
 
 		<view class="bottom">
-			<view class="button click-active" @click="startOrStop">{{ start ? 'Stop Detection' : 'Start Detection' }}</view>
-			<view class="tips">After the measurement is completed, wait for the watch to upload the data</view>
+			<view class="button click-active" @click="startOrStop">{{ start ? $t('common.stopDetection') : $t('common.startDetection') }}</view>
+			<view class="tips">{{ $t('measurement.waitUpload') }}</view>
 		</view>
 
 	</view>
@@ -114,16 +114,18 @@ export default {
 		},
 		getTitle() {
 			switch (this.type) {
-				case 'heart_rate': return 'Heart rate';
-				case 'blood_oxygen': return 'Blood oxygen';
-				case 'blood_pressure': return 'Blood pressure';
+				case 'heart_rate': return this.$t('home.heartRate');
+				case 'blood_oxygen': return this.$t('home.bloodOxygen');
+				case 'blood_pressure': return this.$t('home.bloodPressure');
+				default: return '';
 			}
 		},
 		getContent() {
 			switch (this.type) {
-				case 'heart_rate': return 'Measuring Heart rate';
-				case 'blood_oxygen': return 'Measuring Blood oxygen';
-				case 'blood_pressure': return 'Measuring Blood pressure';
+				case 'heart_rate': return this.$t('measurement.measuringHeartRate');
+				case 'blood_oxygen': return this.$t('measurement.measuringBloodOxygen');
+				case 'blood_pressure': return this.$t('measurement.measuringBloodPressure');
+				default: return '';
 			}
 		},
 		getUnit() {

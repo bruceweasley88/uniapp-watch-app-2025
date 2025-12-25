@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<nav-bar title="Weight" />
+		<nav-bar :title="$t('page.weight')" />
 		<view class="body">
 
 			<view class="report">

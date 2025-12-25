@@ -1,15 +1,15 @@
 <template>
 	<view class="page">
-		<nav-bar title="Binding Device" />
+		<nav-bar :title="$t('page.bindding')" />
 		<view class="search" v-if="currentStatus === 'search'">
-			<view class="title">Make sure Bluetooth is turned on</view>
+			<view class="title">{{ $t('bindding.bluetoothOn') }}</view>
 			<image class="image" src="/static/img/img_diffusion.webp" />
-			<view class="tip">Searching for devices...<!-- Can't find my device? --></view>
+			<view class="tip">{{ $t('bindding.searching') }}</view>
 
 
 			<view class="device-list" v-if="showDevices">
 				<!-- 标题 -->
-				<view class="device-list-title">选择设备</view>
+				<view class="device-list-title">{{ $t('bindding.selectDevice') }}</view>
 
 				<!-- 设备列表 -->
 				<view class="device-list-content">
@@ -24,18 +24,18 @@
 		</view>
 
 		<view class="binding" v-if="currentStatus === 'bindding'">
-			<view class="title">Keep your smartwatch screen lit during binding</view>
+			<view class="title">{{ $t('bindding.keepScreenOn') }}</view>
 			<image class="image" src="/static/img/img_watchb.webp" />
 			<view class="circle">
 				<circle-progress :max="60" :current="binddingTime"></circle-progress>
 			</view>
-			<view class="tip">Binding is in progress...</view>
+			<view class="tip">{{ $t('bindding.bindingProgress') }}</view>
 		</view>
 
 		<alert-popup :visible="currentStatus === 'success'" topImage="/static/img/icon_personal.webp"
-			title="Binding successful"
-			content="Please make sure the watch is in contact with your skin and do not move it. Click the 'Start Detection' button to start the detection."
-			buttonText="Start detection" @ok="handleStartDetection" />
+			:title="$t('bindding.bindingSuccess')"
+			:content="$t('bindding.bindingSuccessDesc')"
+			:buttonText="$t('common.startDetection')" @ok="handleStartDetection" />
 
 	</view>
 </template>

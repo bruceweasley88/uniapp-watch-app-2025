@@ -4,7 +4,7 @@
 		<view class="body">
 
 			<!-- 顶部 -->
-			<view class="description-title">{{ title }} description</view>
+			<view class="description-title">{{ $t(descriptionKey) }}</view>
 			<view class="level-description">
 				<view class="level-bar">
 					<view class="level" v-for="level in levels">
@@ -27,7 +27,7 @@
 
 
 			<!-- 报告 -->
-			<view class="report-title">Report Update</view>
+			<view class="report-title">{{ $t('results.reportUpdate') }}</view>
 			<view class="report">
 				<view class="item" v-for="item in reports">
 					<view class="top">
@@ -66,6 +66,7 @@ export default {
 
 			type: '',
 			title: '',
+			descriptionKey: '',
 			levels: [],
 			currentLevel: 0,
 			tips: '',
@@ -91,56 +92,59 @@ export default {
 		updateData() {
 			const type = this.type;
 			if (type === 'heart_rate') {
-				this.title = 'Heart rate';
+				this.title = this.$t('results.heartRate.title');
+				this.descriptionKey = 'results.heartRate.description';
 				this.levels = [
-					{ color: '#42E3E7', title: '<60', subTitle: '', label: 'bradycardia' },
-					{ color: '#94E054', title: '60-10', subTitle: '', label: 'Normal heart rate' },
-					{ color: '#FF8040', title: '>100', subTitle: '', label: 'Tachycardia' },
+					{ color: '#42E3E7', title: '<60', subTitle: '', label: this.$t('results.heartRate.level1') },
+					{ color: '#94E054', title: '60-10', subTitle: '', label: this.$t('results.heartRate.level2') },
+					{ color: '#FF8040', title: '>100', subTitle: '', label: this.$t('results.heartRate.level3') },
 				]
-				this.tips = `Heart rate refers to the number of heartbeats per minute in a normal person's resting state, which is generally <span style='color:#fff'>60-100 beats/minute</span>. It may vary from person to person due to age, gender or other physiological factors.`
+				this.tips = this.$t('results.heartRate.tips');
 
 				this.reports = [
 					{ value: '84', unit: 'BPM', time: '2025-07-29 18:22', level: 0 },
 					{ value: '108', unit: 'BPM', time: '2025-07-21 18:22', level: 1 },
 				]
 				this.imgSrc = '/static/img/icon_heartrate.webp';
-				this.labelText = 'Real-time heart rate'
+				this.labelText = this.$t('results.heartRate.label');
 
 			}
 
 			if (type === 'blood_pressure') {
-				this.title = 'Blood pressure';
+				this.title = this.$t('results.bloodPressure.title');
+				this.descriptionKey = 'results.bloodPressure.description';
 				this.levels = [
-					{ color: '#42E3E7', title: '85<', subTitle: '<130', label: 'Normal blood pressure' },
-					{ color: '#94E054', title: '85-89', subTitle: '130-139', label: 'Normal high blood pressure' },
-					{ color: '#FFE44A', title: '90-99', subTitle: '140-159', label: 'Grade 1 hypertension' },
-					{ color: '#FF8040', title: '≥100', subTitle: '≥160', label: 'Grade 2 hypertension' },
+					{ color: '#42E3E7', title: '85<', subTitle: '<130', label: this.$t('results.bloodPressure.level1') },
+					{ color: '#94E054', title: '85-89', subTitle: '130-139', label: this.$t('results.bloodPressure.level2') },
+					{ color: '#FFE44A', title: '90-99', subTitle: '140-159', label: this.$t('results.bloodPressure.level3') },
+					{ color: '#FF8040', title: '≥100', subTitle: '≥160', label: this.$t('results.bloodPressure.level4') },
 				]
-				this.tips = `Blood pressure data is calculated by the algorithm and may differ greatly from the actual results. It is for reference only.`
+				this.tips = this.$t('results.bloodPressure.tips');
 
 				this.reports = [
 					{ value: '78/124', unit: 'BPM', time: '2025-07-29 18:22', level: 0 },
 					{ value: '88/135', unit: 'BPM', time: '2025-07-21 18:22', level: 1 },
 				]
 				this.imgSrc = '/static/img/icon_bloodpressure.webp';
-				this.labelText = 'Diastolic /Systolic pressure'
+				this.labelText = this.$t('results.bloodPressure.label');
 			}
 
 			if (type === 'blood_oxygen') {
-				this.title = 'Blood oxygen';
+				this.title = this.$t('results.bloodOxygen.title');
+				this.descriptionKey = 'results.bloodOxygen.description';
 				this.levels = [
-					{ color: '#42E3E7', title: '<94%', subTitle: '', label: 'Low oxygen' },
-					{ color: '#94E054', title: '95%-98%', subTitle: '', label: 'Normal oxygen' },
-					{ color: '#FF8040', title: '>99%', subTitle: '', label: 'High oxygen' },
+					{ color: '#42E3E7', title: '<94%', subTitle: '', label: this.$t('results.bloodOxygen.level1') },
+					{ color: '#94E054', title: '95%-98%', subTitle: '', label: this.$t('results.bloodOxygen.level2') },
+					{ color: '#FF8040', title: '>99%', subTitle: '', label: this.$t('results.bloodOxygen.level3') },
 				]
-				this.tips = `Blood oxygen saturation is the concentration of oxygen in the blood. Usually, a blood oxygen saturation of <span style='color:#fff'>95% is normal.</span> Low blood oxygen has a huge impact on body functions.`
+				this.tips = this.$t('results.bloodOxygen.tips');
 
 				this.reports = [
 					{ value: '84', unit: '%', time: '2025-07-29 18:22', level: 0 },
 					{ value: '108', unit: '%', time: '2025-07-21 18:22', level: 1 },
 				]
 				this.imgSrc = '/static/img/icon_bloodoxygen.webp';
-				this.labelText = 'Real-time Blood oxygen'
+				this.labelText = this.$t('results.bloodOxygen.label');
 			}
 
 		},

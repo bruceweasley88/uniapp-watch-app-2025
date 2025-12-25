@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<nav-bar title="Personal Data" button-text="Save" @clickButton="save" />
+		<nav-bar :title="$t('page.presonal')" :button-text="$t('common.save')" @clickButton="save" />
 
 		<view class="body">
 
@@ -10,79 +10,79 @@
 
 			<view class="list">
 				<view class="item click-active" @click="onModify('nickName')">
-					<view class="label">Nickname</view>
-					<view :class="getValueClassName('nickName')">{{ form.nickName || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.nickname') }}</view>
+					<view :class="getValueClassName('nickName')">{{ form.nickName || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('name')">
-					<view class="label">Name</view>
-					<view :class="getValueClassName('name')">{{ form.name || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.name') }}</view>
+					<view :class="getValueClassName('name')">{{ form.name || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('sex')">
-					<view class="label">Gender</view>
-					<view :class="getValueClassName('sex')">{{ form.sex || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.gender') }}</view>
+					<view :class="getValueClassName('sex')">{{ form.sex || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('age')">
-					<view class="label">Age</view>
-					<view :class="getValueClassName('age')">{{ form.age || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.age') }}</view>
+					<view :class="getValueClassName('age')">{{ form.age || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('height')">
-					<view class="label">Height</view>
-					<view :class="getValueClassName('height')">{{ form.height || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.height') }}</view>
+					<view :class="getValueClassName('height')">{{ form.height || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('weight')">
-					<view class="label">Weight</view>
-					<view :class="getValueClassName('weight')">{{ form.weight || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.weight') }}</view>
+					<view :class="getValueClassName('weight')">{{ form.weight || $t('common.fillIn') }}</view>
 				</view>
 				<view class="item click-active" @click="onModify('address')">
-					<view class="label">Address</view>
-					<view :class="getValueClassName('address')">{{ form.address || 'Fill in' }}</view>
+					<view class="label">{{ $t('personal.address') }}</view>
+					<view :class="getValueClassName('address')">{{ form.address || $t('common.fillIn') }}</view>
 				</view>
 			</view>
 
 		</view>
 
 
-		<confirm-popup :visible="confirm === 'nickName'" title="Nickname" content="Please enter your nicename"
+		<confirm-popup :visible="confirm === 'nickName'" :title="$t('personal.nickname')" :content="$t('personal.enterNickname')"
 			@cancel="onCancel" @ok="onOk">
 			<input class="input" v-model="confirmValue" />
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'name'" title="Name" content="Please enter your name" @cancel="onCancel"
+		<confirm-popup :visible="confirm === 'name'" :title="$t('personal.name')" :content="$t('personal.enterName')" @cancel="onCancel"
 			@ok="onOk">
 			<input class="input" v-model="confirmValue" />
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'sex'" title="Gender" content="Data will be synced to your personal profile"
+		<confirm-popup :visible="confirm === 'sex'" :title="$t('personal.gender')" :content="$t('personal.genderTip')"
 			@cancel="onCancel" @ok="onOk">
 			<view class="select">
 				<view :class="`option ${confirmValue === 'male' ? 'selected' : ''}`" @click="confirmValue = 'male'">
-					<view class="male">Male</view>
+					<view class="male">{{ $t('common.male') }}</view>
 					<view class="check" />
 				</view>
 				<view :class="`option ${confirmValue === 'female' ? 'selected' : ''}`" @click="confirmValue = 'female'">
-					<view class="female">Female</view>
+					<view class="female">{{ $t('common.female') }}</view>
 					<view class="check" />
 				</view>
 			</view>
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'age'" title="Age" content="Data will be synced to your personal profile"
+		<confirm-popup :visible="confirm === 'age'" :title="$t('personal.age')" :content="$t('personal.genderTip')"
 			@cancel="onCancel" @ok="onOk">
 			<number-picker :value="confirmValue" :intRange="[1, 200]" @input="onNumberPickerInput" />
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'weight'" title="Weight（KG）"
-			content="Data will be synced to your personal profile" @cancel="onCancel" @ok="onOk">
+		<confirm-popup :visible="confirm === 'weight'" :title="$t('personal.weight') + '（' + $t('personal.weightUnit') + '）'"
+			:content="$t('personal.genderTip')" @cancel="onCancel" @ok="onOk">
 			<number-picker :value="confirmValue" :intRange="[1, 200]" :floatRange="[0, 9]" @input="onNumberPickerInput" />
 		</confirm-popup>
 
-		<confirm-popup :visible="confirm === 'height'" title="Height（CM）"
-			content="Data will be synced to your personal profile" @cancel="onCancel" @ok="onOk">
+		<confirm-popup :visible="confirm === 'height'" :title="$t('personal.height') + '（' + $t('personal.heightUnit') + '）'"
+			:content="$t('personal.genderTip')" @cancel="onCancel" @ok="onOk">
 			<number-picker :value="confirmValue" :intRange="[1, 200]" :floatRange="[0, 9]" @input="onNumberPickerInput" />
 		</confirm-popup>
 
 
-		<confirm-popup :visible="confirm === 'address'" title="Address" content="Please enter your family address"
+		<confirm-popup :visible="confirm === 'address'" :title="$t('personal.address')" :content="$t('personal.enterAddress')"
 			@cancel="onCancel" @ok="onOk">
 			<textarea class="textarea" v-model="confirmValue" />
 		</confirm-popup>
@@ -141,12 +141,12 @@ export default {
 
 			for (const field of reqiureField) {
 				if (!this.form[field]) {
-					uni.showToast({ title: 'Fill required', icon: 'error' })
+					uni.showToast({ title: this.$t('personal.fillRequired'), icon: 'error' })
 					return;
 				}
 			}
 
-			uni.showToast({ title: 'success', icon: 'success' })
+			uni.showToast({ title: this.$t('common.success'), icon: 'success' })
 		},
 		toBack() {
 			uni.navigateBack();

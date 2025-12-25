@@ -1,6 +1,9 @@
 <script>
+import { initLanguage } from './locale/index.js'
+
 export default {
 	onLaunch: function () {
+		initLanguage()
 		console.log('App Launch')
 	},
 	onShow: function () {

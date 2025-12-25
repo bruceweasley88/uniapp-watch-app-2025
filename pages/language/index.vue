@@ -1,17 +1,17 @@
 <template>
 	<view class="page">
-		<nav-bar title="Language switching" />
+		<nav-bar :title="$t('page.language')" />
 
 		<view class="body" @touchmove.stop>
-			<view class="title">Language</view>
-			<view class="sub-title">Select your system language</view>
+			<view class="title">{{ $t('language.title') }}</view>
+			<view class="sub-title">{{ $t('language.subtitle') }}</view>
 
 			<view class="list">
-				<view class="item" v-for="item in list">
+				<view class="item" v-for="item in list" @click="selectItem(item)">
 					<view class="text">
 						<image class="icon" :src="item.icon" />
 						<text :class="`name ${isSelected(item) ? 'name-selected' : ''}`">
-							{{ item.name }}
+							{{ $t(item.key) }}
 						</text>
 					</view>
 					<view class="operate">
@@ -22,9 +22,9 @@
 
 
 			<view class="action">
-				<view class="cancel click-active-max" @click="toBack">cancel</view>
+				<view class="cancel click-active-max" @click="toBack">{{ $t('common.cancel') }}</view>
 				<view class="m">|</view>
-				<view class="ok click-active-max" @click="onOk">ok</view>
+				<view class="ok click-active-max" @click="onOk">{{ $t('common.confirm') }}</view>
 			</view>
 		</view>
 
@@ -33,6 +33,7 @@
 
 <script>
 import NavBar from '../../components/nav-bar.vue';
+import { getLanguage, setLanguage } from '../../locale/index.js'
 
 export default {
 	components: {
@@ -40,38 +41,42 @@ export default {
 	},
 	data() {
 		return {
-			current: 'English(General)',
+			current: 'en',
 			list: [
-				{ "icon": "/static/lang/img_chinese.webp", "name": "中文" },
-				{ "icon": "/static/lang/img_danish.webp", "name": "Dansk" },
-				{ "icon": "/static/lang/img_en.webp", "name": "English(General)" },
-				{ "icon": "/static/lang/img_fr.webp", "name": "Français" },
-				{ "icon": "/static/lang/img_gerrman.webp", "name": "Deutsch" },
-				{ "icon": "/static/lang/img_hk.webp", "name": "繁體中文(香港)" },
-				{ "icon": "/static/lang/img_jp.webp", "name": "日本語" },
-				{ "icon": "/static/lang/img_ko.webp", "name": "한국어" },
-				{ "icon": "/static/lang/img_spanish.webp", "name": "Español" },
-				{ "icon": "/static/lang/img_tw.webp", "name": "繁體中文(台灣)" },
-				{ "icon": "/static/lang/img_us.webp", "name": "English(American)" }
+				{ "icon": "/static/lang/img_chinese.webp", "key": "language.chinese", "value": "zh" },
+				{ "icon": "/static/lang/img_danish.webp", "key": "language.danish", "value": "da" },
+				{ "icon": "/static/lang/img_en.webp", "key": "language.english", "value": "en" },
+				{ "icon": "/static/lang/img_fr.webp", "key": "language.french", "value": "fr" },
+				{ "icon": "/static/lang/img_gerrman.webp", "key": "language.german", "value": "de" },
+				{ "icon": "/static/lang/img_hk.webp", "key": "language.zh-hk", "value": "zh-HK" },
+				{ "icon": "/static/lang/img_jp.webp", "key": "language.japanese", "value": "ja" },
+				{ "icon": "/static/lang/img_ko.webp", "key": "language.korean", "value": "ko" },
+				{ "icon": "/static/lang/img_spanish.webp", "key": "language.spanish", "value": "es" },
+				{ "icon": "/static/lang/img_tw.webp", "key": "language.zh-tw", "value": "zh-TW" },
+				{ "icon": "/static/lang/img_us.webp", "key": "language.english-us", "value": "en-US" }
 			]
 
 		}
 	},
-	onload() {
-
+	onLoad() {
+		this.current = getLanguage()
 	},
 	onShow() {
 		plus.navigator.closeSplashscreen();
 	},
 	methods: {
 		onOk() {
+			setLanguage(this.current)
 			this.toBack();
 		},
 		toBack() {
 			uni.navigateBack();
 		},
+		selectItem(item) {
+			this.current = item.value
+		},
 		isSelected(item) {
-			return item.name === this.current
+			return item.value === this.current
 		}
 	}
 }

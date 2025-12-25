@@ -17,13 +17,13 @@
 		<view class="points">
 			<view class="total-points">
 				<view class="title">
-					<text class="title-text">Total Points</text>
-					<text class="title-records click-active">Records</text>
+					<text class="title-text">{{ $t('me.totalPoints') }}</text>
+					<text class="title-records click-active">{{ $t('common.records') }}</text>
 				</view>
 				<view class="body">
 					<view class="number">3589</view>
-					<view class="tips">Points can be withdrawn to wallet</view>
-					<view class="withdraw click-active">Go to withdraw</view>
+					<view class="tips">{{ $t('me.pointsTip') }}</view>
+					<view class="withdraw click-active">{{ $t('me.goToWithdraw') }}</view>
 				</view>
 			</view>
 		</view>
@@ -31,7 +31,7 @@
 		<!-- 钱包 -->
 		<view class="wallet-block">
 			<view class="wallet click-active">
-				<view class="title">Wallet</view>
+				<view class="title">{{ $t('me.wallet') }}</view>
 				<view class="body">
 					<text class="unit">$</text>
 					<text class="number">200.00</text>
@@ -41,30 +41,30 @@
 
 			</view>
 			<view class="address click-active">
-				<view class="title">Wallet Address</view>
+				<view class="title">{{ $t('me.walletAddress') }}</view>
 				<view class="go"></view>
 			</view>
 		</view>
 
 		<!-- 设置 -->
-		<view class="setting-title">Setting</view>
+		<view class="setting-title">{{ $t('me.setting') }}</view>
 		<view class="setting">
 			<view class="setting-body">
 				<view class="item click-active" @click="toDevice">
-					<text class="text icon_smartdevice">Smart device</text>
+					<text class="text icon_smartdevice">{{ $t('me.smartDevice') }}</text>
 				</view>
 				<view class="item click-active" @click="toUpgrade">
-					<text class="text icon_appvesion">APP vesion</text>
+					<text class="text icon_appvesion">{{ $t('me.appVersion') }}</text>
 				</view>
 				<view class="item click-active" @click="toLanguage">
-					<text class="text icon_language">language</text>
+					<text class="text icon_language">{{ $t('me.language') }}</text>
 				</view>
 			</view>
 		</view>
 
 		<!-- 退出账号 -->
 		<view class="logout">
-			<view class="button click-active" @click="logout">logout</view>
+			<view class="button click-active" @click="logout">{{ $t('common.logout') }}</view>
 		</view>
 
 	</view>

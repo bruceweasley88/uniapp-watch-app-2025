@@ -4,10 +4,10 @@
 		<!-- 顶部 -->
 		<view class="top" @click="toPresonal">
 			<view class="hst">
-				<view class="title">Mining progress</view>
+				<view class="title">{{ $t('home.miningProgress') }}</view>
 				<view class="number">
 					<text class="value">8888.00010</text>
-					<text class="unit">HST</text>
+					<text class="unit">{{ $t('home.hst') }}</text>
 				</view>
 			</view>
 			<view class="user-head">
@@ -30,38 +30,38 @@
 		<!-- 功能块 -->
 		<view class="box">
 			<view class="item item-bg-ecg click-active" @click="toMeasurement('ecg')">
-				<view class="title">ECG</view>
-				<view class="sub-title">Measure ECG</view>
-				<view class="button" style="color: #6E67E2;">Detect</view>
+				<view class="title">{{ $t('home.ecg') }}</view>
+				<view class="sub-title">{{ $t('home.measureEcg') }}</view>
+				<view class="button" style="color: #6E67E2;">{{ $t('common.detect') }}</view>
 			</view>
 
 			<view class="item item-bg-heartrate click-active" @click="toMeasurement('heart_rate')">
-				<view class="title">Heart rate</view>
-				<view class="sub-title">Focus on heart health</view>
-				<view class="button" style="color: #EE7A95;">Detect</view>
+				<view class="title">{{ $t('home.heartRate') }}</view>
+				<view class="sub-title">{{ $t('home.heartHealth') }}</view>
+				<view class="button" style="color: #EE7A95;">{{ $t('common.detect') }}</view>
 			</view>
 
 		</view>
 
 		<view class="box">
 			<view class="item item-bg-bloodoxygen click-active" @click="toMeasurement('blood_oxygen')">
-				<view class="title">Blood oxygen</view>
-				<view class="sub-title">Detection and protection</view>
-				<view class="button" style="color: #FF7E3F;">Detect</view>
+				<view class="title">{{ $t('home.bloodOxygen') }}</view>
+				<view class="sub-title">{{ $t('home.bloodOxygenDesc') }}</view>
+				<view class="button" style="color: #FF7E3F;">{{ $t('common.detect') }}</view>
 			</view>
 
 			<view class="item item-bg-bloodpressure click-active" @click="toMeasurement('blood_pressure')">
-				<view class="title">Blood pressure</view>
-				<view class="sub-title">Measure blood pressure</view>
-				<view class="button" style="color: #449AF6;">Detect</view>
+				<view class="title">{{ $t('home.bloodPressure') }}</view>
+				<view class="sub-title">{{ $t('home.measureBloodPressure') }}</view>
+				<view class="button" style="color: #449AF6;">{{ $t('common.detect') }}</view>
 			</view>
 		</view>
 
 
 		<alert-popup v-model:visible="alertProfile" topImage="/static/img/icon_personal.webp"
-			title="Please fill in your height and weight"
-			content="The reference standard values ​​of the detection indicators need to be matched according to your information."
-			buttonText="Confirm" @ok="toPresonal" />
+			:title="$t('home.fillHeightWeight')"
+			:content="$t('home.heightWeightDesc')"
+			:buttonText="$t('home.confirm')" @ok="toPresonal" />
 
 
 	</view>
@@ -162,22 +162,22 @@ export default {
 				switch (type) {
 					case 'ecg':
 						if (!config.isECGSupported) {
-							return uni.showToast({ title: 'Not supported', icon: 'error' });
+							return uni.showToast({ title: this.$t('common.notSupported'), icon: 'error' });
 						}
 						break;
 					case 'heart_rate':
 						if (!config.isHeartRateSupported) {
-							return uni.showToast({ title: 'Not supported', icon: 'error' });
+							return uni.showToast({ title: this.$t('common.notSupported'), icon: 'error' });
 						}
 						break;
 					case 'blood_oxygen':
 						if (!config.isBloodOxygenSupported) {
-							return uni.showToast({ title: 'Not supported', icon: 'error' });
+							return uni.showToast({ title: this.$t('common.notSupported'), icon: 'error' });
 						}
 						break;
 					case 'blood_pressure':
 						if (!config.isBloodPressureSupported) {
-							return uni.showToast({ title: 'Not supported', icon: 'error' });
+							return uni.showToast({ title: this.$t('common.notSupported'), icon: 'error' });
 						}
 						break;
 				}
@@ -211,7 +211,7 @@ export default {
 		},
 		async awaitInit() {
 			if (this.initDone === true) return;
-			uni.showLoading({ title: 'loading...' });
+			uni.showLoading({ title: this.$t('common.loading') });
 			await this.initDone;
 			// 还没绑定,再等待个4秒
 			for (let i = 0; i < 4; i++) {

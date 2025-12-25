@@ -1,14 +1,14 @@
 <template>
 	<view class="page">
-		<nav-bar title="Version upgrade" />
+		<nav-bar :title="$t('upgrade.title')" />
 
 		<view class="body">
 			<image class="image" src="/static/img/img_noupdate.webp" />
-			<view class="text">This is the latest version</view>
-			<view class="version">Danke V{{ version }}</view>
+			<view class="text">{{ $t('upgrade.latestVersion') }}</view>
+			<view class="version">{{ $t('upgrade.versionPrefix') }}{{ version }}</view>
 
 			<view class="update-log" v-if="data?.explain?.length">
-				<view class="log-title">Update Log</view>
+				<view class="log-title">{{ $t('upgrade.updateLog') }}</view>
 				<view class="log-item" v-for="item in sortedExplain" :key="item.id">
 					<view class="log-dot"></view>
 					<view class="log-content">{{ item.content }}</view>
@@ -16,9 +16,9 @@
 			</view>
 
 			<view class="button click-active" @click="click">
-				{{ data?.state == 1 ? 'Upgrade now' : 'Back' }}
+				{{ data?.state == 1 ? $t('upgrade.upgradeNow') : $t('common.back') }}
 			</view>
-			<view v-if="data?.state != 1" class="back ">No upgrade</view>
+			<view v-if="data?.state != 1" class="back ">{{ $t('upgrade.noUpgrade') }}</view>
 		</view>
 
 	</view>
@@ -64,10 +64,8 @@ export default {
 		},
 		async click() {
 			if (this.data?.state == 1) {
-				// 更新
-				uni.showToast({ title: '请手动更新', icon: 'success' })
+				uni.showToast({ title: this.$t('upgrade.manualUpdate'), icon: 'success' })
 			} else {
-				// 不更新
 				uni.navigateBack();
 			}
 		}

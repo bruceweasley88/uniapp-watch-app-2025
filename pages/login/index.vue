@@ -3,43 +3,43 @@
 		<!-- 登录卡片容器 -->
 		<view class="login-card">
 			<!-- 标题区域 -->
-			<text class="title">Hello!</text>
-			<view class="subtitle">Welcome back to danke!</view>
+			<text class="title">{{ $t('login.hello') }}</text>
+			<view class="subtitle">{{ $t('login.welcome') }}</view>
 
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
 				<view class="country-code">+86</view>
-				<input type="tel" class="phone-input" placeholder="Mobile number" v-model="phone" maxlength="11" />
+				<input type="tel" class="phone-input" :placeholder="$t('login.mobileNumber')" v-model="phone" maxlength="11" />
 			</view>
 
 			<!-- 邮箱输入组 -->
 			<view class="email-group" v-else>
-				<input type="email" class="email-input" placeholder="Email address" v-model="email" />
+				<input type="email" class="email-input" :placeholder="$t('login.emailAddress')" v-model="email" />
 			</view>
 
 			<!-- 密码输入框 -->
-			<input type="password" class="password-input" placeholder="Password" v-model="password" />
+			<input type="password" class="password-input" :placeholder="$t('login.password')" v-model="password" />
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
 				<view :class="`checkbox click-active ${accept ? 'selected' : ''}`" @click="accept = !accept"></view>
-				<text @click="accept = !accept">I have read the <text class="color-white">user agreement</text> and I accept
+				<text @click="accept = !accept">I have read the <text class="color-white">{{ $t('login.userAgreementText') }}</text> and I accept
 					it</text>
 			</view>
 
 			<!-- 登录按钮（渐变色背景） -->
-			<button class="login-btn click-active" @click="login">Log in</button>
+			<button class="login-btn click-active" @click="login">{{ $t('common.login') }}</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
-				<text class="color-white click-active" @click="goToRegister">Create new account</text>
+				<text class="color-white click-active" @click="goToRegister">{{ $t('login.createNewAccount') }}</text>
 				<text>|</text>
-				<text class="click-active" @click="goToForgot">Forgot password</text>
+				<text class="click-active" @click="goToForgot">{{ $t('login.forgotPassword') }}</text>
 			</view>
 
 			<!-- 登录类型切换 -->
 			<text class="login-type-link click-active" @click="type = type === 'mobile' ? 'email' : 'mobile'">
-				Log in with {{ type === 'mobile' ? 'Email' : 'Mobile' }}
+				{{ $t('login.loginWith') }} {{ type === 'mobile' ? $t('common.email') : $t('common.mobile') }}
 			</text>
 		</view>
 	</view>
@@ -82,33 +82,33 @@ export default {
 			// 验证手机号或邮箱
 			if (this.type === 'mobile') {
 				if (!this.phone) {
-					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					uni.showToast({ title: this.$t('login.pleaseEnterPhone'), icon: 'none' })
 					return false
 				}
 				if (!/^1[3-9]\d{9}$/.test(this.phone)) {
-					uni.showToast({ title: 'Please enter valid phone number', icon: 'none' })
+					uni.showToast({ title: this.$t('login.pleaseEnterValidPhone'), icon: 'none' })
 					return false
 				}
 			} else {
 				if (!this.email) {
-					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					uni.showToast({ title: this.$t('login.pleaseEnterEmail'), icon: 'none' })
 					return false
 				}
 				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
-					uni.showToast({ title: 'Please enter valid email address', icon: 'none' })
+					uni.showToast({ title: this.$t('login.pleaseEnterValidEmail'), icon: 'none' })
 					return false
 				}
 			}
 
 			// 验证密码
 			if (!this.password) {
-				uni.showToast({ title: 'Please enter password', icon: 'none' })
+				uni.showToast({ title: this.$t('login.pleaseEnterPassword'), icon: 'none' })
 				return false
 			}
 
 			// 验证协议
 			if (!this.accept) {
-				uni.showToast({ title: 'Please accept user agreement', icon: 'none' })
+				uni.showToast({ title: this.$t('login.pleaseAcceptAgreement'), icon: 'none' })
 				return false
 			}
 
@@ -144,7 +144,7 @@ export default {
 			}
 
 			uni.hideLoading()
-			uni.showToast({ title: 'Login successful', icon: 'success' })
+			uni.showToast({ title: this.$t('login.loginSuccess'), icon: 'success' })
 
 			// 跳转到首页
 			setTimeout(() => {

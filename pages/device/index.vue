@@ -1,11 +1,11 @@
 <template>
 	<view class="page">
-		<nav-bar title="Smate device" />
+		<nav-bar :title="$t('page.device')" />
 
 		<view class="empty" v-if="list.length === 0">
 			<image class="image" src="/static/img/img_nodate.webp" />
-			<view class="text">There is no paired device yet, go add it now</view>
-			<view class="button click-active" @click="toBindding">Binding Device</view>
+			<view class="text">{{ $t('device.empty') }}</view>
+			<view class="button click-active" @click="toBindding">{{ $t('device.binding') }}</view>
 		</view>
 
 		<view class="list" v-else>
@@ -23,10 +23,10 @@
 				</view>
 
 				<view class="status" v-if="item.connected">
-					<image class="status_icon" src="/static/img/icon_red.webp" /> connerted
+					<image class="status_icon" src="/static/img/icon_red.webp" /> {{ $t('common.connected') }}
 				</view>
 				<view class="status" v-else>
-					<image class="status_icon" src="/static/img/icon_green.webp" /> Not connected
+					<image class="status_icon" src="/static/img/icon_green.webp" /> {{ $t('common.notConnected') }}
 				</view>
 
 			</view>

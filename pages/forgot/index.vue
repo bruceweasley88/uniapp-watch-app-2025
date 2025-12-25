@@ -3,8 +3,8 @@
 		<!-- 卡片容器 -->
 		<view class="cotent-card">
 			<!-- 标题区域 -->
-			<text class="title">Forgot password</text>
-			<view class="subtitle">Please change your password</view>
+			<text class="title">{{ $t('forgot.title') }}</text>
+			<view class="subtitle">{{ $t('forgot.subtitle') }}</view>
 
 			<!-- 手机号输入组 -->
 			<view class="phone-group" v-if="type === 'mobile'">
@@ -12,7 +12,7 @@
 				<input
 					type="tel"
 					class="phone-input"
-					placeholder="Mobile number"
+					:placeholder="$t('forgot.mobileNumber')"
 					v-model="phone"
 					maxlength="11"
 				/>
@@ -23,7 +23,7 @@
 				<input
 					type="email"
 					class="email-input"
-					placeholder="Email address"
+					:placeholder="$t('forgot.emailAddress')"
 					v-model="email"
 				/>
 			</view>
@@ -32,7 +32,7 @@
 			<view class="verification-group">
 				<input
 					type="text"
-					placeholder="Verification code"
+					:placeholder="$t('forgot.verificationCode')"
 					v-model="code"
 					maxlength="6"
 				/>
@@ -41,7 +41,7 @@
 					@click="sendCode"
 					:class="{ disabled: countdown > 0 }"
 				>
-					{{ countdown > 0 ? `${countdown}s` : 'sent code' }}
+					{{ countdown > 0 ? `${countdown}s` : $t('common.sendCode') }}
 				</view>
 			</view>
 
@@ -49,26 +49,26 @@
 			<input
 				type="password"
 				class="password-input"
-				placeholder="New password"
+				:placeholder="$t('forgot.newPassword')"
 				v-model="password"
 			/>
 
 			<!-- 协议勾选行 -->
 			<view class="agreement-row">
 				<view :class="`checkbox click-active ${accept ? 'selected' : ''}`" @click="accept = !accept"></view>
-				<text @click="accept = !accept">I have read the <text class="color-white">user agreement</text> and I accept it</text>
+				<text @click="accept = !accept">I have read the <text class="color-white">{{ $t('forgot.userAgreementText') }}</text> and I accept it</text>
 			</view>
 
 			<!-- 按钮（渐变色背景） -->
-			<button class="submit-btn click-active" @click="reset">Reset</button>
+			<button class="submit-btn click-active" @click="reset">{{ $t('common.reset') }}</button>
 
 			<!-- 辅助链接区域 -->
 			<view class="link-row">
 				<text class="color-white click-active" @click="type = type === 'mobile' ? 'email' : 'mobile'">
-					Register with {{ type === 'mobile' ? 'Email' : 'Mobile' }}
+					{{ $t('forgot.registerWith') }} {{ type === 'mobile' ? $t('common.email') : $t('common.mobile') }}
 				</text>
 				<text>|</text>
-				<text class="click-active" @click="goToLogin">Log in</text>
+				<text class="click-active" @click="goToLogin">{{ $t('common.login') }}</text>
 			</view>
 
 		</view>
@@ -117,11 +117,11 @@ export default {
 			try {
 				// 验证输入
 				if (this.type === 'mobile' && !this.phone) {
-					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterPhone'), icon: 'none' })
 					return
 				}
 				if (this.type === 'email' && !this.email) {
-					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterEmail'), icon: 'none' })
 					return
 				}
 
@@ -139,13 +139,13 @@ export default {
 					})
 				}
 
-				uni.showToast({ title: 'Verification code sent', icon: 'success' })
+				uni.showToast({ title: this.$t('forgot.codeSent'), icon: 'success' })
 
 				// 开始倒计时
 				this.startCountdown()
 
 			} catch (error) {
-				uni.showToast({ title: error.message || 'Send failed', icon: 'none' })
+				uni.showToast({ title: error.message || this.$t('forgot.sendFailed'), icon: 'none' })
 			}
 		},
 
@@ -166,43 +166,43 @@ export default {
 			// 验证手机号或邮箱
 			if (this.type === 'mobile') {
 				if (!this.phone) {
-					uni.showToast({ title: 'Please enter phone number', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterPhone'), icon: 'none' })
 					return false
 				}
 				if (!/^1[3-9]\d{9}$/.test(this.phone)) {
-					uni.showToast({ title: 'Please enter valid phone number', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterValidPhone'), icon: 'none' })
 					return false
 				}
 			} else {
 				if (!this.email) {
-					uni.showToast({ title: 'Please enter email address', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterEmail'), icon: 'none' })
 					return false
 				}
 				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
-					uni.showToast({ title: 'Please enter valid email address', icon: 'none' })
+					uni.showToast({ title: this.$t('forgot.pleaseEnterValidEmail'), icon: 'none' })
 					return false
 				}
 			}
 
 			// 验证验证码
 			if (!this.code) {
-				uni.showToast({ title: 'Please enter verification code', icon: 'none' })
+				uni.showToast({ title: this.$t('forgot.pleaseEnterCode'), icon: 'none' })
 				return false
 			}
 
 			// 验证新密码
 			if (!this.password) {
-				uni.showToast({ title: 'Please enter new password', icon: 'none' })
+				uni.showToast({ title: this.$t('forgot.pleaseEnterPassword'), icon: 'none' })
 				return false
 			}
 			if (this.password.length < 6) {
-				uni.showToast({ title: 'Password must be at least 6 characters', icon: 'none' })
+				uni.showToast({ title: this.$t('forgot.passwordTooShort'), icon: 'none' })
 				return false
 			}
 
 			// 验证协议
 			if (!this.accept) {
-				uni.showToast({ title: 'Please accept user agreement', icon: 'none' })
+				uni.showToast({ title: this.$t('forgot.pleaseAcceptAgreement'), icon: 'none' })
 				return false
 			}
 
@@ -238,7 +238,7 @@ export default {
 				}
 
 				uni.hideLoading()
-				uni.showToast({ title: 'successful', icon: 'success' })
+				uni.showToast({ title: this.$t('common.success'), icon: 'success' })
 
 				// 延迟跳转到登录页
 				setTimeout(() => {
@@ -247,7 +247,7 @@ export default {
 
 			} catch (error) {
 				uni.hideLoading()
-				uni.showToast({ title: error.message || 'Reset failed', icon: 'none' })
+				uni.showToast({ title: error.message || this.$t('forgot.resetFailed'), icon: 'none' })
 			}
 		}
 	}
