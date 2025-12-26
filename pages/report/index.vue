@@ -2,34 +2,59 @@
 	<view class="page">
 
 		<view class="top">
-			<view class="title">Report list</view>
-			<view class="sub-title">Track test results and analyze data</view>
+			<view class="title">{{ $t('report.title') }}</view>
+			<view class="sub-title">{{ $t('report.subtitle') }}</view>
 		</view>
 
 		<view class="list">
 
-			<view class="item item-bg-ecg">
-				<view class="title">Electrocardiogram</view>
-				<view class="sub-title">Record physical changes</view>
-				<view class="button" style="color: #6E67E2;">Record</view>
-			</view>
-
 			<view class="item item-bg-heartrate">
-				<view class="title">Heart rate</view>
-				<view class="sub-title">Focus on heart health</view>
-				<view class="button" style="color: #EE7A95;" @click="toResults('heart_rate')">Record</view>
+				<view class="title">{{ $t('report.heartRate') }}</view>
+				<view class="sub-title">{{ $t('report.heartRateDesc') }}</view>
+				<view class="button" style="color: #EE7A95;" @click="toResults('heart_rate')">{{ $t('report.record') }}</view>
+				<view class="right">
+					<view v-if="!heartData" class="empty">{{ $t('report.noData') }}</view>
+					<view v-else class="value">
+						<view class="number">{{ heartData.heartRate }}<text class="unit">BPM</text></view>
+						<view class="time">{{ new Date(heartData.createTime).toLocaleTimeString() }}</view>
+					</view>
+				</view>
 			</view>
 
 			<view class="item item-bg-bloodoxygen">
-				<view class="title">Blood oxygen</view>
-				<view class="sub-title">Detection and protection</view>
-				<view class="button" style="color: #FF7E3F;" @click="toResults('blood_oxygen')">Record</view>
+				<view class="title">{{ $t('report.bloodOxygen') }}</view>
+				<view class="sub-title">{{ $t('report.bloodOxygenDesc') }}</view>
+				<view class="button" style="color: #FF7E3F;" @click="toResults('blood_oxygen')">{{ $t('report.record') }}</view>
+				<view class="right">
+					<view v-if="!oxygenData" class="empty">{{ $t('report.noData') }}</view>
+					<view v-else class="value">
+						<view class="number">{{ oxygenData.saturation }}<text class="unit">%</text></view>
+						<view class="time">{{ new Date(oxygenData.createTime).toLocaleTimeString() }}</view>
+					</view>
+				</view>
 			</view>
 
 			<view class="item item-bg-bloodpressure">
-				<view class="title">Blood pressure</view>
-				<view class="sub-title">Measure blood pressure</view>
-				<view class="button" style="color: #449AF6;" @click="toResults('blood_pressure')">Record</view>
+				<view class="title">{{ $t('report.bloodPressure') }}</view>
+				<view class="sub-title">{{ $t('report.bloodPressureDesc') }}</view>
+				<view class="button" style="color: #449AF6;" @click="toResults('blood_pressure')">{{ $t('report.record') }}</view>
+				<view class="right">
+					<view v-if="!pressureData" class="empty">{{ $t('report.noData') }}</view>
+					<view v-else class="value">
+						<view class="number">{{ pressureData.systolicPressure }}/{{ pressureData.diastolicPressure }}<text
+								class="unit">mmHg</text></view>
+						<view class="time">{{ new Date(pressureData.createTime).toLocaleTimeString() }}</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="item item-bg-ecg">
+				<view class="title">{{ $t('report.ecg') }}</view>
+				<view class="sub-title">{{ $t('report.ecgDesc') }}</view>
+				<view class="button" style="color: #6E67E2;" @click="toResults('ecg')">{{ $t('report.record') }}</view>
+				<view class="right">
+					<view class="empty">{{ $t('report.noData') }}</view>
+				</view>
 			</view>
 
 			<!-- <view class="item item-bg-weigth">
@@ -43,20 +68,32 @@
 </template>
 
 <script>
+import { bloodOxygenGetRecordList } from '../../apis/bloodOxygenApi';
+import { bloodPressureGetRecordList } from '../../apis/bloodPressureApi';
+import { heartGetRecordList } from '../../apis/heartApi';
+
 export default {
 	data() {
 		return {
-
+			heartData: null,
+			oxygenData: null,
+			pressureData: null,
 		}
 	},
 	onLoad() {
-
+		this.updateHeartData();
+		this.updateOxygenData();
+		this.updatePressureData();
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen();
+
 	},
 	methods: {
 		toResults(type) {
+			if (type === 'ecg') {
+				return uni.showToast({ title: this.$t('common.notSupported'), icon: 'error' });
+			}
+
 			uni.navigateTo({
 				url: '/pages/results/index?type=' + type,
 			})
@@ -65,6 +102,25 @@ export default {
 			uni.navigateTo({
 				url: '/pages/weigth/index',
 			})
+		},
+		async updateHeartData() {
+			const res = await heartGetRecordList({ limit: 1, page: 1 });
+			this.heartData = res.data.list?.[0] || null;
+			console.log(1, this.heartData)
+		},
+		async updateOxygenData() {
+			const res = await bloodOxygenGetRecordList({ limit: 1, page: 1 });
+			this.oxygenData = res.data.list?.[0] || null;
+			console.log(2, this.oxygenData)
+		},
+		async updatePressureData() {
+			const res = await bloodPressureGetRecordList({ limit: 1, page: 1 });
+			this.pressureData = res.data.list?.[0] || null;
+			console.log(3, this.pressureData)
+			// "hourPeriod": 3,
+			// "systolicPressure": 67,
+			// "diastolicPressure": 103,
+			// "heartRate": "52",
 		}
 	}
 }
@@ -72,12 +128,12 @@ export default {
 <style lang="scss" scoped>
 .page {
 	width: 100vw;
-	height: 100%;
+	min-height: 100%;
 	background-color: #111217;
 	background-image: url('/static/img/bg_top.webp');
 	background-position: top;
 	background-repeat: no-repeat;
-	padding-bottom: 150px;
+
 }
 
 .list {
@@ -124,6 +180,45 @@ export default {
 			font-weight: 500;
 			font-size: 14px;
 			font-family: 'Alibaba Medium';
+		}
+
+		.right {
+			width: 30%;
+			right: 28rpx;
+			bottom: 28rpx;
+			display: flex;
+			position: absolute;
+			justify-content: right;
+
+			.empty {
+				color: rgba(255, 255, 255, 0.6);
+				font-size: 22rpx;
+				font-weight: 400;
+			}
+
+			.value {
+				text-align: right;
+
+				.number {
+					color: #FFFFFF;
+					font-size: 55rpx;
+					font-weight: bold;
+					font-family: 'Alibaba medium';
+
+					.unit {
+						color: rgba(255, 255, 255, 0.6);
+						font-weight: 500;
+						font-size: 25rpx;
+						margin-left: 8rpx;
+					}
+				}
+
+				.time {
+					color: rgba(255, 255, 255, 0.6);
+					font-size: 22rpx;
+					font-weight: 400;
+				}
+			}
 		}
 
 	}

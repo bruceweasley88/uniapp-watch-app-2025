@@ -13,16 +13,16 @@
 
 				<view class="text">
 
-					<image class="icon" v-if="item.connected" src="/static/img/icon_connect.webp" />
+					<image class="icon" v-if="item.sn == currentMacAddr" src="/static/img/icon_connect.webp" />
 					<image class="icon" v-else src="/static/img/icon_noconnect.webp" />
 
 					<view>
-						<view class="name">{{ item.name }}</view>
-						<view class="time">{{ item.time }}</view>
+						<view class="name">{{ item.sn }}</view>
+						<view class="time">{{ new Date(item.createTime).toLocaleTimeString() }}</view>
 					</view>
 				</view>
 
-				<view class="status" v-if="item.connected">
+				<view class="status" v-if="item.sn == currentMacAddr">
 					<image class="status_icon" src="/static/img/icon_red.webp" /> {{ $t('common.connected') }}
 				</view>
 				<view class="status" v-else>
@@ -30,6 +30,8 @@
 				</view>
 
 			</view>
+
+			<view v-if="!currentMacAddr" class="button click-active" @click="toBindding">{{ $t('device.binding') }}</view>
 		</view>
 
 
@@ -39,6 +41,7 @@
 <script>
 import NavBar from '../../components/nav-bar.vue';
 import { deviceGetListByUser } from '../../apis/deviceApi.js';
+import { getAllConfig } from '../../utils/watch.js';
 
 export default {
 	components: {
@@ -46,25 +49,36 @@ export default {
 	},
 	data() {
 		return {
-			list: []
+			list: [],
+			currentMacAddr: null
 		}
 	},
 	onload() {
 
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen();
 		this.loadDeviceList();
 	},
 	methods: {
 		async loadDeviceList() {
 			const res = await deviceGetListByUser();
 			this.list = res.data || [];
+			console.log('获取到设备:' + this.list.length)
+			if (this.list.length) {
+				this.updateMacAddr();
+			}
 		},
 		toBindding() {
 			uni.navigateTo({
 				url: '/pages/bindding/index'
 			});
+		},
+		updateMacAddr() {
+			console.log('正在获取mac...')
+			const config = getAllConfig();
+			const macAddr = config['macAddr'];
+			this.currentMacAddr = macAddr;
+			console.log('获取到当前mac:' + macAddr)
 		}
 	}
 }
@@ -134,6 +148,23 @@ export default {
 			}
 		}
 
+	}
+
+	.button {
+		margin-top: 80rpx;
+		color: #1C1F2A;
+		font-size: 22px;
+		font-weight: bold;
+		height: 117rpx;
+		line-height: 117rpx;
+		width: 663rpx;
+
+		border-radius: 16px;
+		background: linear-gradient(90deg, #38FFA7 0%, #45F6FF 100%);
+		text-align: center;
+
+		font-family: 'Alibaba Medium';
+		
 	}
 
 }

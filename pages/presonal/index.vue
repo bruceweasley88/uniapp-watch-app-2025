@@ -4,8 +4,8 @@
 
 		<view class="body">
 
-			<view class="user-head click-active">
-				<image src="/static/img/icon_photo.webp" mode="aspectFill" style="width: 100%; height: 100%;" />
+			<view class="user-head click-active" @click="onChangeAvatar">
+				<image :src="form.headImg || '/static/img/icon_photo.webp'" mode="aspectFill" style="width: 100%; height: 100%;" />
 			</view>
 
 			<view class="list">
@@ -95,6 +95,7 @@ import NavBar from '../../components/nav-bar.vue';
 import ConfirmPopup from '../../components/confirm-popup.vue';
 import NumberPicker from '../../components/number-picker.vue';
 import { userEditInfo, userGetInfo } from '../../apis/userApi';
+import { commonUploadImage } from '../../apis/commonApi';
 
 
 export default {
@@ -104,9 +105,10 @@ export default {
 		NumberPicker
 	},
 	data() {
-		return {
+		return {// 4f4977a2-0ce1-4a37-9209-fb637a8281a4
 
 			form: {
+				headImg: '',
 				nickName: '',
 				name: '',
 				sex: '',
@@ -131,6 +133,26 @@ export default {
 		async getUserInfo() {
 			const userInfo = await userGetInfo();
 			this.form = userInfo.data;
+		},
+		async onChangeAvatar() {
+			const res = await uni.chooseImage({
+				count: 1,
+				sizeType: ['compressed'],
+				sourceType: ['album', 'camera']
+			})
+
+			const filePath = res.tempFilePaths[0]
+			uni.showLoading({ title: '上传中...' })
+
+			try {
+				const data = await commonUploadImage(filePath)
+				this.form.headImg = data.data.url
+				uni.showToast({ title: '上传成功', icon: 'success' })
+			} catch (e) {
+				// 错误已在 API 方法中处理
+			} finally {
+				uni.hideLoading()
+			}
 		},
 		async save() {
 			userEditInfo({

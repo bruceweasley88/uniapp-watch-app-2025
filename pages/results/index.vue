@@ -33,7 +33,8 @@
 					<view class="top">
 						<view class="label">
 							<image class="img" :src="imgSrc" />
-							<text class="text">{{ labelText }}</text>
+							<text v-if="type !== 'blood_pressure'" class="text">{{ labelText }}</text>
+							<text v-else class="text text2">{{ labelText }}</text>
 						</view>
 						<view class="value">
 							<text class="number">{{ item.value }}</text>
@@ -56,6 +57,8 @@
 
 <script>
 import NavBar from '../../components/nav-bar.vue';
+import { heartGetRecordList } from '../../apis/heartApi';
+import { bloodOxygenGetRecordList } from '../../apis/bloodOxygenApi';
 
 export default {
 	components: {
@@ -82,14 +85,13 @@ export default {
 		this.type = option.type
 	},
 	onShow() {
-		plus.navigator.closeSplashscreen();
 		this.updateData()
 	},
 	methods: {
 		toBack() {
 			uni.navigateBack();
 		},
-		updateData() {
+		async updateData() {
 			const type = this.type;
 			if (type === 'heart_rate') {
 				this.title = this.$t('results.heartRate.title');
@@ -101,10 +103,13 @@ export default {
 				]
 				this.tips = this.$t('results.heartRate.tips');
 
-				this.reports = [
-					{ value: '84', unit: 'BPM', time: '2025-07-29 18:22', level: 0 },
-					{ value: '108', unit: 'BPM', time: '2025-07-21 18:22', level: 1 },
-				]
+				const heartRes = await heartGetRecordList({ limit: 50, page: 1 });
+				this.reports = heartRes.data.list.map(item => ({
+					value: item.heartRate,
+					unit: 'BPM',
+					time: new Date(item.createTime).toLocaleString(),
+					level: this.calculateHeartLevel(item.heartRate)
+				}));
 				this.imgSrc = '/static/img/icon_heartrate.webp';
 				this.labelText = this.$t('results.heartRate.label');
 
@@ -122,8 +127,8 @@ export default {
 				this.tips = this.$t('results.bloodPressure.tips');
 
 				this.reports = [
-					{ value: '78/124', unit: 'BPM', time: '2025-07-29 18:22', level: 0 },
-					{ value: '88/135', unit: 'BPM', time: '2025-07-21 18:22', level: 1 },
+					{ value: '78/124', unit: 'mmHg', time: '2025-07-29 18:22', level: 0 },
+					{ value: '88/135', unit: 'mmHg', time: '2025-07-21 18:22', level: 1 },
 				]
 				this.imgSrc = '/static/img/icon_bloodpressure.webp';
 				this.labelText = this.$t('results.bloodPressure.label');
@@ -139,10 +144,13 @@ export default {
 				]
 				this.tips = this.$t('results.bloodOxygen.tips');
 
-				this.reports = [
-					{ value: '84', unit: '%', time: '2025-07-29 18:22', level: 0 },
-					{ value: '108', unit: '%', time: '2025-07-21 18:22', level: 1 },
-				]
+				const oxygenRes = await bloodOxygenGetRecordList({ limit: 50, page: 1 });
+				this.reports = oxygenRes.data.list.map(item => ({
+					value: Number(item.saturation).toFixed(0),
+					unit: '%',
+					time: new Date(item.createTime).toLocaleString(),
+					level: this.calculateOxygenLevel(item.saturation)
+				}));
 				this.imgSrc = '/static/img/icon_bloodoxygen.webp';
 				this.labelText = this.$t('results.bloodOxygen.label');
 			}
@@ -150,6 +158,18 @@ export default {
 		},
 		getLevel(index) {
 			return this.levels[index]
+		},
+		calculateHeartLevel(heartRate) {
+			const hr = Number(heartRate);
+			if (hr < 60) return 0;
+			if (hr <= 100) return 1;
+			return 2;
+		},
+		calculateOxygenLevel(saturation) {
+			const sat = Number(saturation);
+			if (sat < 94) return 0;
+			if (sat <= 98) return 1;
+			return 2;
 		}
 
 
@@ -337,6 +357,14 @@ export default {
 						color: #FFFFFF;
 						position: relative;
 						bottom: 18rpx;
+					}
+
+					.text2 {
+						display: block;
+						white-space: nowrap;
+						font-size: 24rpx;
+						position: relative;
+						top: 10rpx;
 					}
 				}
 

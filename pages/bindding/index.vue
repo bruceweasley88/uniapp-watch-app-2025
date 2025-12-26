@@ -33,8 +33,7 @@
 		</view>
 
 		<alert-popup :visible="currentStatus === 'success'" topImage="/static/img/icon_personal.webp"
-			:title="$t('bindding.bindingSuccess')"
-			:content="$t('bindding.bindingSuccessDesc')"
+			:title="$t('bindding.bindingSuccess')" :content="$t('bindding.bindingSuccessDesc')"
 			:buttonText="$t('common.startDetection')" @ok="handleStartDetection" />
 
 	</view>
@@ -45,7 +44,8 @@ import NavBar from '../../components/nav-bar.vue';
 import AlertPopup from '@/components/alert-popup.vue'
 import CircleProgress from '../../components/circle-progress.vue';
 // #ifdef APP-PLUS
-import { bind, connect, currentBindUser, currentConnect, startScan, stopScan } from '../../utils/watch';
+import { bind, connect, currentBindUser, currentConnect, getAllConfig, startScan, stopScan, unbind } from '../../utils/watch';
+import { deviceBinding, deviceGetInfo, deviceGetListByUser } from '../../apis/deviceApi';
 // #endif
 export default {
 	components: {
@@ -108,10 +108,48 @@ export default {
 				}
 			}, 500);
 
-			await before?.();
-			await this.bind();
+			await before?.(); // EF:00:11:11:8E:DE 66a9e307-0ef7-440d-9b21-59ba824190fc
+			const binddingResut = await this.bind();
+			console.log('绑定结果:' + binddingResut)
+			if (!binddingResut) {
+				uni.showToast({ title: this.$t('common.bindingFailed'), icon: 'error' });
+				uni.navigateBack();
+				return;
+			}
+
+			console.log('-------------------------')
+			// 获取当前用户已经绑定的mac
+			const res = await deviceGetListByUser();
+			const deviceList = res.data;
+
+			// 获取当前绑定的mac
+			await new Promise(r => setTimeout(() => r(), 1000))
+			const config = getAllConfig();
+			const macAddr = config['macAddr'];
+			console.log('----->', config, macAddr, deviceList);
+
+			// 判断与和绑定
+			const isExisted = deviceList.some(v => v.sn === macAddr);
+			console.log('是否需要接口绑定:' + isExisted)
+			if (!isExisted) {
+				console.log('正在接口绑定...')
+				try {
+					await deviceBinding({
+						sn: macAddr
+					});
+				} catch (e) {
+					console.log('绑定失败')
+					unbind();
+					uni.navigateBack();
+					return;
+				}
+
+			}
+
+
 			clearInterval(timer);
 			this.binddingTime = 60;
+
 			setTimeout(() => {
 				this.currentStatus = 'success';
 			}, 500)
@@ -164,11 +202,11 @@ export default {
 			}
 			return new Promise(resolve => {
 				console.log('绑定1000')
-				bind("1000");
 				uni.$once('onBindUserObject', (data) => {
 					console.log('绑定1000结果', data)
 					resolve(data.succeed)
-				})
+				});
+				bind("1000");
 			})
 
 		},

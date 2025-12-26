@@ -1,4 +1,4 @@
-const url = 'http://47.115.204.186:8088'
+export const baseUrl = 'http://47.115.204.186:8088'
 
 const request = (options) => {
   const token = uni.getStorageSync('token')
@@ -7,7 +7,7 @@ const request = (options) => {
   return new Promise((resolve, reject) => {
     uni.request({
       ...options,
-      url: url + options.url,
+      url: baseUrl + options.url,
       data,
       success: (res) => {
         if (res.data.code === 401) {

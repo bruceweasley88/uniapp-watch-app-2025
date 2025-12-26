@@ -1,4 +1,4 @@
-import { get, post } from './requset.js'
+import { get, post, baseUrl } from './requset.js'
 
 /**
  * @description 获取国家列表
@@ -48,4 +48,35 @@ export const commonSendSmsCode = (data) => {
  */
 export const commonUpload = (data) => {
   return post('/api/common/upload', data)
+}
+
+/**
+ * @description 上传图片文件
+ * @param {string} filePath - 本地文件路径
+ * @returns {Promise<Object>} 返回Promise对象，包含上传后的文件URL
+ */
+export const commonUploadImage = (filePath) => {
+  const token = uni.getStorageSync('token')
+
+  return new Promise((resolve, reject) => {
+    uni.uploadFile({
+      url: baseUrl + '/api/common/upload',
+      filePath,
+      name: 'file',
+      formData: { token },
+      success: (res) => {
+        const data = JSON.parse(res.data)
+        if (data.code === 200) {
+          resolve(data)
+        } else {
+          uni.showToast({ title: data.msg || '上传失败', icon: 'none' })
+          reject(data)
+        }
+      },
+      fail: (err) => {
+        uni.showToast({ title: '上传失败', icon: 'none' })
+        reject(err)
+      }
+    })
+  })
 }

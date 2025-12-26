@@ -71,7 +71,9 @@
 import AlertPopup from '@/components/alert-popup.vue'
 import { commonGetIndexBanner } from '@/apis/commonApi.js'
 import { deviceGetListByUser } from '@/apis/deviceApi.js'
+// #ifdef APP-PLUS
 import { currentBindUser, getAllConfig, init } from '../../utils/watch';
+// #endif
 import { userGetInfo } from '../../apis/userApi';
 
 export default {
@@ -88,7 +90,12 @@ export default {
 			watchConfig: null,
 
 			// 启动后至少等待3秒
-			initDone: new Promise(r => setTimeout(r, 3000))
+			initDone: new Promise(r => {
+				setTimeout(() => {
+					this.initDone = true;
+					r();
+				}, 3000);
+			})
 		}
 	},
 	onLoad() {
@@ -117,6 +124,7 @@ export default {
 		init() {
 			this.getIndexBanner();
 			this.initBluetooth();
+			this.getUserInfo();
 			// this.getDeviceList();
 
 			// #ifdef APP-PLUS
@@ -206,6 +214,7 @@ export default {
 		getWatchConfig() {
 			if (!this.watchConfig) {
 				this.watchConfig = getAllConfig();
+				console.log(this.watchConfig)
 			}
 			return this.watchConfig;
 		},
@@ -219,7 +228,6 @@ export default {
 					await new Promise(r => setTimeout(r, 1000));
 				}
 			}
-			this.initDone = true;
 			uni.hideLoading();
 		}
 	}

@@ -120,7 +120,8 @@ public class FitCloudKitManager: NSObject {
       shared.callback?(
         "onBindUserObject",
         UTSJSONObject([
-          "succeed": succeed
+          "succeed": succeed,
+          "macAddr": FitCloudKit.macAddr()
         ]))
     }
   }
@@ -151,13 +152,14 @@ public class FitCloudKitManager: NSObject {
     let isECGSupported = (hardwareSupported & (1 << 5)) != 0         // FITCLOUDHARDWARE_ECG = 1<<5 = 32
     
     let dataDict: [String: Any] = [
-        "allConfig": allConfig ?? NSNull(),
-        "hardwareSupportedRaw": hardwareSupported,
-        "isHeartRateSupported": isHeartRateSupported,
-        "isBloodPressureSupported": isBloodPressureSupported,
-        "isBloodOxygenSupported": isBloodOxygenSupported,
-        "isRespiratoryRateSupported": isRespiratoryRateSupported,
-        "isECGSupported": isECGSupported
+      "allConfig": allConfig ?? NSNull(),
+      "hardwareSupportedRaw": hardwareSupported,
+      "isHeartRateSupported": isHeartRateSupported,
+      "isBloodPressureSupported": isBloodPressureSupported,
+      "isBloodOxygenSupported": isBloodOxygenSupported,
+      "isRespiratoryRateSupported": isRespiratoryRateSupported,
+      "isECGSupported": isECGSupported,
+      "macAddr": FitCloudKit.macAddr()
     ]
     
     return UTSJSONObject(dataDict)
@@ -395,11 +397,11 @@ public class FitCloudKitManager: NSObject {
   }
 
   @objc private func onPeripheralDiscovered(_ notification: Notification) {
-    console.log("接收到数据")
     guard let device = notification.object as? FitCloudPeripheral else { return }
 
     let deviceId = device.peripheral.identifier.uuidString
     let deviceName = device.peripheral.name ?? "Unknown Device"
+    let macAddress = device.macAddr
 
     // 添加到数组，避免重复
     if !discoveredDevices.contains(where: { $0.peripheral.identifier.uuidString == deviceId }) {
@@ -411,7 +413,7 @@ public class FitCloudKitManager: NSObject {
       UTSJSONObject([
         "deviceId": deviceId,
         "deviceName": deviceName,
-        "peripheral": device.peripheral
+        "macAddress": macAddress
       ]))
   }
 

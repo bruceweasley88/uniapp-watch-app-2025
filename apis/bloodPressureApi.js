@@ -8,7 +8,8 @@ import { get, post } from './requset.js'
  * @returns {Promise<Object>} 返回Promise对象，包含API响应数据
  */
 export const bloodPressureAddRecord = (data) => {
-  return post('/api/bloodPressure/addRecord', data)
+  const token = uni.getStorageSync('token')
+  return post('/api/bloodPressure/addRecord?token=' + token, data)
 }
 
 /**

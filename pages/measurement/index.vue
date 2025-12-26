@@ -27,7 +27,11 @@
 		</view>
 
 		<view class="bottom">
-			<view class="button click-active" @click="startOrStop">{{ start ? $t('common.stopDetection') : $t('common.startDetection') }}</view>
+			<view v-if="done" class="button click-active" @click="save">{{ $t('common.save') }}</view>
+			<view v-else class="button click-active" @click="startOrStop">
+				{{ start ? $t('common.stopDetection') : $t('common.startDetection') }}
+			</view>
+
 			<view class="tips">{{ $t('measurement.waitUpload') }}</view>
 		</view>
 
@@ -35,10 +39,13 @@
 </template>
 
 <script>
+import { bloodOxygenAddRecord } from '../../apis/bloodOxygenApi';
+import { bloodPressureAddRecord } from '../../apis/bloodPressureApi';
+import { heartAddRecord } from '../../apis/heartApi';
 import CircleProgress from '../../components/circle-progress.vue';
 import NavBar from '../../components/nav-bar.vue';
 import XdChart from '../../components/xd-chart.vue';
-import { startMeasure, stopMeasure } from '../../utils/watch';
+import { getAllConfig, startMeasure, stopMeasure } from '../../utils/watch';
 
 
 export default {
@@ -50,16 +57,12 @@ export default {
 	data() {
 		return {
 			start: false,
-
-
 			type: '',
 			unit: '',
-
 			current: 60,
 			timer: null,
-
-			currentData: {}
-
+			currentData: {},
+			done: false
 		}
 	},
 	onLoad(option) {
@@ -78,19 +81,66 @@ export default {
 			if (this.start) {
 				this.timer = setInterval(() => {
 					this.current = this.current - 1;
-					if (this.current < 0) {
+					if (this.current < 1) {
 						this.startOrStop();
+						this.done = true;
 					}
 				}, 1000)
 				startMeasure(this.getKitType(), 50, 1)
 				uni.$on("onRealTimeHealthMeasuringData", this.onData)
 			} else {
 				stopMeasure()
-				ni.$off("onRealTimeHealthMeasuringData", this.onData)
+				uni.$off("onRealTimeHealthMeasuringData", this.onData)
 			}
 
 		},
-		
+		async save() {
+			uni.showLoading({ title: this.$t('common.loading') });
+			console.log('正在获取mac...')
+			const config = getAllConfig();
+			const macAddr = config['macAddr'];
+			console.log('获取到当前mac:' + macAddr)
+
+			try {
+				console.log(this.type, '正在保存...')
+				switch (this.type) {
+					case 'heart_rate':
+						await heartAddRecord({
+							deviceSn: macAddr,
+							heartRate: this.currentData['heartRate'], // 心率
+						})
+						break;
+					case 'blood_oxygen':
+						await bloodOxygenAddRecord({
+							deviceSn: macAddr,
+							heartRate: this.currentData['heartRate'], // 心率
+							saturation: this.currentData['bloodOxygen'] // 饱和度（95%）传95
+						})
+						break;
+					case 'blood_pressure':
+						await bloodPressureAddRecord({
+							deviceSn: macAddr,
+							diastolicPressure: this.currentData['diastolic'], // 舒张压
+							heartRate: this.currentData['heartRate'], // 心率
+							systolicPressure: this.currentData['systolic'], // 收缩压
+							temperature: this.currentData['temperatureFlag'], // 温度
+
+							hourPeriod: "",
+							irregularHeartbeat: "",
+							movementError: "",
+						})
+						break;
+				}
+			} finally {
+				console.log(this.type, '保存完成.')
+				uni.hideLoading();
+				uni.showToast({ title: this.$t('common.success'), icon: 'error' });
+				setTimeout(() => {
+					uni.navigateBack();
+				}, 600)
+			}
+
+		},
 		onData(data) {
 			const _data = data?.list?.[0];
 			if (_data) {
